@@ -61,15 +61,10 @@ document.addEventListener("DOMContentLoaded", () => {
             <!-- Courses Dropdown -->
             <li class="relative group">
               <a class="text-[#1f2937] hover:text-[#5d58ef] transition flex items-center" href="#">
-                Campus
+                Course
                 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
               </a>
-              <div class="dropdown-menu w-80">
-                <div class="dropdown-submenu">
-                  <a class="dropdown-item py-3 text-sm font-semibold flex justify-between items-center" href="#">
-                    AWADH AERO DAC AVIATION ACADEMY(AADAA)
-                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                  </a>
+
                   <div class="dropdown-menu w-72">
                     <div class="dropdown-submenu dropdown-left">
                       <a class="dropdown-item py-3 text-sm font-semibold flex justify-between items-center" href="#">
@@ -263,19 +258,19 @@ document.addEventListener("DOMContentLoaded", () => {
   floatingSocial.className = isHomePage ? "state-horizontal" : "state-vertical";
   
   floatingSocial.innerHTML = `
-    <a href="https://www.facebook.com/profile.php?id=61574279999787" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-full flex items-center justify-center hover:scale-110 shadow-lg premium-card" style="background:#1877F2;">
+    <a href="https://www.facebook.com/profile.php?id=61574279999787" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-2xl flex items-center justify-center hover:scale-110 shadow-lg premium-card" style="background:#1877F2;">
       <i class="fab fa-facebook-f"></i>
     </a>
-    <a href="https://youtube.com/@awadhaero?si=vMYKU8eupjwThuPH" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-full flex items-center justify-center hover:scale-110 shadow-lg premium-card" style="background:#FF0000;">
+    <a href="https://youtube.com/@awadhaero?si=vMYKU8eupjwThuPH" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-2xl flex items-center justify-center hover:scale-110 shadow-lg premium-card" style="background:#FF0000;">
       <i class="fab fa-youtube"></i>
     </a>
-    <a href="https://www.instagram.com/awadh_aero?igsh=Ym04NHNwaHNwdm01" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-full flex items-center justify-center hover:scale-110 shadow-lg premium-card" style="background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);">
+    <a href="https://www.instagram.com/awadh_aero?igsh=Ym04NHNwaHNwdm01" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-2xl flex items-center justify-center hover:scale-110 shadow-lg premium-card" style="background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);">
       <i class="fab fa-instagram"></i>
     </a>
-    <a href="https://www.linkedin.com/company/awadh-aero-adventures-association/" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-full flex items-center justify-center hover:scale-110 shadow-lg premium-card" style="background:#0A66C2;">
+    <a href="https://www.linkedin.com/company/awadh-aero-adventures-association/" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-2xl flex items-center justify-center hover:scale-110 shadow-lg premium-card" style="background:#0A66C2;">
       <i class="fab fa-linkedin-in"></i>
     </a>
-    <a href="https://x.com/i/status/2063277029316038840" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-full flex items-center justify-center hover:scale-110 shadow-lg premium-card" style="background:#000000;">
+    <a href="https://x.com/i/status/2063277029316038840" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-2xl flex items-center justify-center hover:scale-110 shadow-lg premium-card" style="background:#000000;">
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
     </a>
   `;
