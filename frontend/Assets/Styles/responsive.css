@@ -1,0 +1,22 @@
+/* Responsive Breakpoints & Viewport Tweaks */
+@media (max-width: 1024px) {
+  .loader-text span.char {
+    font-size: 3rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .loader-text span.char {
+    font-size: 2.2rem !important;
+  }
+  
+  .wave-divider {
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .loader-text span.char {
+    font-size: 1.8rem !important;
+  }
+}

@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admission Application Form | Awadh Aviation Academy</title>
+  <meta name="description" content="Apply for Aircraft Maintenance Engineering (AME) programme at Awadh Aero DAC Aviation Academy. Fill out the multi-step admission application form.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="../Assets/Styles/style.css">
+  <link rel="stylesheet" href="../Assets/Styles/responsive.css">
+  <style>
+    .step-circle {
+      width: 32px; height: 32px; border-radius: 50%;
+      border: 2px solid #cbd5e1; display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; font-weight: 700; color: #94a3b8; transition: all 0.3s;
+      flex-shrink: 0;
+    }
+    .step-circle.active { border-color: #ff4301; color: #ff4301; box-shadow: 0 0 0 4px rgba(255,67,1,0.15); }
+    .step-circle.completed { border-color: #22c55e; background: #22c55e; color: #fff; }
+    .step-label { font-size: 0.82rem; color: #94a3b8; transition: all 0.3s; }
+    .step-label.active { color: #1f2937; font-weight: 600; }
+    .step-label.completed { color: #22c55e; font-weight: 600; }
+    .form-step { display: none; animation: fadeSlide 0.4s ease; }
+    .form-step.active { display: block; }
+    @keyframes fadeSlide { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .form-input {
+      width: 100%; padding: 0.6rem 0.9rem; border: 1.5px solid #e2e8f0; border-radius: 0.6rem;
+      font-size: 0.9rem; transition: border-color 0.2s, box-shadow 0.2s; background: #fff;
+    }
+    .form-input:focus { outline: none; border-color: #ff4301; box-shadow: 0 0 0 3px rgba(255,67,1,0.1); }
+    .form-label { font-weight: 600; font-size: 0.88rem; color: #374151; margin-bottom: 0.35rem; display: block; }
+    .form-section-title { font-size: 1.35rem; font-weight: 800; color: #1f2937; border-bottom: 3px solid #ff4301; padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+    .radio-option, .checkbox-option {
+      display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0; cursor: pointer; font-size: 0.88rem; color: #374151;
+    }
+    .radio-option input, .checkbox-option input { accent-color: #ff4301; width: 16px; height: 16px; cursor: pointer; }
+    .file-upload { position: relative; }
+    .file-upload input[type="file"] { width: 100%; padding: 0.5rem; border: 1.5px dashed #cbd5e1; border-radius: 0.6rem; background: #f8fafc; cursor: pointer; font-size: 0.85rem; }
+    .file-upload input[type="file"]:hover { border-color: #ff4301; }
+    .sidebar-steps { max-height: calc(100vh - 220px); overflow-y: auto; }
+    .sidebar-steps::-webkit-scrollbar { width: 4px; }
+    .sidebar-steps::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+  </style>
+</head>
+<body class="m-0 p-0 no-scroll bg-white">
+
+  <div id="preloader-container"></div>
+  <div id="header-container"></div>
+
+  <!-- Breadcrumb -->
+  <section class="bg-gray-100 pt-24 pb-10 px-6 md:px-14 border-b">
+    <div class="max-w-7xl mx-auto">
+      <h1 class="text-3xl md:text-4xl font-extrabold text-gray-800">Admission Application Form</h1>
+      <p class="text-gray-500 text-sm mt-2">Aircraft Maintenance Engineering (AME) Programme — Fill each section and proceed to the next step.</p>
+      <div class="mt-3 text-sm font-semibold text-gray-500">
+        <a href="../index.html" class="hover:text-[#5d58ef] transition">Home</a>
+        <span class="mx-2">/</span>
+        <span class="text-[#ff4301]">Admission Form</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Form Area -->
+  <section class="py-10 px-4 md:px-10 bg-gray-50 min-h-screen">
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8">
+
+      <!-- Left Sidebar: Step Navigator -->
+      <div class="lg:w-80 flex-shrink-0">
+        <div class="bg-white rounded-2xl shadow-lg p-6 sticky top-28">
+          <h3 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-5">Form Sections</h3>
+          <div class="sidebar-steps space-y-1" id="stepNav">
+            <!-- Steps will be populated by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form Content -->
+      <div class="flex-1 min-w-0">
+        <div class="bg-white rounded-2xl shadow-lg p-6 md:p-10">
+          <form id="admissionForm" novalidate>
+
+            <!-- STEP 1: Personal Information -->
+            <div class="form-step active" data-step="0">
+              <h2 class="form-section-title">1. Personal Information</h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="md:col-span-2">
+                  <label class="form-label">Full Name (as per Class X Certificate) <span class="text-red-500">*</span></label>
+                  <input type="text" name="full_name" class="form-input" placeholder="Enter your full name" required>
+                </div>
+                <div>
+                  <label class="form-label">Recent Passport Size Photograph <span class="text-red-500">*</span></label>
+                  <div class="file-upload"><input type="file" name="photo" accept="image/*" required></div>
+                </div>
+                <div>
+                  <label class="form-label">Date of Birth <span class="text-red-500">*</span></label>
+                  <input type="date" name="dob" class="form-input" required>
+                </div>
+                <div>
+                  <label class="form-label">Gender <span class="text-red-500">*</span></label>
+                  <div class="flex flex-wrap gap-4 mt-1">
+                    <label class="radio-option"><input type="radio" name="gender" value="Male" required> Male</label>
+                    <label class="radio-option"><input type="radio" name="gender" value="Female"> Female</label>
+                    <label class="radio-option"><input type="radio" name="gender" value="Other"> Other</label>
+                  </div>
+                </div>
+                <div>
+                  <label class="form-label">Nationality <span class="text-red-500">*</span></label>
+                  <input type="text" name="nationality" class="form-input" placeholder="e.g. Indian" required>
+                </div>
+                <div>
+                  <label class="form-label">Aadhaar Number <span class="text-gray-400 text-xs">(Optional)</span></label>
+                  <input type="text" name="aadhaar" class="form-input" placeholder="12-digit Aadhaar number" maxlength="12">
+                </div>
+                <div>
+                  <label class="form-label">Passport Number <span class="text-gray-400 text-xs">(International Applicants)</span></label>
+                  <input type="text" name="passport" class="form-input" placeholder="Passport number">
+                </div>
+                <div>
+                  <label class="form-label">Blood Group</label>
+                  <select name="blood_group" class="form-input">
+                    <option value="">Select Blood Group</option>
+                    <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+                    <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="form-label">Category <span class="text-red-500">*</span></label>
+                  <div class="flex flex-wrap gap-3 mt-1">
+                    <label class="radio-option"><input type="radio" name="category" value="General" required> General</label>
+                    <label class="radio-option"><input type="radio" name="category" value="OBC"> OBC</label>
+                    <label class="radio-option"><input type="radio" name="category" value="SC"> SC</label>
+                    <label class="radio-option"><input type="radio" name="category" value="ST"> ST</label>
+                    <label class="radio-option"><input type="radio" name="category" value="EWS"> EWS</label>
+                    <label class="radio-option"><input type="radio" name="category" value="Other"> Other</label>
+                  </div>
+                </div>
+                <div>
+                  <label class="form-label">Religion <span class="text-gray-400 text-xs">(Optional)</span></label>
+                  <input type="text" name="religion" class="form-input" placeholder="Religion">
+                </div>
+                <div>
+                  <label class="form-label">Physically Disabled (PwD)</label>
+                  <div class="flex gap-4 mt-1">
+                    <label class="radio-option"><input type="radio" name="pwd" value="Yes"> Yes</label>
+                    <label class="radio-option"><input type="radio" name="pwd" value="No"> No</label>
+                  </div>
+                </div>
+                <div>
+                  <label class="form-label">Academic Session <span class="text-red-500">*</span></label>
+                  <input type="text" name="academic_session" class="form-input" placeholder="e.g. 2026-27" required>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 2: Contact Information -->
+            <div class="form-step" data-step="1">
+              <h2 class="form-section-title">2. Contact Information</h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div>
+                  <label class="form-label">Mobile Number <span class="text-red-500">*</span></label>
+                  <input type="tel" name="mobile" class="form-input" placeholder="+91 XXXXX XXXXX" required>
+                </div>
+                <div>
+                  <label class="form-label">Alternate Mobile Number</label>
+                  <input type="tel" name="alt_mobile" class="form-input" placeholder="+91 XXXXX XXXXX">
+                </div>
+                <div class="md:col-span-2">
+                  <label class="form-label">Email Address <span class="text-red-500">*</span></label>
+                  <input type="email" name="email" class="form-input" placeholder="your@email.com" required>
+                </div>
+                <div class="md:col-span-2">
+                  <label class="form-label">Correspondence Address <span class="text-red-500">*</span></label>
+                  <textarea name="corr_address" class="form-input" rows="2" placeholder="Enter your correspondence address" required></textarea>
+                </div>
+                <div class="md:col-span-2">
+                  <label class="form-label">Permanent Address <span class="text-red-500">*</span></label>
+                  <textarea name="perm_address" class="form-input" rows="2" placeholder="Enter your permanent address" required></textarea>
+                </div>
+                <div>
+                  <label class="form-label">State <span class="text-red-500">*</span></label>
+                  <select name="state" id="stateSelect" class="form-input" required>
+                    <option value="">Select State</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="form-label">District <span class="text-red-500">*</span></label>
+                  <select name="district" id="districtSelect" class="form-input" required>
+                    <option value="">Select District</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="form-label">PIN Code <span class="text-red-500">*</span></label>
+                  <input type="text" name="pin_code" class="form-input" placeholder="6-digit PIN" maxlength="6" required>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 3: Parent / Guardian Details -->
+            <div class="form-step" data-step="2">
+              <h2 class="form-section-title">3. Parent / Guardian Details</h2>
+              <div class="space-y-6">
+                <!-- Father -->
+                <div>
+                  <h3 class="text-base font-bold text-gray-700 mb-3 flex items-center gap-2"><i class="fas fa-male text-[#005F86]"></i> Father's Details</h3>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div><label class="form-label">Name <span class="text-red-500">*</span></label><input type="text" name="father_name" class="form-input" placeholder="Father's name" required></div>
+                    <div><label class="form-label">Occupation</label><input type="text" name="father_occ" class="form-input" placeholder="Occupation"></div>
+                    <div><label class="form-label">Mobile Number</label><input type="tel" name="father_mobile" class="form-input" placeholder="+91 XXXXX XXXXX"></div>
+                    <div><label class="form-label">Email</label><input type="email" name="father_email" class="form-input" placeholder="Email address"></div>
+                  </div>
+                </div>
+                <!-- Mother -->
+                <div>
+                  <h3 class="text-base font-bold text-gray-700 mb-3 flex items-center gap-2"><i class="fas fa-female text-[#005F86]"></i> Mother's Details</h3>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div><label class="form-label">Name <span class="text-red-500">*</span></label><input type="text" name="mother_name" class="form-input" placeholder="Mother's name" required></div>
+                    <div><label class="form-label">Occupation</label><input type="text" name="mother_occ" class="form-input" placeholder="Occupation"></div>
+                    <div><label class="form-label">Mobile Number</label><input type="tel" name="mother_mobile" class="form-input" placeholder="+91 XXXXX XXXXX"></div>
+                  </div>
+                </div>
+                <!-- Local Guardian -->
+                <div>
+                  <h3 class="text-base font-bold text-gray-700 mb-3 flex items-center gap-2"><i class="fas fa-user-shield text-[#005F86]"></i> Local Guardian <span class="text-gray-400 text-xs font-normal">(if applicable)</span></h3>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div><label class="form-label">Name</label><input type="text" name="guardian_name" class="form-input" placeholder="Guardian's name"></div>
+                    <div><label class="form-label">Relationship</label><input type="text" name="guardian_rel" class="form-input" placeholder="Relationship"></div>
+                    <div><label class="form-label">Mobile Number</label><input type="tel" name="guardian_mobile" class="form-input" placeholder="+91 XXXXX XXXXX"></div>
+                    <div class="md:col-span-2"><label class="form-label">Address</label><textarea name="guardian_address" class="form-input" rows="2" placeholder="Guardian's address"></textarea></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 4: Academic Qualifications -->
+            <div class="form-step" data-step="3">
+              <h2 class="form-section-title">4. Academic Qualifications</h2>
+              <div class="space-y-6">
+                <!-- Class X -->
+                <div>
+                  <h3 class="text-base font-bold text-gray-700 mb-3 flex items-center gap-2"><i class="fas fa-graduation-cap text-[#005F86]"></i> Class X</h3>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div><label class="form-label">Board <span class="text-red-500">*</span></label><input type="text" name="x_board" class="form-input" placeholder="e.g. CBSE, ICSE, State Board" required></div>
+                    <div><label class="form-label">School Name <span class="text-red-500">*</span></label><input type="text" name="x_school" class="form-input" placeholder="School name" required></div>
+                    <div><label class="form-label">Year of Passing <span class="text-red-500">*</span></label><input type="text" name="x_year" class="form-input" placeholder="e.g. 2022" required></div>
+                    <div><label class="form-label">Percentage / CGPA <span class="text-red-500">*</span></label><input type="text" name="x_percent" class="form-input" placeholder="e.g. 85% or 8.5" required></div>
+                  </div>
+                </div>
+                <!-- Class XII -->
+                <div>
+                  <h3 class="text-base font-bold text-gray-700 mb-3 flex items-center gap-2"><i class="fas fa-graduation-cap text-[#005F86]"></i> Class XII</h3>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div><label class="form-label">Board</label><input type="text" name="xii_board" class="form-input" placeholder="e.g. CBSE, ICSE, State Board"></div>
+                    <div><label class="form-label">School Name</label><input type="text" name="xii_school" class="form-input" placeholder="School name"></div>
+                    <div><label class="form-label">Year of Passing</label><input type="text" name="xii_year" class="form-input" placeholder="e.g. 2024"></div>
+                    <div><label class="form-label">Physics Marks</label><input type="text" name="xii_physics" class="form-input" placeholder="Marks obtained"></div>
+                    <div><label class="form-label">Chemistry Marks</label><input type="text" name="xii_chem" class="form-input" placeholder="Marks obtained"></div>
+                    <div><label class="form-label">Mathematics Marks</label><input type="text" name="xii_math" class="form-input" placeholder="Marks obtained"></div>
+                    <div><label class="form-label">Overall Percentage</label><input type="text" name="xii_percent" class="form-input" placeholder="e.g. 75%"></div>
+                  </div>
+                </div>
+                <!-- Diploma -->
+                <div class="bg-gray-50 p-5 rounded-xl border border-dashed border-gray-300">
+                  <h3 class="text-base font-bold text-gray-700 mb-3 flex items-center gap-2"><i class="fas fa-certificate text-[#005F86]"></i> OR — Diploma <span class="text-gray-400 text-xs font-normal">(if applicable)</span></h3>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div><label class="form-label">Branch</label><input type="text" name="dip_branch" class="form-input" placeholder="Diploma branch"></div>
+                    <div><label class="form-label">Institute</label><input type="text" name="dip_institute" class="form-input" placeholder="Institute name"></div>
+                    <div><label class="form-label">University / Board</label><input type="text" name="dip_uni" class="form-input" placeholder="University / Board"></div>
+                    <div><label class="form-label">Percentage</label><input type="text" name="dip_percent" class="form-input" placeholder="e.g. 70%"></div>
+                    <div><label class="form-label">Year of Passing</label><input type="text" name="dip_year" class="form-input" placeholder="e.g. 2024"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 5: Course Applied For -->
+            <div class="form-step" data-step="4">
+              <h2 class="form-section-title">5. Course Applied For</h2>
+              <p class="text-sm text-gray-500 mb-4">Aircraft Maintenance Engineering (AME)</p>
+              <label class="form-label">Preferred Stream <span class="text-red-500">*</span></label>
+              <div class="space-y-3 mt-2">
+                <label class="radio-option bg-gray-50 p-3 rounded-xl border border-gray-200 hover:border-[#ff4301] transition cursor-pointer">
+                  <input type="radio" name="stream" value="B1.1" required> B1.1 — Mechanical (Aeroplane Turbine)
+                </label>
+                <label class="radio-option bg-gray-50 p-3 rounded-xl border border-gray-200 hover:border-[#ff4301] transition cursor-pointer">
+                  <input type="radio" name="stream" value="B1.2"> B1.2 — Mechanical Licensing Programme
+                </label>
+                <label class="radio-option bg-gray-50 p-3 rounded-xl border border-gray-200 hover:border-[#ff4301] transition cursor-pointer">
+                  <input type="radio" name="stream" value="B2"> B2 — Avionics
+                </label>
+              </div>
+            </div>
+
+            <!-- STEP 6: Entrance Details -->
+            <div class="form-step" data-step="5">
+              <h2 class="form-section-title">6. Entrance Details</h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="md:col-span-2">
+                  <label class="form-label">Applying Through <span class="text-red-500">*</span></label>
+                  <div class="flex flex-wrap gap-3 mt-1">
+                    <label class="radio-option"><input type="radio" name="entrance" value="Direct Admission" required> Direct Admission</label>
+                    <label class="radio-option"><input type="radio" name="entrance" value="Institute Entrance Test"> Institute Entrance Test</label>
+                    <label class="radio-option"><input type="radio" name="entrance" value="Management Quota"> Management Quota</label>
+                  </div>
+                </div>
+                <div class="md:col-span-2">
+                  <label class="form-label">Entrance Score <span class="text-gray-400 text-xs">(if applicable)</span></label>
+                  <input type="text" name="entrance_score" class="form-input" placeholder="Enter entrance score">
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 7: Medical Declaration -->
+            <div class="form-step" data-step="6">
+              <h2 class="form-section-title">7. Medical Declaration</h2>
+              <div class="space-y-6">
+                <div>
+                  <label class="form-label">Do you have normal colour vision? <span class="text-red-500">*</span></label>
+                  <div class="flex gap-4 mt-1">
+                    <label class="radio-option"><input type="radio" name="colour_vision" value="Yes" required> Yes</label>
+                    <label class="radio-option"><input type="radio" name="colour_vision" value="No"> No</label>
+                  </div>
+                </div>
+                <div>
+                  <label class="form-label">Do you possess a Medical Fitness Certificate?</label>
+                  <div class="flex gap-4 mt-1">
+                    <label class="radio-option"><input type="radio" name="medical_cert" value="Yes"> Yes</label>
+                    <label class="radio-option"><input type="radio" name="medical_cert" value="No"> No</label>
+                  </div>
+                </div>
+                <div>
+                  <label class="form-label">Any physical condition affecting aviation training?</label>
+                  <div class="flex gap-4 mt-1">
+                    <label class="radio-option"><input type="radio" name="physical_condition" value="Yes"> Yes</label>
+                    <label class="radio-option"><input type="radio" name="physical_condition" value="No"> No</label>
+                  </div>
+                  <div class="mt-3">
+                    <label class="form-label">If yes, specify:</label>
+                    <textarea name="physical_condition_detail" class="form-input" rows="2" placeholder="Describe the condition"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 8: Document Upload -->
+            <div class="form-step" data-step="7">
+              <h2 class="form-section-title">8. Document Upload</h2>
+              <p class="text-sm text-gray-500 mb-5">Submit the following documents (JPG, PNG, or PDF):</p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div><label class="form-label">Signature <span class="text-red-500">*</span></label><div class="file-upload"><input type="file" name="doc_signature" accept="image/*,.pdf" required></div></div>
+                <div><label class="form-label">Class X Marksheet <span class="text-red-500">*</span></label><div class="file-upload"><input type="file" name="doc_x_mark" accept="image/*,.pdf" required></div></div>
+                <div><label class="form-label">Class XII Marksheet / Diploma Certificate</label><div class="file-upload"><input type="file" name="doc_xii_mark" accept="image/*,.pdf"></div></div>
+                <div><label class="form-label">Transfer Certificate</label><div class="file-upload"><input type="file" name="doc_tc" accept="image/*,.pdf"></div></div>
+                <div><label class="form-label">Migration Certificate</label><div class="file-upload"><input type="file" name="doc_migration" accept="image/*,.pdf"></div></div>
+                <div><label class="form-label">Character Certificate</label><div class="file-upload"><input type="file" name="doc_character" accept="image/*,.pdf"></div></div>
+                <div><label class="form-label">Aadhaar Card</label><div class="file-upload"><input type="file" name="doc_aadhaar" accept="image/*,.pdf"></div></div>
+                <div><label class="form-label">Category Certificate <span class="text-gray-400 text-xs">(if applicable)</span></label><div class="file-upload"><input type="file" name="doc_category" accept="image/*,.pdf"></div></div>
+                <div><label class="form-label">Medical Fitness Certificate</label><div class="file-upload"><input type="file" name="doc_medical" accept="image/*,.pdf"></div></div>
+                <div><label class="form-label">Colour Vision Certificate</label><div class="file-upload"><input type="file" name="doc_vision" accept="image/*,.pdf"></div></div>
+                <div><label class="form-label">Passport <span class="text-gray-400 text-xs">(International Students)</span></label><div class="file-upload"><input type="file" name="doc_passport" accept="image/*,.pdf"></div></div>
+              </div>
+            </div>
+
+            <!-- STEP 9: Hostel Requirement -->
+            <div class="form-step" data-step="8">
+              <h2 class="form-section-title">9. Hostel Requirement</h2>
+              <div class="space-y-5">
+                <div>
+                  <label class="form-label">Do you require hostel accommodation?</label>
+                  <div class="flex gap-4 mt-1">
+                    <label class="radio-option"><input type="radio" name="hostel" value="Yes"> Yes</label>
+                    <label class="radio-option"><input type="radio" name="hostel" value="No"> No</label>
+                    <label class="radio-option"><input type="radio" name="hostel" value="Maybe"> Maybe</label>
+                  </div>
+                </div>
+                <div>
+                  <label class="form-label">Preferred Hostel</label>
+                  <div class="flex gap-4 mt-1">
+                    <label class="radio-option"><input type="radio" name="hostel_type" value="Boys Hostel"> Boys Hostel</label>
+                    <label class="radio-option"><input type="radio" name="hostel_type" value="Girls Hostel"> Girls Hostel</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 10: Scholarship Details -->
+            <div class="form-step" data-step="9">
+              <h2 class="form-section-title">10. Scholarship Details</h2>
+              <div class="space-y-5">
+                <div>
+                  <label class="form-label">Are you applying for a scholarship?</label>
+                  <div class="flex gap-4 mt-1">
+                    <label class="radio-option"><input type="radio" name="scholarship" value="Yes"> Yes</label>
+                    <label class="radio-option"><input type="radio" name="scholarship" value="No"> No</label>
+                  </div>
+                </div>
+                <div>
+                  <label class="form-label">If yes, select type:</label>
+                  <div class="flex flex-wrap gap-3 mt-1">
+                    <label class="checkbox-option"><input type="checkbox" name="scholarship_types" value="Merit"> Merit</label>
+                    <label class="checkbox-option"><input type="checkbox" name="scholarship_types" value="Government Scholarship"> Government Scholarship</label>
+                    <label class="checkbox-option"><input type="checkbox" name="scholarship_types" value="Defence Background"> Defence Background</label>
+                    <label class="checkbox-option"><input type="checkbox" name="scholarship_types" value="EWS"> Economically Weaker Section</label>
+                    <label class="checkbox-option"><input type="checkbox" name="scholarship_types" value="Other"> Other</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 11: Emergency Contact -->
+            <div class="form-step" data-step="10">
+              <h2 class="form-section-title">11. Emergency Contact</h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div><label class="form-label">Name <span class="text-red-500">*</span></label><input type="text" name="emg_name" class="form-input" placeholder="Emergency contact name" required></div>
+                <div><label class="form-label">Relationship <span class="text-red-500">*</span></label><input type="text" name="emg_rel" class="form-input" placeholder="e.g. Father, Uncle" required></div>
+                <div><label class="form-label">Mobile Number <span class="text-red-500">*</span></label><input type="tel" name="emg_mobile" class="form-input" placeholder="+91 XXXXX XXXXX" required></div>
+                <div><label class="form-label">Alternate Number</label><input type="tel" name="emg_alt" class="form-input" placeholder="+91 XXXXX XXXXX"></div>
+              </div>
+            </div>
+
+            <!-- STEP 12: Statement of Purpose -->
+            <div class="form-step" data-step="11">
+              <h2 class="form-section-title">12. Statement of Purpose <span class="text-gray-400 text-sm font-normal">(Optional)</span></h2>
+              <label class="form-label">Why do you want to pursue Aircraft Maintenance Engineering at Awadh Aero DAC Aviation Academy?</label>
+              <textarea name="sop" class="form-input mt-2" rows="6" placeholder="Write your statement of purpose here..."></textarea>
+            </div>
+
+            <!-- STEP 13: Declaration -->
+            <div class="form-step" data-step="12">
+              <h2 class="form-section-title">13. Declaration</h2>
+              <div class="space-y-4">
+                <label class="checkbox-option bg-gray-50 p-3 rounded-xl border border-gray-200">
+                  <input type="checkbox" name="declaration1" required> I hereby declare that all the information provided by me is true and correct.
+                </label>
+                <label class="checkbox-option bg-gray-50 p-3 rounded-xl border border-gray-200">
+                  <input type="checkbox" name="declaration2" required> I understand that admission is subject to verification of documents and fulfilment of eligibility criteria.
+                </label>
+                <label class="checkbox-option bg-gray-50 p-3 rounded-xl border border-gray-200">
+                  <input type="checkbox" name="declaration3" required> I agree to abide by the rules, regulations, code of conduct, and academic policies of Awadh Aero DAC Aviation Academy.
+                </label>
+                <label class="checkbox-option bg-gray-50 p-3 rounded-xl border border-gray-200">
+                  <input type="checkbox" name="consent"> I consent to receiving admission-related communication via SMS, Email, and WhatsApp.
+                </label>
+                <label class="checkbox-option bg-gray-50 p-3 rounded-xl border border-gray-200">
+                  <input type="checkbox" name="agree_privacy" required> I agree to the Privacy Policy and Terms & Conditions.
+                </label>
+              </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="flex justify-between items-center mt-10 pt-6 border-t border-gray-200">
+              <button type="button" id="prevBtn" class="px-6 py-2.5 bg-gray-200 text-gray-700 font-bold rounded-full hover:bg-gray-300 transition flex items-center gap-2 text-sm hidden">
+                <i class="fas fa-arrow-left text-xs"></i> Previous
+              </button>
+              <div class="ml-auto flex gap-3">
+                <button type="button" id="nextBtn" class="px-8 py-2.5 bg-[#ff4301] text-white font-bold rounded-full hover:bg-[#e03b00] transition flex items-center gap-2 text-sm shadow-lg">
+                  Next <i class="fas fa-arrow-right text-xs"></i>
+                </button>
+                <button type="submit" id="submitBtn" class="px-8 py-2.5 bg-[#22c55e] text-white font-bold rounded-full hover:bg-[#16a34a] transition flex items-center gap-2 text-sm shadow-lg hidden">
+                  <i class="fas fa-paper-plane text-xs"></i> Submit Application
+                </button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div id="footer-container"></div>
+
+  <!-- Cookie Banner -->
+  <div id="cookieBanner" class="hidden flex flex-col sm:flex-row justify-between items-center text-gray-800">
+    <p class="text-sm text-center sm:text-left mb-3 sm:mb-0">
+      This website stores cookies on your computer. To find out more, see our
+      <a href="#" class="text-orange-500 font-semibold hover:underline">Privacy Policy</a>.
+    </p>
+    <div class="flex gap-3">
+      <button id="declineCookies" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition text-sm">Decline</button>
+      <button id="acceptCookies" class="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition text-sm">Accept</button>
+    </div>
+  </div>
+
+  <button id="scrollTopBtn" class="hidden"><i class="fas fa-arrow-up text-xl"></i></button>
+
+  <script src="../Assets/Script/components.js?v=4"></script>
+  <script src="../Assets/Script/preloader.js?v=4"></script>
+  <script src="../Assets/Script/scroll.js?v=4"></script>
+  <script src="../Assets/Script/video.js?v=4"></script>
+  <script src="../Assets/Script/cookie.js?v=4"></script>
+  <script src="../Assets/Script/script.js?v=4"></script>
+
+  <script>
+    (function() {
+      const stepNames = [
+        "Personal Information",
+        "Contact Information",
+        "Parent / Guardian Details",
+        "Academic Qualifications",
+        "Course Applied For",
+        "Entrance Details",
+        "Medical Declaration",
+        "Document Upload",
+        "Hostel Requirement",
+        "Scholarship Details",
+        "Emergency Contact",
+        "Statement of Purpose",
+        "Declaration"
+      ];
+
+      const totalSteps = stepNames.length;
+      let currentStep = 0;
+      const completed = new Set();
+
+      const stepNav = document.getElementById("stepNav");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const submitBtn = document.getElementById("submitBtn");
+      const formSteps = document.querySelectorAll(".form-step");
+
+      // Build sidebar
+      stepNames.forEach((name, i) => {
+        const item = document.createElement("div");
+        item.className = "flex items-center gap-3 py-2.5 px-3 rounded-xl cursor-pointer transition hover:bg-gray-50";
+        item.dataset.step = i;
+        item.innerHTML = `
+          <div class="step-circle" id="circle-${i}">${i + 1}</div>
+          <span class="step-label" id="label-${i}">${name}</span>
+        `;
+        item.addEventListener("click", () => goToStep(i));
+        stepNav.appendChild(item);
+      });
+
+      function updateUI() {
+        // Update steps
+        formSteps.forEach((s, i) => {
+          s.classList.toggle("active", i === currentStep);
+        });
+
+        // Update sidebar
+        stepNames.forEach((_, i) => {
+          const circle = document.getElementById(`circle-${i}`);
+          const label = document.getElementById(`label-${i}`);
+          circle.classList.remove("active", "completed");
+          label.classList.remove("active", "completed");
+
+          if (completed.has(i)) {
+            circle.classList.add("completed");
+            circle.innerHTML = '<i class="fas fa-check text-xs"></i>';
+            label.classList.add("completed");
+          } else if (i === currentStep) {
+            circle.classList.add("active");
+            circle.textContent = i + 1;
+            label.classList.add("active");
+          } else {
+            circle.textContent = i + 1;
+          }
+        });
+
+        // Update buttons
+        prevBtn.classList.toggle("hidden", currentStep === 0);
+        nextBtn.classList.toggle("hidden", currentStep === totalSteps - 1);
+        submitBtn.classList.toggle("hidden", currentStep !== totalSteps - 1);
+
+        // Scroll form to top
+        window.scrollTo({ top: 280, behavior: "smooth" });
+      }
+
+      function goToStep(step) {
+        if (step >= 0 && step < totalSteps) {
+          // Mark current step as completed when moving forward
+          if (step > currentStep) {
+            completed.add(currentStep);
+          }
+          currentStep = step;
+          updateUI();
+        }
+      }
+
+      nextBtn.addEventListener("click", () => {
+        // Validate current step before proceeding
+        const currentStepEl = formSteps[currentStep];
+        const inputs = currentStepEl.querySelectorAll('input[required], select[required], textarea[required]');
+        let isValid = true;
+        
+        for (const input of inputs) {
+          if (!input.checkValidity()) {
+            input.reportValidity();
+            isValid = false;
+            break;
+          }
+        }
+        
+        if (!isValid) {
+          alert("Please fill all required details on the current step to move to the next.");
+          return;
+        }
+
+        completed.add(currentStep);
+        goToStep(currentStep + 1);
+      });
+
+      prevBtn.addEventListener("click", () => {
+        goToStep(currentStep - 1);
+      });
+
+      document.getElementById("admissionForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        
+        const formEl = document.getElementById("admissionForm");
+        const submitBtn = document.getElementById("submitBtn");
+        const originalBtnHTML = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin text-xs"></i> Submitting...';
+        submitBtn.disabled = true;
+
+        try {
+          const formData = new FormData(formEl);
+          
+          const response = await fetch("http://localhost:3000/api/admission-application", {
+            method: "POST",
+            body: formData
+          });
+
+          const data = await response.json();
+
+          if (response.ok) {
+            completed.add(currentStep);
+            updateUI();
+            
+            formEl.innerHTML = `
+              <div class="text-center py-16">
+                <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <i class="fas fa-check-circle text-green-500 text-5xl"></i>
+                </div>
+                <h2 class="text-2xl font-extrabold text-gray-800 mb-3">Application Submitted Successfully!</h2>
+                <p class="text-gray-500 max-w-md mx-auto">Thank you for applying to Awadh Aero DAC Aviation Academy. Our admissions team will review your application and contact you shortly.</p>
+                <a href="../index.html" class="inline-block mt-8 px-8 py-3 bg-[#ff4301] text-white font-bold rounded-full hover:bg-[#e03b00] transition shadow-lg">
+                  <i class="fas fa-home mr-2"></i> Back to Home
+                </a>
+              </div>
+            `;
+          } else {
+            alert(data.error || "An error occurred during submission. Please try again.");
+            submitBtn.innerHTML = originalBtnHTML;
+            submitBtn.disabled = false;
+          }
+        } catch (err) {
+          console.error(err);
+          alert("A network error occurred. Please try again.");
+          submitBtn.innerHTML = originalBtnHTML;
+          submitBtn.disabled = false;
+        }
+      });
+
+      const stateDistrictMap = {
+        "Andhra Pradesh": ["Anantapur", "Chittoor", "East Godavari", "Guntur", "Krishna", "Kurnool", "Prakasam", "Srikakulam", "Sri Potti Sriramulu Nellore", "Visakhapatnam", "Vizianagaram", "West Godavari", "YSR District, Kadapa (Cuddapah)"],
+        "Arunachal Pradesh": ["Anjaw", "Changlang", "Dibang Valley", "East Kameng", "East Siang", "Kra Daadi", "Kurung Kumey", "Lohit", "Longding", "Lower Dibang Valley", "Lower Subansiri", "Namsai", "Papum Pare", "Siang", "Tawang", "Tirap", "Upper Siang", "Upper Subansiri", "West Kameng", "West Siang", "Itanagar"],
+        "Assam": ["Baksa", "Barpeta", "Biswanath", "Bongaigaon", "Cachar", "Charaideo", "Chirang", "Darrang", "Dhemaji", "Dhubri", "Dibrugarh", "Goalpara", "Golaghat", "Hailakandi", "Hojai", "Jorhat", "Kamrup Metropolitan", "Kamrup", "Karbi Anglong", "Karimganj", "Kokrajhar", "Lakhimpur", "Majuli", "Morigaon", "Nagaon", "Nalbari", "Dima Hasao", "Sivasagar", "Sonitpur", "South Salmara-Mankachar", "Tinsukia", "Udalguri", "West Karbi Anglong"],
+        "Bihar": ["Araria", "Arwal", "Aurangabad", "Banka", "Begusarai", "Bhagalpur", "Bhojpur", "Buxar", "Darbhanga", "East Champaran (Motihari)", "Gaya", "Gopalganj", "Jamui", "Jehanabad", "Kaimur (Bhabua)", "Katihar", "Khagaria", "Kishanganj", "Lakhisarai", "Madhepura", "Madhubani", "Munger (Monghyr)", "Muzaffarpur", "Nalanda", "Nawada", "Patna", "Purnia (Purnea)", "Rohtas", "Saharsa", "Samastipur", "Saran", "Sheikhpura", "Sheohar", "Sitamarhi", "Siwan", "Supaul", "Vaishali", "West Champaran"],
+        "Chandigarh (UT)": ["Chandigarh"],
+        "Chhattisgarh": ["Balod", "Baloda Bazar", "Balrampur", "Bastar", "Bemetara", "Bijapur", "Bilaspur", "Dantewada (South Bastar)", "Dhamtari", "Durg", "Gariyaband", "Janjgir-Champa", "Jashpur", "Kabirdham (Kawardha)", "Kanker (North Bastar)", "Kondagaon", "Korba", "Korea (Koriya)", "Mahasamund", "Mungeli", "Narayanpur", "Raigarh", "Raipur", "Rajnandgaon", "Sukma", "Surajpur  ", "Surguja"],
+        "Dadra and Nagar Haveli (UT)": ["Dadra & Nagar Haveli"],
+        "Daman and Diu (UT)": ["Daman", "Diu"],
+        "Delhi (NCT)": ["Central Delhi", "East Delhi", "New Delhi", "North Delhi", "North East  Delhi", "North West  Delhi", "Shahdara", "South Delhi", "South East Delhi", "South West  Delhi", "West Delhi"],
+        "Goa": ["North Goa", "South Goa"],
+        "Gujarat": ["Ahmedabad", "Amreli", "Anand", "Aravalli", "Banaskantha (Palanpur)", "Bharuch", "Bhavnagar", "Botad", "Chhota Udepur", "Dahod", "Dangs (Ahwa)", "Devbhoomi Dwarka", "Gandhinagar", "Gir Somnath", "Jamnagar", "Junagadh", "Kachchh", "Kheda (Nadiad)", "Mahisagar", "Mehsana", "Morbi", "Narmada (Rajpipla)", "Navsari", "Panchmahal (Godhra)", "Patan", "Porbandar", "Rajkot", "Sabarkantha (Himmatnagar)", "Surat", "Surendranagar", "Tapi (Vyara)", "Vadodara", "Valsad"],
+        "Haryana": ["Ambala", "Bhiwani", "Charkhi Dadri", "Faridabad", "Fatehabad", "Gurgaon", "Hisar", "Jhajjar", "Jind", "Kaithal", "Karnal", "Kurukshetra", "Mahendragarh", "Mewat", "Palwal", "Panchkula", "Panipat", "Rewari", "Rohtak", "Sirsa", "Sonipat", "Yamunanagar"],
+        "Himachal Pradesh": ["Bilaspur", "Chamba", "Hamirpur", "Kangra", "Kinnaur", "Kullu", "Lahaul & Spiti", "Mandi", "Shimla", "Sirmaur (Sirmour)", "Solan", "Una"],
+        "Jammu and Kashmir": ["Anantnag", "Bandipore", "Baramulla", "Budgam", "Doda", "Ganderbal", "Jammu", "Kargil", "Kathua", "Kishtwar", "Kulgam", "Kupwara", "Leh", "Poonch", "Pulwama", "Rajouri", "Ramban", "Reasi", "Samba", "Shopian", "Srinagar", "Udhampur"],
+        "Jharkhand": ["Bokaro", "Chatra", "Deoghar", "Dhanbad", "Dumka", "East Singhbhum", "Garhwa", "Giridih", "Godda", "Gumla", "Hazaribag", "Jamtara", "Khunti", "Koderma", "Latehar", "Lohardaga", "Pakur", "Palamu", "Ramgarh", "Ranchi", "Sahibganj", "Seraikela-Kharsawan", "Simdega", "West Singhbhum"],
+        "Karnataka": ["Bagalkot", "Ballari (Bellary)", "Belagavi (Belgaum)", "Bengaluru (Bangalore) Rural", "Bengaluru (Bangalore) Urban", "Bidar", "Chamarajanagar", "Chikballapur", "Chikkamagaluru (Chikmagalur)", "Chitradurga", "Dakshina Kannada", "Davangere", "Dharwad", "Gadag", "Hassan", "Haveri", "Kalaburagi (Gulbarga)", "Kodagu", "Kolar", "Koppal", "Mandya", "Mysuru (Mysore)", "Raichur", "Ramanagara", "Shivamogga (Shimoga)", "Tumakuru (Tumkur)", "Udupi", "Uttara Kannada (Karwar)", "Vijayapura (Bijapur)", "Yadgir"],
+        "Kerala": ["Alappuzha", "Ernakulam", "Idukki", "Kannur", "Kasaragod", "Kollam", "Kottayam", "Kozhikode", "Malappuram", "Palakkad", "Pathanamthitta", "Thiruvananthapuram", "Thrissur", "Wayanad"],
+        "Madhya Pradesh": ["Agar Malwa", "Alirajpur", "Anuppur", "Ashoknagar", "Balaghat", "Barwani", "Betul", "Bhind", "Bhopal", "Burhanpur", "Chhatarpur", "Chhindwara", "Damoh", "Datia", "Dewas", "Dhar", "Dindori", "Guna", "Gwalior", "Harda", "Hoshangabad", "Indore", "Jabalpur", "Jhabua", "Katni", "Khandwa", "Khargone", "Mandla", "Mandsaur", "Morena", "Narsinghpur", "Neemuch", "Panna", "Raisen", "Rajgarh", "Ratlam", "Rewa", "Sagar", "Satna", "Sehore", "Seoni", "Shahdol", "Shajapur", "Sheopur", "Shivpuri", "Sidhi", "Singrauli", "Tikamgarh", "Ujjain", "Umaria", "Vidisha"],
+        "Maharashtra": ["Ahmednagar", "Akola", "Amravati", "Aurangabad", "Beed", "Bhandara", "Buldhana", "Chandrapur", "Dhule", "Gadchiroli", "Gondia", "Hingoli", "Jalgaon", "Jalna", "Kolhapur", "Latur", "Mumbai City", "Mumbai Suburban", "Nagpur", "Nanded", "Nandurbar", "Nashik", "Osmanabad", "Palghar", "Parbhani", "Pune", "Raigad", "Ratnagiri", "Sangli", "Satara", "Sindhudurg", "Solapur", "Thane", "Wardha", "Washim", "Yavatmal"],
+        "Manipur": ["Bishnupur", "Chandel", "Churachandpur", "Imphal East", "Imphal West", "Jiribam", "Kakching", "Kamjong", "Kangpokpi", "Noney", "Pherzawl", "Senapati", "Tamenglong", "Tengnoupal", "Thoubal", "Ukhrul"],
+        "Meghalaya": ["East Garo Hills", "East Jaintia Hills", "East Khasi Hills", "North Garo Hills", "Ri Bhoi", "South Garo Hills", "South West Garo Hills", "South West Khasi Hills", "West Garo Hills", "West Jaintia Hills", "West Khasi Hills"],
+        "Mizoram": ["Aizawl", "Champhai", "Kolasib", "Lawngtlai", "Lunglei", "Mamit", "Saiha", "Serchhip"],
+        "Nagaland": ["Dimapur", "Kiphire", "Kohima", "Longleng", "Mokokchung", "Mon", "Peren", "Phek", "Tuensang", "Wokha", "Zunheboto"],
+        "Odisha": ["Angul", "Balangir", "Balasore", "Bargarh", "Bhadrak", "Boudh", "Cuttack", "Deogarh", "Dhenkanal", "Gajapati", "Ganjam", "Jagatsinghapur", "Jajpur", "Jharsuguda", "Kalahandi", "Kandhamal", "Kendrapara", "Kendujhar (Keonjhar)", "Khordha", "Koraput", "Malkangiri", "Mayurbhanj", "Nabarangpur", "Nayagarh", "Nuapada", "Puri", "Rayagada", "Sambalpur", "Sonepur", "Sundargarh"],
+        "Puducherry (UT)": ["Karaikal", "Mahe", "Pondicherry", "Yanam"],
+        "Punjab": ["Amritsar", "Barnala", "Bathinda", "Faridkot", "Fatehgarh Sahib", "Fazilka", "Ferozepur", "Gurdaspur", "Hoshiarpur", "Jalandhar", "Kapurthala", "Ludhiana", "Mansa", "Moga", "Muktsar", "Nawanshahr (Shahid Bhagat Singh Nagar)", "Pathankot", "Patiala", "Rupnagar", "Sahibzada Ajit Singh Nagar (Mohali)", "Sangrur", "Tarn Taran"],
+        "Rajasthan": ["Ajmer", "Alwar", "Banswara", "Baran", "Barmer", "Bharatpur", "Bhilwara", "Bikaner", "Bundi", "Chittorgarh", "Churu", "Dausa", "Dholpur", "Dungarpur", "Hanumangarh", "Jaipur", "Jaisalmer", "Jalore", "Jhalawar", "Jhunjhunu", "Jodhpur", "Karauli", "Kota", "Nagaur", "Pali", "Pratapgarh", "Rajsamand", "Sawai Madhopur", "Sikar", "Sirohi", "Sri Ganganagar", "Tonk", "Udaipur"],
+        "Sikkim": ["East Sikkim", "North Sikkim", "South Sikkim", "West Sikkim"],
+        "Tamil Nadu": ["Ariyalur", "Chennai", "Coimbatore", "Cuddalore", "Dharmapuri", "Dindigul", "Erode", "Kanchipuram", "Kanyakumari", "Karur", "Krishnagiri", "Madurai", "Nagapattinam", "Namakkal", "Nilgiris", "Perambalur", "Pudukkottai", "Ramanathapuram", "Salem", "Sivaganga", "Thanjavur", "Theni", "Thoothukudi (Tuticorin)", "Tiruchirappalli", "Tirunelveli", "Tiruppur", "Tiruvallur", "Tiruvannamalai", "Tiruvarur", "Vellore", "Viluppuram", "Virudhunagar"],
+        "Telangana": ["Adilabad", "Bhadradri Kothagudem", "Hyderabad", "Jagtial", "Jangaon", "Jayashankar Bhoopalpally", "Jogulamba Gadwal", "Kamareddy", "Karimnagar", "Khammam", "Komaram Bheem Asifabad", "Mahabubabad", "Mahabubnagar", "Mancherial", "Medak", "Medchal", "Nagarkurnool", "Nalgonda", "Nirmal", "Nizamabad", "Peddapalli", "Rajanna Sircilla", "Rangareddy", "Sangareddy", "Siddipet", "Suryapet", "Vikarabad", "Wanaparthy", "Warangal (Rural)", "Warangal (Urban)", "Yadadri Bhuvanagiri"],
+        "Tripura": ["Dhalai", "Gomati", "Khowai", "North Tripura", "Sepahijala", "South Tripura", "Unakoti", "West Tripura"],
+        "Uttar Pradesh": ["Agra", "Aligarh", "Allahabad", "Ambedkar Nagar", "Amethi (Chatrapati Sahuji Mahraj Nagar)", "Amroha (J.P. Nagar)", "Auraiya", "Azamgarh", "Baghpat", "Bahraich", "Ballia", "Balrampur", "Banda", "Barabanki", "Bareilly", "Basti", "Bhadohi", "Bijnor", "Budaun", "Bulandshahr", "Chandauli", "Chitrakoot", "Deoria", "Etah", "Etawah", "Faizabad", "Farrukhabad", "Fatehpur", "Firozabad", "Gautam Buddha Nagar", "Ghaziabad", "Ghazipur", "Gonda", "Gorakhpur", "Hamirpur", "Hapur (Panchsheel Nagar)", "Hardoi", "Hathras", "Jalaun", "Jaunpur", "Jhansi", "Kannauj", "Kanpur Dehat", "Kanpur Nagar", "Kanshiram Nagar (Kasganj)", "Kaushambi", "Kushinagar (Padrauna)", "Lakhimpur - Kheri", "Lalitpur", "Lucknow", "Maharajganj", "Mahoba", "Mainpuri", "Mathura", "Mau", "Meerut", "Mirzapur", "Moradabad", "Muzaffarnagar", "Pilibhit", "Pratapgarh", "RaeBareli", "Rampur", "Saharanpur", "Sambhal (Bhim Nagar)", "Sant Kabir Nagar", "Shahjahanpur", "Shamali (Prabuddh Nagar)", "Shravasti", "Siddharth Nagar", "Sitapur", "Sonbhadra", "Sultanpur", "Unnao", "Varanasi"],
+        "Uttarakhand": ["Almora", "Bageshwar", "Chamoli", "Champawat", "Dehradun", "Haridwar", "Nainital", "Pauri Garhwal", "Pithoragarh", "Rudraprayag", "Tehri Garhwal", "Udham Singh Nagar", "Uttarkashi"],
+        "West Bengal": ["Alipurduar", "Bankura", "Birbhum", "Burdwan (Bardhaman)", "Cooch Behar", "Dakshin Dinajpur (South Dinajpur)", "Darjeeling", "Hooghly", "Howrah", "Jalpaiguri", "Kalimpong", "Kolkata", "Malda", "Murshidabad", "Nadia", "North 24 Parganas", "Paschim Medinipur (West Medinipur)", "Purba Medinipur (East Medinipur)", "Purulia", "South 24 Parganas", "Uttar Dinajpur (North Dinajpur)"]
+      };
+
+      const stateSelect = document.getElementById("stateSelect");
+      const districtSelect = document.getElementById("districtSelect");
+
+      // Populate States
+      Object.keys(stateDistrictMap).sort().forEach(state => {
+        const option = document.createElement("option");
+        option.value = state;
+        option.textContent = state;
+        stateSelect.appendChild(option);
+      });
+
+      // Update Districts on State Change
+      stateSelect.addEventListener("change", (e) => {
+        districtSelect.innerHTML = '<option value="">Select District</option>';
+        const selectedState = e.target.value;
+        if (stateDistrictMap[selectedState]) {
+          stateDistrictMap[selectedState].forEach(district => {
+            const option = document.createElement("option");
+            option.value = district;
+            option.textContent = district;
+            districtSelect.appendChild(option);
+          });
+        }
+      });
+
+      updateUI();
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admissions | Awadh Aviation Academy</title>
+  <meta name="description" content="Register and apply for admissions at Awadh. View course eligibilities, fee structure guidelines, and enroll online.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="../Assets/Styles/style.css">
+  <link rel="stylesheet" href="../Assets/Styles/responsive.css">
+</head>
+<body class="m-0 p-0 no-scroll bg-white">
+
+  <div id="preloader-container"></div>
+  <div id="header-container"></div>
+
+  <section class="bg-gray-100 pt-24 pb-12 px-6 md:px-14 border-b">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between">
+      <div>
+        <h1 class="text-4xl font-extrabold text-gray-800">Academy Registrations</h1>
+        <p class="text-gray-500 text-sm mt-1">Enroll today and launch your high-flying career in aviation engineering and UAV pilots.</p>
+      </div>
+      <div class="mt-4 md:mt-0 text-sm font-semibold text-gray-500">
+        <a href="../index.html" class="hover:text-[#5d58ef] transition">Home</a>
+        <span class="mx-2">/</span>
+        <span class="text-[#ff4301]">Registrations</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Admission Info & Registration Form Grid -->
+  <section class="py-20 px-6 md:px-12 bg-white">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      
+      <!-- Left Column: Steps & Requirements -->
+      <div class="space-y-8">
+        <h2 class="text-3xl md:text-5xl font-black text-gray-800 leading-tight">Registration & Eligibility Guidelines</h2>
+        <div class="w-20 h-1 bg-[#ff4301] rounded-full"></div>
+        
+        <p class="text-gray-600 text-base leading-relaxed">
+          Enrollment processes vary by program. Please review the criteria guidelines below before submitting your inquiry form.
+        </p>
+
+        <!-- Requirement list -->
+        <div class="space-y-6">
+          <div class="flex items-start space-x-4">
+            <div class="w-10 h-10 rounded-full bg-indigo-50 flex items-center justify-center text-[#5d58ef] font-bold flex-shrink-0">1</div>
+            <div>
+              <h4 class="font-bold text-gray-800 text-lg">Aircraft Engineering (AME)</h4>
+              <p class="text-sm text-gray-500">Must have passed 10+2 with Physics, Chemistry, and Mathematics (PCM). Minimum age of 17 years at admission.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="w-10 h-10 rounded-full bg-indigo-50 flex items-center justify-center text-[#5d58ef] font-bold flex-shrink-0">2</div>
+            <div>
+              <h4 class="font-bold text-gray-800 text-lg">Power Hang Glider Training</h4>
+              <p class="text-sm text-gray-500">Must have passed 10th standard. Physical fitness self-declaration certificate required. Minimum age 17 years.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Registration Inquiry Form -->
+      <div class="bg-gray-50 p-8 md:p-12 rounded-3xl border border-gray-100 shadow-md">
+        <h3 class="text-2xl font-bold text-gray-800 mb-2">Enrollment Inquiry</h3>
+        <p class="text-gray-400 text-sm mb-6">Complete the registration form and our team will contact you.</p>
+        
+        <form id="admissionForm" class="space-y-4" onsubmit="submitAdmissionForm(event)">
+          <p id="admissionFormStatus" class="hidden text-sm font-semibold mb-2"></p>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1" for="fullName">NAME</label>
+            <input type="text" id="fullName" required class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-[#5d58ef] focus:outline-none bg-white">
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-1" for="age">AGE</label>
+              <input type="number" id="age" required class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-[#5d58ef] focus:outline-none bg-white">
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-1" for="gender">GENDER</label>
+              <select id="gender" required class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-[#5d58ef] focus:outline-none bg-white">
+                <option value="" disabled selected>Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1" for="education">EDUCATION QUALIFICATION</label>
+            <select id="education" required class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-[#5d58ef] focus:outline-none bg-white">
+              <option value="" disabled selected>Select Qualification</option>
+              <option value="10+2">10+2</option>
+              <option value="undergraduate">Undergraduate</option>
+              <option value="postgraduate">Postgraduate</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1" for="subject">SUBJECT(Physics + Chemistry + Maths)</label>
+            <select id="subject" required class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-[#5d58ef] focus:outline-none bg-white">
+              <option value="" disabled selected>Select Yes/No</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-1" for="email">E-Mail ID</label>
+              <input type="email" id="email" required class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-[#5d58ef] focus:outline-none bg-white">
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-1" for="phone">MOBILE NO.</label>
+              <input type="tel" id="phone" required class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-[#5d58ef] focus:outline-none bg-white">
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-1" for="stateSelect">STATE&UT</label>
+              <select id="stateSelect" required class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-[#5d58ef] focus:outline-none bg-white">
+                <option value="" disabled selected>Select State</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-1" for="districtSelect">DISTRICT</label>
+              <select id="districtSelect" required disabled class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-[#5d58ef] focus:outline-none bg-gray-50 disabled:cursor-not-allowed">
+                <option value="" disabled selected>Select District</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1" for="courseSelect">Desired Course</label>
+            <select id="courseSelect" required class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-[#5d58ef] focus:outline-none bg-white">
+              <option value="" disabled selected>Select a Course</option>
+              <option value="ame-b1">B1.1 (Aeroplane with Turbine Engine)</option>
+              <option value="ame-b2">B1.2 (Avionics)</option>
+              <option value="drone-small">Small Class Drone Pilot</option>
+              <option value="drone-medium">Medium Class Drone Pilot</option>
+              <option value="drone-maint">Drone Maintenance Training</option>
+              <option value="hangglider">Power Hang Glider Training</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1" for="msg">Additional Remarks</label>
+            <textarea id="msg" rows="3" class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-[#5d58ef] focus:outline-none bg-white"></textarea>
+          </div>
+          <button type="submit" class="w-full py-3 bg-[#ff4301] text-white font-bold rounded-xl hover:bg-[#5d58ef] transition">
+            Submit Inquiry
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <div id="footer-container"></div>
+
+  <!-- Cookie Banner -->
+  <div id="cookieBanner" class="hidden flex flex-col sm:flex-row justify-between items-center text-gray-800">
+    <p class="text-sm text-center sm:text-left mb-3 sm:mb-0">
+      This website stores cookies on your computer. To find out more, see our
+      <a href="#" class="text-orange-500 font-semibold hover:underline">Privacy Policy</a>.
+    </p>
+    <div class="flex gap-3">
+      <button id="declineCookies" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition text-sm">
+        Decline
+      </button>
+      <button id="acceptCookies" class="px-4 py-2 bg-orange-500 text-white rounded-lg hover:orange-600 transition text-sm">
+        Accept
+      </button>
+    </div>
+  </div>
+
+  <button id="scrollTopBtn" class="hidden">
+    <i class="fas fa-arrow-up text-xl"></i>
+  </button>
+
+  <script src="../Assets/Script/components.js?v=4"></script>
+  <script src="../Assets/Script/preloader.js?v=4"></script>
+  <script src="../Assets/Script/scroll.js?v=4"></script>
+  <script src="../Assets/Script/video.js?v=4"></script>
+  <script src="../Assets/Script/cookie.js?v=4"></script>
+  <script src="../Assets/Script/script.js?v=4"></script>
+  <script src="../Assets/Script/forms.js?v=2"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const stateCityMap = {
+        "Andhra Pradesh": ["Visakhapatnam", "Vijayawada", "Guntur", "Nellore"],
+        "Arunachal Pradesh": ["Itanagar", "Tawang", "Naharlagun"],
+        "Assam": ["Guwahati", "Silchar", "Dibrugarh", "Jorhat"],
+        "Bihar": ["Patna", "Gaya", "Bhagalpur", "Muzaffarpur"],
+        "Chhattisgarh": ["Raipur", "Bhilai", "Bilaspur", "Korba"],
+        "Goa": ["Panaji", "Margao", "Vasco da Gama", "Mapusa"],
+        "Gujarat": ["Ahmedabad", "Surat", "Vadodara", "Rajkot"],
+        "Haryana": ["Gurugram", "Faridabad", "Panipat", "Ambala"],
+        "Himachal Pradesh": ["Shimla", "Dharamshala", "Mandi", "Solan"],
+        "Jharkhand": ["Ranchi", "Jamshedpur", "Dhanbad", "Bokaro"],
+        "Karnataka": ["Bengaluru", "Mysuru", "Mangaluru", "Hubballi"],
+        "Kerala": ["Thiruvananthapuram", "Kochi", "Kozhikode", "Thrissur"],
+        "Madhya Pradesh": ["Bhopal", "Indore", "Gwalior", "Jabalpur"],
+        "Maharashtra": ["Mumbai", "Pune", "Nagpur", "Thane", "Nashik"],
+        "Manipur": ["Imphal", "Thoubal", "Bishnupur"],
+        "Meghalaya": ["Shillong", "Tura", "Jowai"],
+        "Mizoram": ["Aizawl", "Lunglei", "Champhai"],
+        "Nagaland": ["Kohima", "Dimapur", "Mokokchung"],
+        "Odisha": ["Bhubaneswar", "Cuttack", "Rourkela", "Berhampur"],
+        "Punjab": ["Chandigarh", "Ludhiana", "Amritsar", "Jalandhar", "Patiala"],
+        "Rajasthan": ["Jaipur", "Jodhpur", "Udaipur", "Kota"],
+        "Sikkim": ["Gangtok", "Namchi", "Geyzing"],
+        "Tamil Nadu": ["Chennai", "Coimbatore", "Madurai", "Tiruchirappalli"],
+        "Telangana": ["Hyderabad", "Warangal", "Nizamabad", "Karimnagar"],
+        "Tripura": ["Agartala", "Dharmanagar", "Udaipur"],
+        "Uttar Pradesh": ["Lucknow", "Kanpur", "Varanasi", "Agra", "Gonda", "Ayodhya"],
+        "Uttarakhand": ["Dehradun", "Haridwar", "Roorkee", "Haldwani"],
+        "West Bengal": ["Kolkata", "Howrah", "Darjeeling", "Siliguri"]
+      };
+
+      const stateSelect = document.getElementById('stateSelect');
+      const districtSelect = document.getElementById('districtSelect');
+
+      if (stateSelect && districtSelect) {
+        // Populate states
+        for (const state in stateCityMap) {
+          const option = document.createElement('option');
+          option.value = state;
+          option.textContent = state;
+          stateSelect.appendChild(option);
+        }
+
+        stateSelect.addEventListener('change', function() {
+          const selectedState = this.value;
+          districtSelect.innerHTML = '<option value="" disabled selected>Select District</option>';
+          
+          if (selectedState && stateCityMap[selectedState]) {
+            districtSelect.disabled = false;
+            districtSelect.classList.remove('bg-gray-50', 'disabled:cursor-not-allowed');
+            districtSelect.classList.add('bg-white', 'cursor-pointer');
+            
+            stateCityMap[selectedState].forEach(city => {
+              const option = document.createElement('option');
+              option.value = city;
+              option.textContent = city;
+              districtSelect.appendChild(option);
+            });
+          } else {
+            districtSelect.disabled = true;
+            districtSelect.classList.add('bg-gray-50', 'disabled:cursor-not-allowed');
+            districtSelect.classList.remove('bg-white', 'cursor-pointer');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
