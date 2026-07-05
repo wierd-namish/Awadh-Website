@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
               </a>
 
                   <div class="dropdown-menu w-72">
-                    <div class="dropdown-submenu dropdown-left">
+                    <div class="dropdown-submenu">
                       <a class="dropdown-item py-3 text-sm font-semibold flex justify-between items-center" href="#">
                         Aircraft Maintenance Engineering
                         <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
