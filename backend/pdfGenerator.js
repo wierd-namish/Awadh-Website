@@ -25,7 +25,7 @@ function generateAdmissionPDF(formData, applicationId, files) {
         doc_migration: "Migration Certificate",
         doc_character: "Character Certificate",
         doc_aadhaar: "Aadhaar Card",
-        doc_category: "Category Certificate",
+
         doc_medical: "Medical Fitness Certificate",
         doc_vision: "Colour Vision Certificate",
         doc_passport: "Passport (International Students)",
@@ -152,8 +152,7 @@ function generateAdmissionPDF(formData, applicationId, files) {
       drawField("Aadhaar Number", formData.aadhaar);
       drawField("Passport Number", formData.passport);
       drawField("Blood Group", formData.blood_group);
-      drawField("Category", formData.category);
-      drawField("Religion", formData.religion);
+
       drawField("Physically Disabled (PwD)", formData.pwd);
       drawField("Academic Session", formData.academic_session);
 

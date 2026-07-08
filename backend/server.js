@@ -15,6 +15,14 @@ const { generateAdmissionPDF, generateRegistrationPDF } = require("./pdfGenerato
 const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
+const crypto = require("crypto");
+const Razorpay = require("razorpay");
+
+// Initialize Razorpay
+const razorpay = new Razorpay({
+  key_id: process.env.RAZORPAY_KEY_ID || 'dummy_id',
+  key_secret: process.env.RAZORPAY_KEY_SECRET || 'dummy_secret',
+});
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -44,6 +52,37 @@ const upload = multer({ storage: storage });
 // Simple health check — visit this in a browser to confirm the server is running
 app.get("/", (req, res) => {
   res.json({ status: "ok", message: "Awadh backend is running." });
+});
+
+// ---------- Razorpay Integration ----------
+app.post("/api/create-order", async (req, res) => {
+  try {
+    const options = {
+      amount: 500 * 100, // Amount in paise (500 INR)
+      currency: "INR",
+      receipt: "receipt_" + Math.random().toString(36).substring(7)
+    };
+    const order = await razorpay.orders.create(options);
+    res.json(order);
+  } catch (error) {
+    console.error("Error creating Razorpay order:", error);
+    res.status(500).json({ error: "Could not create order" });
+  }
+});
+
+app.post("/api/verify-payment", (req, res) => {
+  const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = req.body;
+  const secret = process.env.RAZORPAY_KEY_SECRET || 'dummy_secret';
+
+  const shasum = crypto.createHmac("sha256", secret);
+  shasum.update(`${razorpay_order_id}|${razorpay_payment_id}`);
+  const digest = shasum.digest("hex");
+
+  if (digest === razorpay_signature) {
+    res.json({ success: true, message: "Payment verified successfully" });
+  } else {
+    res.status(400).json({ success: false, error: "Invalid signature" });
+  }
 });
 
 // ---------- Contact form ----------
@@ -118,17 +157,25 @@ app.post("/api/admission-application", upload.any(), async (req, res) => {
     const email = formData.email;
     const mobile = formData.mobile;
     const stream = formData.stream;
+    const razorpay_order_id = formData.razorpay_order_id;
+    const razorpay_payment_id = formData.razorpay_payment_id;
+    const razorpay_signature = formData.razorpay_signature;
+    const payment_amount = formData.payment_amount;
+    const payment_status = formData.payment_status || "Pending";
 
     if (!full_name || !email || !mobile || !stream) {
       return res.status(400).json({ error: "Full name, email, mobile, and stream are required." });
     }
 
     const id = db.insertAdmissionApplication({
-      full_name, email, mobile, stream, form_data: formData, files: files
+      full_name, email, mobile, stream, form_data: formData, files: files,
+      razorpay_order_id, razorpay_payment_id, razorpay_signature, payment_amount, payment_status
     });
 
     let messageText = `New Full Admission Application (#${id}):\n\n`;
-    messageText += `Name: ${full_name}\nEmail: ${email}\nMobile: ${mobile}\nStream: ${stream}\n\n`;
+    messageText += `Name: ${full_name}\nEmail: ${email}\nMobile: ${mobile}\nStream: ${stream}\n`;
+    messageText += `Payment Amount: ₹${payment_amount || 0}\n`;
+    messageText += `Payment ID: ${razorpay_payment_id || 'Not Paid'}\n\n`;
     messageText += `Please find the complete application details in the attached PDF.`;
 
     // Generate PDF in memory (no file saved to disk)
@@ -144,7 +191,7 @@ app.post("/api/admission-application", upload.any(), async (req, res) => {
       doc_migration: "Migration_Certificate",
       doc_character: "Character_Certificate",
       doc_aadhaar: "Aadhaar_Card",
-      doc_category: "Category_Certificate",
+
       doc_medical: "Medical_Fitness_Certificate",
       doc_vision: "Colour_Vision_Certificate",
       doc_passport: "Passport",

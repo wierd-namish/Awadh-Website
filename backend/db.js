@@ -50,6 +50,14 @@ db.exec(`
     stream TEXT NOT NULL,
     form_data TEXT NOT NULL,
     files TEXT,
+
+    razorpay_order_id TEXT,
+    razorpay_payment_id TEXT,
+    razorpay_signature TEXT,
+
+    payment_amount INTEGER,
+    payment_status TEXT DEFAULT 'Pending',
+
     created_at TEXT NOT NULL DEFAULT (datetime('now'))
   )
 `);
@@ -64,6 +72,26 @@ try {
 } catch (e) {
   // Ignore if columns already exist
 }
+
+try {
+  db.exec(`ALTER TABLE admission_applications ADD COLUMN razorpay_order_id TEXT`);
+} catch (e) {}
+
+try {
+  db.exec(`ALTER TABLE admission_applications ADD COLUMN razorpay_payment_id TEXT`);
+} catch (e) {}
+
+try {
+  db.exec(`ALTER TABLE admission_applications ADD COLUMN razorpay_signature TEXT`);
+} catch (e) {}
+
+try {
+  db.exec(`ALTER TABLE admission_applications ADD COLUMN payment_amount INTEGER`);
+} catch (e) {}
+
+try {
+  db.exec(`ALTER TABLE admission_applications ADD COLUMN payment_status TEXT DEFAULT 'Pending'`);
+} catch (e) {}
 
 function insertContact({ name, email, phone, state, city, message }) {
   const stmt = db.prepare(`
@@ -83,19 +111,48 @@ function insertAdmission({ fullName, age, gender, education, subject, email, pho
   return info.lastInsertRowid;
 }
 
-function insertAdmissionApplication({ full_name, email, mobile, stream, form_data, files }) {
+function insertAdmissionApplication({
+  full_name,
+  email,
+  mobile,
+  stream,
+  form_data,
+  files,
+  razorpay_order_id,
+  razorpay_payment_id,
+  razorpay_signature,
+  payment_amount,
+  payment_status,
+}) {
   const stmt = db.prepare(`
-    INSERT INTO admission_applications (full_name, email, mobile, stream, form_data, files)
-    VALUES (?, ?, ?, ?, ?, ?)
+INSERT INTO admission_applications (
+  full_name,
+  email,
+  mobile,
+  stream,
+  form_data,
+  files,
+  razorpay_order_id,
+  razorpay_payment_id,
+  razorpay_signature,
+  payment_amount,
+  payment_status
+)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `);
-  const info = stmt.run(
-    full_name || "Unknown", 
-    email || "Unknown", 
-    mobile || "Unknown", 
-    stream || "Unknown", 
-    JSON.stringify(form_data || {}), 
-    JSON.stringify(files || [])
-  );
+const info = stmt.run(
+  full_name || "Unknown",
+  email || "Unknown",
+  mobile || "Unknown",
+  stream || "Unknown",
+  JSON.stringify(form_data || {}),
+  JSON.stringify(files || []),
+  razorpay_order_id || null,
+  razorpay_payment_id || null,
+  razorpay_signature || null,
+  payment_amount || 0,
+  payment_status || "Pending"
+);
   return info.lastInsertRowid;
 }
 

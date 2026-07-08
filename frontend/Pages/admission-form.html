@@ -6,6 +6,7 @@
   <title>Admission Application Form | Awadh Aviation Academy</title>
   <meta name="description" content="Apply for Aircraft Maintenance Engineering (AME) programme at Awadh Aero DAC Aviation Academy. Fill out the multi-step admission application form.">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap">
   <link rel="stylesheet" href="../Assets/Styles/style.css">
@@ -52,7 +53,7 @@
   <!-- Breadcrumb -->
   <section class="bg-gray-100 pt-24 pb-10 px-6 md:px-14 border-b">
     <div class="max-w-7xl mx-auto">
-      <h1 class="text-3xl md:text-4xl font-extrabold text-gray-800">Admission Application Form</h1>
+      <h1 class="text-3xl md:text-4xl font-extrabold text-gray-800">Application Form</h1>
       <p class="text-gray-500 text-sm mt-2">Aircraft Maintenance Engineering (AME) Programme — Fill each section and proceed to the next step.</p>
       <div class="mt-3 text-sm font-semibold text-gray-500">
         <a href="../index.html" class="hover:text-[#5d58ef] transition">Home</a>
@@ -110,36 +111,22 @@
                   <input type="text" name="nationality" class="form-input" placeholder="e.g. Indian" required>
                 </div>
                 <div>
-                  <label class="form-label">Aadhaar Number <span class="text-gray-400 text-xs">(Optional)</span></label>
-                  <input type="text" name="aadhaar" class="form-input" placeholder="12-digit Aadhaar number" maxlength="12">
+                  <label class="form-label">Aadhaar Number<span class="text-red-500">*</span></label>
+                  <input type="text" name="aadhaar" class="form-input" placeholder="12-digit Aadhaar number" maxlength="12" required>
                 </div>
                 <div>
                   <label class="form-label">Passport Number <span class="text-gray-400 text-xs">(International Applicants)</span></label>
                   <input type="text" name="passport" class="form-input" placeholder="Passport number">
                 </div>
                 <div>
-                  <label class="form-label">Blood Group</label>
-                  <select name="blood_group" class="form-input">
+                  <label class="form-label">Blood Group<span class="text-red-500">*</span></label>
+                  <select name="blood_group" class="form-input" required>
                     <option value="">Select Blood Group</option>
                     <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
                     <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
                   </select>
                 </div>
-                <div>
-                  <label class="form-label">Category <span class="text-red-500">*</span></label>
-                  <div class="flex flex-wrap gap-3 mt-1">
-                    <label class="radio-option"><input type="radio" name="category" value="General" required> General</label>
-                    <label class="radio-option"><input type="radio" name="category" value="OBC"> OBC</label>
-                    <label class="radio-option"><input type="radio" name="category" value="SC"> SC</label>
-                    <label class="radio-option"><input type="radio" name="category" value="ST"> ST</label>
-                    <label class="radio-option"><input type="radio" name="category" value="EWS"> EWS</label>
-                    <label class="radio-option"><input type="radio" name="category" value="Other"> Other</label>
-                  </div>
-                </div>
-                <div>
-                  <label class="form-label">Religion <span class="text-gray-400 text-xs">(Optional)</span></label>
-                  <input type="text" name="religion" class="form-input" placeholder="Religion">
-                </div>
+
                 <div>
                   <label class="form-label">Physically Disabled (PwD)</label>
                   <div class="flex gap-4 mt-1">
@@ -207,7 +194,7 @@
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div><label class="form-label">Name <span class="text-red-500">*</span></label><input type="text" name="father_name" class="form-input" placeholder="Father's name" required></div>
                     <div><label class="form-label">Occupation</label><input type="text" name="father_occ" class="form-input" placeholder="Occupation"></div>
-                    <div><label class="form-label">Mobile Number</label><input type="tel" name="father_mobile" class="form-input" placeholder="+91 XXXXX XXXXX"></div>
+                    <div><label class="form-label">Mobile Number <span class="text-red-500">*</span></label><input type="tel" name="father_mobile" class="form-input" placeholder="+91 XXXXX XXXXX" required></div>
                     <div><label class="form-label">Email</label><input type="email" name="father_email" class="form-input" placeholder="Email address"></div>
                   </div>
                 </div>
@@ -251,13 +238,13 @@
                 <div>
                   <h3 class="text-base font-bold text-gray-700 mb-3 flex items-center gap-2"><i class="fas fa-graduation-cap text-[#005F86]"></i> Class XII</h3>
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div><label class="form-label">Board</label><input type="text" name="xii_board" class="form-input" placeholder="e.g. CBSE, ICSE, State Board"></div>
-                    <div><label class="form-label">School Name</label><input type="text" name="xii_school" class="form-input" placeholder="School name"></div>
-                    <div><label class="form-label">Year of Passing</label><input type="text" name="xii_year" class="form-input" placeholder="e.g. 2024"></div>
-                    <div><label class="form-label">Physics Marks</label><input type="text" name="xii_physics" class="form-input" placeholder="Marks obtained"></div>
-                    <div><label class="form-label">Chemistry Marks</label><input type="text" name="xii_chem" class="form-input" placeholder="Marks obtained"></div>
-                    <div><label class="form-label">Mathematics Marks</label><input type="text" name="xii_math" class="form-input" placeholder="Marks obtained"></div>
-                    <div><label class="form-label">Overall Percentage</label><input type="text" name="xii_percent" class="form-input" placeholder="e.g. 75%"></div>
+                    <div><label class="form-label">Board <span class="text-red-500">*</span></label><input type="text" name="xii_board" class="form-input" placeholder="e.g. CBSE, ICSE, State Board" required></div>
+                    <div><label class="form-label">School Name <span class="text-red-500">*</span></label><input type="text" name="xii_school" class="form-input" placeholder="School name" required></div>
+                    <div><label class="form-label">Year of Passing <span class="text-red-500">*</span></label><input type="text" name="xii_year" class="form-input" placeholder="e.g. 2024" required></div>
+                    <div><label class="form-label">Physics Marks <span class="text-red-500">*</span></label><input type="text" name="xii_physics" class="form-input" placeholder="Marks obtained" required></div>
+                    <div><label class="form-label">Chemistry Marks <span class="text-red-500">*</span></label><input type="text" name="xii_chem" class="form-input" placeholder="Marks obtained" required></div>
+                    <div><label class="form-label">Mathematics Marks <span class="text-red-500">*</span></label><input type="text" name="xii_math" class="form-input" placeholder="Marks obtained" required></div>
+                    <div><label class="form-label">Overall Percentage <span class="text-red-500">*</span></label><input type="text" name="xii_percent" class="form-input" placeholder="e.g. 75%" required></div>
                   </div>
                 </div>
                 <!-- Diploma -->
@@ -350,15 +337,14 @@
               <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div><label class="form-label">Signature <span class="text-red-500">*</span></label><div class="file-upload"><input type="file" name="doc_signature" accept="image/*,.pdf" required></div></div>
                 <div><label class="form-label">Class X Marksheet <span class="text-red-500">*</span></label><div class="file-upload"><input type="file" name="doc_x_mark" accept="image/*,.pdf" required></div></div>
-                <div><label class="form-label">Class XII Marksheet / Diploma Certificate</label><div class="file-upload"><input type="file" name="doc_xii_mark" accept="image/*,.pdf"></div></div>
-                <div><label class="form-label">Transfer Certificate</label><div class="file-upload"><input type="file" name="doc_tc" accept="image/*,.pdf"></div></div>
-                <div><label class="form-label">Migration Certificate</label><div class="file-upload"><input type="file" name="doc_migration" accept="image/*,.pdf"></div></div>
-                <div><label class="form-label">Character Certificate</label><div class="file-upload"><input type="file" name="doc_character" accept="image/*,.pdf"></div></div>
-                <div><label class="form-label">Aadhaar Card</label><div class="file-upload"><input type="file" name="doc_aadhaar" accept="image/*,.pdf"></div></div>
-                <div><label class="form-label">Category Certificate <span class="text-gray-400 text-xs">(if applicable)</span></label><div class="file-upload"><input type="file" name="doc_category" accept="image/*,.pdf"></div></div>
-                <div><label class="form-label">Medical Fitness Certificate</label><div class="file-upload"><input type="file" name="doc_medical" accept="image/*,.pdf"></div></div>
-                <div><label class="form-label">Colour Vision Certificate</label><div class="file-upload"><input type="file" name="doc_vision" accept="image/*,.pdf"></div></div>
-                <div><label class="form-label">Passport <span class="text-gray-400 text-xs">(International Students)</span></label><div class="file-upload"><input type="file" name="doc_passport" accept="image/*,.pdf"></div></div>
+                <div><label class="form-label">Class XII Marksheet / Diploma Certificate <span class="text-red-500">*</span></label><div class="file-upload"><input type="file" name="doc_xii_mark" accept="image/*,.pdf" required></div></div>
+                <div><label class="form-label">Transfer Certificate <span class="text-red-500">*</span></label><div class="file-upload"><input type="file" name="doc_tc" accept="image/*,.pdf" required></div></div>
+                <div><label class="form-label">Migration Certificate <span class="text-red-500">*</span></label><div class="file-upload"><input type="file" name="doc_migration" accept="image/*,.pdf" required></div></div>
+                <div><label class="form-label">Character Certificate <span class="text-red-500">*</span></label><div class="file-upload"><input type="file" name="doc_character" accept="image/*,.pdf" required></div></div>
+                <div><label class="form-label">Aadhaar Card <span class="text-red-500">*</span></label><div class="file-upload"><input type="file" name="doc_aadhaar" accept="image/*,.pdf" required></div></div>
+                <div><label class="form-label">Medical Fitness Certificate <span class="text-red-500">*</span></label><div class="file-upload"><input type="file" name="doc_medical" accept="image/*,.pdf" required></div></div>
+                <div><label class="form-label">Colour Vision Certificate <span class="text-red-500">*</span></label><div class="file-upload"><input type="file" name="doc_vision" accept="image/*,.pdf" required></div></div>
+                <div><label class="form-label">Passport <span class="text-gray-400 text-xs">(International Students)</span> <span class="text-red-500">*</span></label><div class="file-upload"><input type="file" name="doc_passport" accept="image/*,.pdf" required></div></div>
               </div>
             </div>
 
@@ -440,11 +426,29 @@
                   <input type="checkbox" name="declaration3" required> I agree to abide by the rules, regulations, code of conduct, and academic policies of Awadh Aero DAC Aviation Academy.
                 </label>
                 <label class="checkbox-option bg-gray-50 p-3 rounded-xl border border-gray-200">
-                  <input type="checkbox" name="consent"> I consent to receiving admission-related communication via SMS, Email, and WhatsApp.
+                  <input type="checkbox" name="consent" required> I consent to receiving admission-related communication via SMS, Email, and WhatsApp.
                 </label>
                 <label class="checkbox-option bg-gray-50 p-3 rounded-xl border border-gray-200">
                   <input type="checkbox" name="agree_privacy" required> I agree to the Privacy Policy and Terms & Conditions.
                 </label>
+              </div>
+            </div>
+
+            <!-- STEP 14: Payment Section -->
+            <div class="form-step" data-step="13">
+              <h2 class="form-section-title">14. Payment Section</h2>
+              <div class="space-y-4">
+                <div class="bg-blue-50 border border-blue-200 rounded-xl p-5 mb-5">
+                  <h3 class="text-blue-800 font-bold text-lg mb-2"><i class="fas fa-info-circle"></i> Application Fee</h3>
+                  <p class="text-blue-700 text-sm mb-4">To complete your admission application, a non-refundable application fee of <strong>₹500</strong> is required.</p>
+                  <p class="text-xs text-blue-600">Clicking 'Pay & Submit Application' will open the secure Razorpay payment gateway. Your application will be submitted automatically upon successful payment.</p>
+                </div>
+                <!-- Hidden fields to store payment details before final submission -->
+                <input type="hidden" name="razorpay_order_id" id="razorpay_order_id">
+                <input type="hidden" name="razorpay_payment_id" id="razorpay_payment_id">
+                <input type="hidden" name="razorpay_signature" id="razorpay_signature">
+                <input type="hidden" name="payment_amount" id="payment_amount" value="500">
+                <input type="hidden" name="payment_status" id="payment_status" value="Pending">
               </div>
             </div>
 
@@ -458,7 +462,7 @@
                   Next <i class="fas fa-arrow-right text-xs"></i>
                 </button>
                 <button type="submit" id="submitBtn" class="px-8 py-2.5 bg-[#22c55e] text-white font-bold rounded-full hover:bg-[#16a34a] transition flex items-center gap-2 text-sm shadow-lg hidden">
-                  <i class="fas fa-paper-plane text-xs"></i> Submit Application
+                  <i class="fas fa-credit-card text-xs"></i> Pay & Submit Application 
                 </button>
               </div>
             </div>
@@ -508,7 +512,8 @@
         "Scholarship Details",
         "Emergency Contact",
         "Statement of Purpose",
-        "Declaration"
+        "Declaration",
+        "Payment Section"
       ];
 
       const totalSteps = stepNames.length;
@@ -560,7 +565,16 @@
           }
         });
 
-        // Update buttons
+        // Customize Next button for step 12 (13th slide - Declaration)
+        if (currentStep === 12) {
+          nextBtn.innerHTML = '<i class="fas fa-paper-plane text-xs"></i> Proceed to Payment';
+          nextBtn.className = "px-8 py-2.5 bg-[#22c55e] text-white font-bold rounded-full hover:bg-[#16a34a] transition flex items-center gap-2 text-sm shadow-lg";
+        } else {
+          nextBtn.innerHTML = 'Next <i class="fas fa-arrow-right text-xs"></i>';
+          nextBtn.className = "px-8 py-2.5 bg-[#ff4301] text-white font-bold rounded-full hover:bg-[#e03b00] transition flex items-center gap-2 text-sm shadow-lg";
+        }
+
+        // Update buttons visibility
         prevBtn.classList.toggle("hidden", currentStep === 0);
         nextBtn.classList.toggle("hidden", currentStep === totalSteps - 1);
         submitBtn.classList.toggle("hidden", currentStep !== totalSteps - 1);
@@ -613,43 +627,124 @@
         const formEl = document.getElementById("admissionForm");
         const submitBtn = document.getElementById("submitBtn");
         const originalBtnHTML = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin text-xs"></i> Submitting...';
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin text-xs"></i> Processing Payment...';
         submitBtn.disabled = true;
 
         try {
-          const formData = new FormData(formEl);
-          
-          const response = await fetch("http://localhost:3000/api/admission-application", {
-            method: "POST",
-            body: formData
+          // 1. Create Order
+          const orderResponse = await fetch("http://localhost:3000/api/create-order", {
+            method: "POST"
           });
+          const order = await orderResponse.json();
 
-          const data = await response.json();
-
-          if (response.ok) {
-            completed.add(currentStep);
-            updateUI();
-            
-            formEl.innerHTML = `
-              <div class="text-center py-16">
-                <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <i class="fas fa-check-circle text-green-500 text-5xl"></i>
-                </div>
-                <h2 class="text-2xl font-extrabold text-gray-800 mb-3">Application Submitted Successfully!</h2>
-                <p class="text-gray-500 max-w-md mx-auto">Thank you for applying to Awadh Aero DAC Aviation Academy. Our admissions team will review your application and contact you shortly.</p>
-                <a href="../index.html" class="inline-block mt-8 px-8 py-3 bg-[#ff4301] text-white font-bold rounded-full hover:bg-[#e03b00] transition shadow-lg">
-                  <i class="fas fa-home mr-2"></i> Back to Home
-                </a>
-              </div>
-            `;
-          } else {
-            alert(data.error || "An error occurred during submission. Please try again.");
-            submitBtn.innerHTML = originalBtnHTML;
-            submitBtn.disabled = false;
+          if (!order.id) {
+            throw new Error("Failed to create order");
           }
+
+          // 2. Open Razorpay Checkout
+          const options = {
+            key: "rzp_test_TA8L7vYiXDhQZ2", // Replace with your Razorpay Key ID
+            amount: order.amount,
+            currency: order.currency,
+            name: "Awadh Aviation Academy",
+            description: "Admission Application Fee",
+            order_id: order.id,
+            handler: async function (response) {
+              try {
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin text-xs"></i> Verifying Payment...';
+                
+                // 3. Verify Payment
+                const verifyRes = await fetch("http://localhost:3000/api/verify-payment", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({
+                    razorpay_order_id: response.razorpay_order_id,
+                    razorpay_payment_id: response.razorpay_payment_id,
+                    razorpay_signature: response.razorpay_signature
+                  })
+                });
+                const verifyData = await verifyRes.json();
+
+                if (verifyData.success) {
+                  // Payment successful, now submit the application
+                  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin text-xs"></i> Submitting Application...';
+                  
+                  // Add payment details to form
+                document.getElementById("razorpay_order_id").value =
+                  response.razorpay_order_id;
+
+                document.getElementById("razorpay_payment_id").value =
+                  response.razorpay_payment_id;
+
+                document.getElementById("razorpay_signature").value =
+                  response.razorpay_signature;
+
+                document.getElementById("payment_amount").value = 500;
+
+                document.getElementById("payment_status").value = "Paid";
+                  
+                  const formData = new FormData(formEl);
+                  const submitRes = await fetch("http://localhost:3000/api/admission-application", {
+                    method: "POST",
+                    body: formData
+                  });
+                  const data = await submitRes.json();
+
+                  if (submitRes.ok) {
+                    completed.add(currentStep);
+                    updateUI();
+                    
+                    formEl.innerHTML = `
+                      <div class="text-center py-16">
+                        <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                          <i class="fas fa-check-circle text-green-500 text-5xl"></i>
+                        </div>
+                        <h2 class="text-2xl font-extrabold text-gray-800 mb-3">Application Submitted Successfully!</h2>
+                        <p class="text-gray-500 max-w-md mx-auto">Thank you for applying to Awadh Aero DAC Aviation Academy. Your application fee has been received and our team will contact you shortly.</p>
+                        <p class="text-sm font-semibold text-gray-700 mt-4">Payment Reference ID: ${response.razorpay_payment_id}</p>
+                        <a href="../index.html" class="inline-block mt-8 px-8 py-3 bg-[#ff4301] text-white font-bold rounded-full hover:bg-[#e03b00] transition shadow-lg">
+                          <i class="fas fa-home mr-2"></i> Back to Home
+                        </a>
+                      </div>
+                    `;
+                  } else {
+                    alert(data.error || "An error occurred during submission. Please try again.");
+                    submitBtn.innerHTML = originalBtnHTML;
+                    submitBtn.disabled = false;
+                  }
+                } else {
+                  alert("Payment verification failed!");
+                  submitBtn.innerHTML = originalBtnHTML;
+                  submitBtn.disabled = false;
+                }
+              } catch (err) {
+                console.error(err);
+                alert("An error occurred during payment verification.");
+                submitBtn.innerHTML = originalBtnHTML;
+                submitBtn.disabled = false;
+              }
+            },
+            prefill: {
+              name: formEl.full_name.value,
+              email: formEl.email.value,
+              contact: formEl.mobile.value
+            },
+            theme: {
+              color: "#ff4301"
+            },
+            modal: {
+              ondismiss: function() {
+                submitBtn.innerHTML = originalBtnHTML;
+                submitBtn.disabled = false;
+              }
+            }
+          };
+
+          const rzp = new Razorpay(options);
+          rzp.open();
         } catch (err) {
           console.error(err);
-          alert("A network error occurred. Please try again.");
+          alert("Could not initiate payment. Please try again.");
           submitBtn.innerHTML = originalBtnHTML;
           submitBtn.disabled = false;
         }

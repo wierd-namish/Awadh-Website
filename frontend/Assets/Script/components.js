@@ -33,23 +33,23 @@ document.addEventListener("DOMContentLoaded", () => {
         <!-- Logo / Branding -->
         <div class="logo flex items-center space-x-3">
           <a class="flex items-center space-x-2" href="${prefix}index.html">
-            <img src="${prefix}Assets/Images/WhatsApp_Image_2026-07-04_at_11.13.29_PM-removebg-preview.png" class="w-14 h-14 object-contain" alt="Awadh Logo">
+            <img src="${prefix}Assets/Images/WhatsApp_Image_2026-07-04_at_11.13.29_PM-removebg-preview.png" class="w-[71px] h-[71px] object-contain" alt="Awadh Logo">
             <div class="flex flex-col leading-tight font-semibold">
-              <span class="text-lg sm:text-xl font-black tracking-tight text-[#ff4301]">Awadh Aero</span>
-              <span class="text-[11px] sm:text-[13px] font-bold text-[#7405bc] tracking-wider">ADVENTURES ASSOCIATIONS</span>
+              <span class="text-[21px] sm:text-[23px] font-black tracking-tight text-[#ff4301]">Awadh Aero</span>
+              <span class="text-[14px] sm:text-[16px] font-bold text-[#7405bc] tracking-wider">ADVENTURES ASSOCIATIONS</span>
             </div>
           </a>
         </div>
 
         <!-- Desktop Navigation links -->
-        <nav class="hidden lg:block">
-          <ul class="flex space-x-5 xl:space-x-8 text-sm font-bold">
+        <nav class="hidden lg:block lg:mx-auto">
+          <ul class="flex space-x-8 xl:space-x-12 text-sm font-bold">
             <li><a class="text-[#1f2937] hover:text-[#5d58ef] transition" href="${prefix}index.html">Home</a></li>
             
             <!-- About dropdown -->
             <li class="relative group">
               <a class="text-[#1f2937] hover:text-[#5d58ef] transition flex items-center" href="${prefix}Pages/about.html">
-                About
+                About Us
                 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
               </a>
               <div class="dropdown-menu">
@@ -61,22 +61,24 @@ document.addEventListener("DOMContentLoaded", () => {
             <!-- Courses Dropdown -->
             <li class="relative group">
               <a class="text-[#1f2937] hover:text-[#5d58ef] transition flex items-center" href="#">
-                Course
+                Courses
                 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
               </a>
 
                   <div class="dropdown-menu w-72">
                     <div class="dropdown-submenu">
                       <a class="dropdown-item py-3 text-sm font-semibold flex justify-between items-center" href="#">
-                        Aircraft Maintenance Engineering
+                        (AME)Aircraft Maintenance Engineering
                         <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                       </a>
                       <div class="dropdown-menu w-64">
-                        <a class="dropdown-item py-2 text-sm" href="${prefix}Pages/ame-b1-1.html">B1.1 (Aeroplane with Turbine Engine)</a>
-                        <a class="dropdown-item py-2 text-sm" href="${prefix}Pages/ame-b1-2-mechanical.html">B1.2 (Mechanical)</a>
+                        <a class="dropdown-item py-2 text-sm" href="${prefix}Pages/ame-b1-1.html">B1.1 Aeroplanes Turbine</a>
+                        <!-- <a class="dropdown-item py-2 text-sm" href="${prefix}Pages/ame-b1-2-mechanical.html">B1.2 (Mechanical)</a> -->
                         <a class="dropdown-item py-2 text-sm" href="${prefix}Pages/ame-b1-2.html">B2 (Avionics)</a>
                       </div>
                     </div>
+                    
+                    <a class="dropdown-item py-3 text-sm font-semibold" href="${prefix}Pages/hangglider.html">Power Hang Glider Training</a>
                     
                     <!--
                     <div class="dropdown-submenu">
@@ -110,18 +112,20 @@ document.addEventListener("DOMContentLoaded", () => {
               </div>
             </li>
 
+            <li><a class="text-[#1f2937] hover:text-[#5d58ef] transition" href="${prefix}Pages/admission.html">Registration</a></li>
             <li><a class="text-[#1f2937] hover:text-[#5d58ef] transition" href="${prefix}Pages/blog.html">Blogs</a></li>
             <li><a class="text-[#1f2937] hover:text-[#5d58ef] transition" href="${prefix}Pages/contact.html">Contact Us</a></li>
-            <li><a class="text-[#1f2937] hover:text-[#5d58ef] transition" href="${prefix}Pages/admission.html">Registration</a></li>
           </ul>
         </nav>
 
         <!-- CTA Button on Right -->
+        <!--
         <div class="hidden lg:block">
           <a href="${prefix}Pages/admission-form.html" class="px-6 py-2 bg-[#ff4301] text-white font-bold rounded-full hover:bg-[#5d58ef] transition duration-300 btn-premium flex items-center shadow-md text-sm">
             Apply Now <i class="fas fa-arrow-right text-xs ml-2"></i>
           </a>
         </div>
+        -->
 
         <!-- Burger Toggle (Mobile Only) -->
         <button id="mobile-menu-toggle" class="lg:hidden text-gray-700 focus:outline-none" aria-label="Toggle Navigation">
@@ -143,10 +147,11 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="flex flex-col">
             <span class="text-lg font-semibold text-gray-400 border-b pb-1 mb-1">Campus</span>
             <span class="pl-2 text-base font-semibold text-gray-500 mt-1">AWADH AERO DAC AVIATION ACADEMY(AADAA)</span>
-            <span class="pl-4 text-sm font-semibold text-gray-500 mt-1">Aircraft Maintenance Engineering</span>
-            <a class="pl-8 py-1 text-sm hover:text-[#5d58ef]" href="${prefix}Pages/ame-b1-1.html">B1.1 (Aeroplane with Turbine Engine)</a>
-            <a class="pl-8 py-1 text-sm hover:text-[#5d58ef]" href="${prefix}Pages/ame-b1-2-mechanical.html">B1.2 (Mechanical)</a>
+            <span class="pl-4 text-sm font-semibold text-gray-500 mt-1">(AME)Aircraft Maintenance Engineering</span>
+            <a class="pl-8 py-1 text-sm hover:text-[#5d58ef]" href="${prefix}Pages/ame-b1-1.html">B1.1 Aeroplanes Turbine</a>
+            <!-- <a class="pl-8 py-1 text-sm hover:text-[#5d58ef]" href="${prefix}Pages/ame-b1-2-mechanical.html">B1.2 (Mechanical)</a> -->
             <a class="pl-8 py-1 text-sm hover:text-[#5d58ef]" href="${prefix}Pages/ame-b1-2.html">B2 (Avionics)</a>
+            <a class="pl-4 py-1 text-sm font-semibold text-gray-500 hover:text-[#5d58ef] mt-2" href="${prefix}Pages/hangglider.html">Power Hang Glider Training</a>
             <!--
             <span class="pl-4 text-sm font-semibold text-gray-500 mt-2">Drone Pilot Training</span>
             <a class="pl-8 py-1 text-sm hover:text-[#5d58ef]" href="${prefix}Pages/dronepilot-small.html">Small Class Drone</a>
@@ -162,9 +167,9 @@ document.addEventListener("DOMContentLoaded", () => {
             <a class="pl-4 py-1 text-base hover:text-[#5d58ef]" href="${prefix}Pages/gallery-videos.html">Videos</a>
           </div>
 
+          <a class="text-lg font-semibold hover:text-[#5d58ef]" href="${prefix}Pages/admission.html">Registration</a>
           <a class="text-lg font-semibold hover:text-[#5d58ef]" href="${prefix}Pages/blog.html">Blogs</a>
           <a class="text-lg font-semibold hover:text-[#5d58ef]" href="${prefix}Pages/contact.html">Contact Us</a>
-          <a class="text-lg font-semibold hover:text-[#5d58ef]" href="${prefix}Pages/admission.html">Registration</a>
         </div>
       </header>
     `;
@@ -222,7 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="footer-col">
             <h4 class="text-xl font-bold mb-4 border-b border-white/30 pb-2">Our Programs</h4>
             <ul class="space-y-2 text-sm text-gray-200">
-              <li><a href="${prefix}Pages/ame-b1-1.html" class="hover:text-white">B1.1 (Aeroplane with Turbine Engine)</a></li>
+              <li><a href="${prefix}Pages/ame-b1-1.html" class="hover:text-white">B1.1 Aeroplanes Turbine</a></li>
               <li><a href="${prefix}Pages/ame-b1-2-mechanical.html" class="hover:text-white">B1.2 (Mechanical)</a></li>
               <li><a href="${prefix}Pages/ame-b1-2.html" class="hover:text-white">B2 (Avionics)</a></li>
             </ul>
@@ -296,25 +301,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // 5. Replace Scroll to Top with Brochure Button
   const oldScrollBtn = document.getElementById("scrollTopBtn");
   if (oldScrollBtn) oldScrollBtn.remove();
-
-  const brochureBtn = document.createElement("div");
-  brochureBtn.id = "brochureBtn";
-  brochureBtn.innerHTML = `
-    <img src="${prefix}Assets/Images/Screenshot%202026-07-02%20165141.png" class="logo-icon bg-[#005F86] p-1" alt="Academy Logo">
-    <div class="brochure-preview bg-white flex flex-col items-center justify-center p-4 border border-gray-200 text-center gap-3">
-      <i class="fas fa-file-pdf text-4xl text-red-500"></i>
-      <a href="${prefix}Assets/Images/broschure/Awadh Aero DAC Aviation Academy.pdf.pdf" target="_blank" class="text-sm font-bold text-gray-800 hover:text-orange-500 leading-tight block">View<br>Brochure</a>
-      <a href="${prefix}Assets/Images/broschure/Awadh Aero DAC Aviation Academy.pdf.pdf" download="Awadh_Aviation_Brochure.pdf" class="bg-[#005F86] text-white text-xs px-3 py-1.5 rounded hover:bg-orange-500 transition-colors shadow-sm font-semibold flex items-center justify-center"><i class="fas fa-download mr-1"></i> Download</a>
-    </div>
-  `;
-  document.body.appendChild(brochureBtn);
-
-  // Toggle "clicked" state to lock the panel open
-  brochureBtn.addEventListener("click", (e) => {
-    if (!e.target.closest('a')) {
-      brochureBtn.classList.toggle("clicked");
-    }
-  });
 
   // Set global components Loaded state flag and dispatch event
   window.componentsLoaded = true;
