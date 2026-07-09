@@ -112,7 +112,20 @@ document.addEventListener("DOMContentLoaded", () => {
               </div>
             </li>
 
-            <li><a class="text-[#1f2937] hover:text-[#5d58ef] transition" href="${prefix}Pages/admission.html">Registration</a></li>
+            <!-- Admission Dropdown -->
+            <li class="relative group">
+              <a class="text-[#1f2937] hover:text-[#5d58ef] transition flex items-center" href="#">
+                Admission
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="${prefix}Pages/admission.html">Registration</a>
+                <a class="dropdown-item" href="${prefix}Pages/admission-procedure.html">Admission Procedure</a>
+                <a class="dropdown-item" href="${prefix}Pages/fee-structure.html">Fee Structure</a>
+                <a class="dropdown-item" href="${prefix}Pages/admission-form.html">Admission Form</a>
+                <a class="dropdown-item" href="${prefix}Assets/Images/broschure/Awadh%20Aero%20DAC%20Aviation%20Academy.pdf.pdf" target="_blank">Brochure</a>
+              </div>
+            </li>
             <li><a class="text-[#1f2937] hover:text-[#5d58ef] transition" href="${prefix}Pages/blog.html">Blogs</a></li>
             <li><a class="text-[#1f2937] hover:text-[#5d58ef] transition" href="${prefix}Pages/contact.html">Contact Us</a></li>
           </ul>
@@ -167,7 +180,14 @@ document.addEventListener("DOMContentLoaded", () => {
             <a class="pl-4 py-1 text-base hover:text-[#5d58ef]" href="${prefix}Pages/gallery-videos.html">Videos</a>
           </div>
 
-          <a class="text-lg font-semibold hover:text-[#5d58ef]" href="${prefix}Pages/admission.html">Registration</a>
+          <div class="flex flex-col">
+            <span class="text-lg font-semibold text-gray-400 border-b pb-1 mb-1">Admission</span>
+            <a class="pl-4 py-1 text-base hover:text-[#5d58ef]" href="${prefix}Pages/admission.html">Registration</a>
+            <a class="pl-4 py-1 text-base hover:text-[#5d58ef]" href="${prefix}Pages/admission-procedure.html">Admission Procedure</a>
+            <a class="pl-4 py-1 text-base hover:text-[#5d58ef]" href="${prefix}Pages/fee-structure.html">Fee Structure</a>
+            <a class="pl-4 py-1 text-base hover:text-[#5d58ef]" href="${prefix}Pages/admission-form.html">Admission Form</a>
+            <a class="pl-4 py-1 text-base hover:text-[#5d58ef]" href="${prefix}Assets/Images/broschure/Awadh%20Aero%20DAC%20Aviation%20Academy.pdf.pdf" target="_blank">Brochure</a>
+          </div>
           <a class="text-lg font-semibold hover:text-[#5d58ef]" href="${prefix}Pages/blog.html">Blogs</a>
           <a class="text-lg font-semibold hover:text-[#5d58ef]" href="${prefix}Pages/contact.html">Contact Us</a>
         </div>
@@ -217,7 +237,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <ul class="space-y-2 text-sm text-gray-200">
               <li><a href="${prefix}Pages/about.html" class="hover:text-white flex items-center"><i class="fas fa-caret-right mr-2 text-xs"></i>Who We Are</a></li>
               <li><a href="${prefix}Pages/leadership.html" class="hover:text-white flex items-center"><i class="fas fa-caret-right mr-2 text-xs"></i>Our Leadership</a></li>
-              <li><a href="${prefix}Pages/admission.html" class="hover:text-white flex items-center"><i class="fas fa-caret-right mr-2 text-xs"></i>Registration</a></li>
+              <li><a href="${prefix}Pages/admission.html" class="hover:text-white flex items-center"><i class="fas fa-caret-right mr-2 text-xs"></i>Admission</a></li>
               <li><a href="${prefix}Pages/blog.html" class="hover:text-white flex items-center"><i class="fas fa-caret-right mr-2 text-xs"></i>Blogs & News</a></li>
               <li><a href="${prefix}Pages/contact.html" class="hover:text-white flex items-center"><i class="fas fa-caret-right mr-2 text-xs"></i>Contact Us</a></li>
             </ul>

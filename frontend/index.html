@@ -34,6 +34,7 @@
       <!-- Image 1 dictates the exact aspect ratio of the hero section -->
       <img id="hero-bg-1" src="Assets/Images/WhatsApp%20Image%202026-07-04%20at%2023.22.59.jpeg" class="w-full h-auto opacity-100 transition-opacity duration-700 ease-in-out z-10 block" alt="Welcome to Awadh Aero">
       <img id="hero-bg-2" src="Assets/Images/WhatsApp%20Image%202026-07-05%20at%2000.27.58.jpeg" class="absolute inset-0 w-full h-full object-cover object-bottom opacity-0 transition-opacity duration-700 ease-in-out z-0" alt="Aviation Academy">
+      <img id="hero-bg-3" src="Assets/Images/Golden-BC-activities-paragliding-3%20credit%20Best_1.jpg.jpeg" class="absolute inset-0 w-full h-full object-cover object-bottom opacity-0 transition-opacity duration-700 ease-in-out z-0" alt="Para Hang Gliding">
       <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent z-20 pointer-events-none"></div>
     </div>
 
@@ -54,6 +55,9 @@
         </h1>
         </div>
 
+        <button onclick="prevHeroSlide()" class="absolute left-4 md:left-10 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-white/30 border border-white/20 text-white w-14 h-14 rounded-full flex items-center justify-center backdrop-blur-md transition-all shadow-lg text-xl z-30 group cursor-pointer pointer-events-auto hover:scale-110">
+          <i class="fas fa-chevron-left group-hover:-translate-x-1 transition-transform"></i>
+        </button>
         <button onclick="nextHeroSlide()" class="absolute right-4 md:right-10 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-white/30 border border-white/20 text-white w-14 h-14 rounded-full flex items-center justify-center backdrop-blur-md transition-all shadow-lg text-xl z-30 group cursor-pointer pointer-events-auto hover:scale-110">
           <i class="fas fa-chevron-right group-hover:translate-x-1 transition-transform"></i>
         </button>
@@ -76,8 +80,28 @@
 </p>
 
         
-        <button onclick="prevHeroSlide()" class="absolute left-4 md:left-10 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/40 border border-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center backdrop-blur-md transition shadow-lg text-xl z-30 pointer-events-auto group cursor-pointer">
+        <button onclick="prevHeroSlide()" class="absolute left-4 md:left-10 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-white/30 border border-white/20 text-white w-14 h-14 rounded-full flex items-center justify-center backdrop-blur-md transition-all shadow-lg text-xl z-30 group cursor-pointer pointer-events-auto hover:scale-110">
           <i class="fas fa-chevron-left group-hover:-translate-x-1 transition-transform"></i>
+        </button>
+        <button onclick="nextHeroSlide()" class="absolute right-4 md:right-10 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-white/30 border border-white/20 text-white w-14 h-14 rounded-full flex items-center justify-center backdrop-blur-md transition-all shadow-lg text-xl z-30 group cursor-pointer pointer-events-auto hover:scale-110">
+          <i class="fas fa-chevron-right group-hover:translate-x-1 transition-transform"></i>
+        </button>
+      </div>
+
+      <div id="hero-slide-3" class="flex flex-col items-center max-w-4xl px-6 transition-all duration-700 ease-in-out opacity-0 pointer-events-none absolute w-full left-1/2 bottom-[12%] md:bottom-[17%] lg:bottom-[19%] transform -translate-x-1/2 z-10">
+        <div class="flex flex-col items-center transform transition-all duration-700 text-center">
+          <h1 class="text-3xl md:text-5xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-orange-400 to-[#ff4301] leading-tight drop-shadow-2xl">
+            Para Hang Gliding
+          </h1>
+          <p class="text-lg md:text-2xl font-bold text-gray-100 mt-4 max-w-2xl leading-relaxed">
+            Experience the thrill of flying and explore the skies with our expert training programs.
+          </p>
+        </div>
+        <button onclick="prevHeroSlide()" class="absolute left-4 md:left-10 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-white/30 border border-white/20 text-white w-14 h-14 rounded-full flex items-center justify-center backdrop-blur-md transition-all shadow-lg text-xl z-30 group cursor-pointer pointer-events-auto hover:scale-110">
+          <i class="fas fa-chevron-left group-hover:-translate-x-1 transition-transform"></i>
+        </button>
+        <button onclick="nextHeroSlide()" class="absolute right-4 md:right-10 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-white/30 border border-white/20 text-white w-14 h-14 rounded-full flex items-center justify-center backdrop-blur-md transition-all shadow-lg text-xl z-30 group cursor-pointer pointer-events-auto hover:scale-110">
+          <i class="fas fa-chevron-right group-hover:translate-x-1 transition-transform"></i>
         </button>
       </div>
     </div>
@@ -517,50 +541,57 @@
   <!-- Hero Carousel Script -->
   <script>
     let currentHeroSlide = 1;
-    const heroSlide1 = document.getElementById('hero-slide-1');
-    const heroSlide2 = document.getElementById('hero-slide-2');
-    const heroBg1 = document.getElementById('hero-bg-1');
-    const heroBg2 = document.getElementById('hero-bg-2');
+    const totalHeroSlides = 3;
 
     function updateHeroSlide() {
-      if (currentHeroSlide === 1) {
-        heroSlide1.classList.remove('opacity-0', 'pointer-events-none');
-        heroSlide1.classList.add('opacity-100', 'z-20');
-        heroSlide1.classList.remove('z-10');
+      for (let i = 1; i <= totalHeroSlides; i++) {
+        const slide = document.getElementById(`hero-slide-${i}`);
+        const bg = document.getElementById(`hero-bg-${i}`);
         
-        heroSlide2.classList.remove('opacity-100', 'z-20');
-        heroSlide2.classList.add('opacity-0', 'pointer-events-none', 'z-10');
-        
-        heroBg1.classList.remove('opacity-0', 'z-0', 'opacity-70', 'opacity-60');
-        heroBg1.classList.add('opacity-100', 'z-10');
-        
-        heroBg2.classList.remove('opacity-100', 'z-10', 'opacity-70', 'opacity-60');
-        heroBg2.classList.add('opacity-0', 'z-0');
-      } else {
-        heroSlide2.classList.remove('opacity-0', 'pointer-events-none');
-        heroSlide2.classList.add('opacity-100', 'z-20');
-        heroSlide2.classList.remove('z-10');
-        
-        heroSlide1.classList.remove('opacity-100', 'z-20');
-        heroSlide1.classList.add('opacity-0', 'pointer-events-none', 'z-10');
-        
-        heroBg2.classList.remove('opacity-0', 'z-0', 'opacity-70', 'opacity-60');
-        heroBg2.classList.add('opacity-100', 'z-10');
-        
-        heroBg1.classList.remove('opacity-100', 'z-10', 'opacity-70', 'opacity-60');
-        heroBg1.classList.add('opacity-0', 'z-0');
+        if (i === currentHeroSlide) {
+          slide.classList.remove('opacity-0', 'pointer-events-none', 'z-10');
+          slide.classList.add('opacity-100', 'z-20');
+          
+          bg.classList.remove('opacity-0', 'z-0', 'opacity-70', 'opacity-60');
+          bg.classList.add('opacity-100', 'z-10');
+        } else {
+          slide.classList.remove('opacity-100', 'z-20');
+          slide.classList.add('opacity-0', 'pointer-events-none', 'z-10');
+          
+          bg.classList.remove('opacity-100', 'z-10', 'opacity-70', 'opacity-60');
+          bg.classList.add('opacity-0', 'z-0');
+        }
       }
     }
 
+    let heroSlideTimer;
+    
+    function startHeroSlideTimer() {
+      heroSlideTimer = setInterval(() => {
+        currentHeroSlide = currentHeroSlide === totalHeroSlides ? 1 : currentHeroSlide + 1;
+        updateHeroSlide();
+      }, 2000);
+    }
+
+    function resetHeroSlideTimer() {
+      clearInterval(heroSlideTimer);
+      startHeroSlideTimer();
+    }
+
     function nextHeroSlide() {
-      currentHeroSlide = 2;
+      currentHeroSlide = currentHeroSlide === totalHeroSlides ? 1 : currentHeroSlide + 1;
       updateHeroSlide();
+      resetHeroSlideTimer();
     }
 
     function prevHeroSlide() {
-      currentHeroSlide = 1;
+      currentHeroSlide = currentHeroSlide === 1 ? totalHeroSlides : currentHeroSlide - 1;
       updateHeroSlide();
+      resetHeroSlideTimer();
     }
+
+    // Start auto-slide on load
+    startHeroSlideTimer();
   </script>
 </body>
 </html>
