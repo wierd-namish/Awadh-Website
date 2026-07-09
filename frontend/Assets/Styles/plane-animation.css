@@ -1,0 +1,134 @@
+/* ===================================================================
+   PLANE-BANNER FULL-WIDTH ANIMATION WIDGET
+   A biplane tows a banner across the full width of the screen,
+   performing U-turns at each edge and looping continuously.
+   =================================================================== */
+
+/* ---- Container: full viewport width ---- */
+#plane-widget {
+  position: fixed;
+  bottom: 60px;
+  left: 0;
+  width: 100vw;
+  height: 100px;
+  z-index: 9999;
+  pointer-events: none;
+  overflow: visible;
+}
+
+/* ---- Plane image ---- */
+#plane-widget .pw-plane {
+  position: absolute;
+  width: 80px;
+  height: auto;
+  transform-origin: center center;
+  will-change: transform;
+  z-index: 3;
+  filter: drop-shadow(2px 3px 6px rgba(0,0,0,0.35));
+  mix-blend-mode: multiply;
+}
+
+/* ---- Banner wrapper (image + text move together) ---- */
+#plane-widget .pw-banner-unit {
+  position: absolute;
+  width: 160px;
+  height: 50px;
+  transform-origin: left center;
+  will-change: transform;
+  z-index: 2;
+}
+
+/* ---- Banner image ---- */
+#plane-widget .pw-banner-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 3px;
+  z-index: 1;
+  mix-blend-mode: multiply;
+}
+
+/* CSS fallback when no banner.png is available */
+#plane-widget .pw-banner-fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(
+    135deg,
+    #f5c518 0%,
+    #eab308 25%,
+    #f5c518 50%,
+    #eab308 75%,
+    #f5c518 100%
+  );
+  background-size: 200% 200%;
+  box-shadow:
+    0 2px 8px rgba(0,0,0,0.22),
+    inset 0 1px 0 rgba(255,255,255,0.35);
+  z-index: 1;
+  animation: pw-fabric-shimmer 3s ease-in-out infinite;
+}
+
+@keyframes pw-fabric-shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+/* ---- Banner text ---- */
+#plane-widget .pw-banner-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 2;
+  font-size: clamp(7px, 1.2vw, 11px);
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  font-weight: 800;
+  color: #0a1628;
+  line-height: 1.25;
+  letter-spacing: 0.03em;
+  padding: 3px 6px;
+  user-select: none;
+  -webkit-user-select: none;
+  will-change: transform;
+}
+
+/* ---- Tow-line ---- */
+#plane-widget .pw-towline {
+  position: absolute;
+  height: 1.5px;
+  background: rgba(60, 60, 60, 0.45);
+  transform-origin: left center;
+  z-index: 1;
+  will-change: transform, width;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 480px) {
+  #plane-widget {
+    display: none;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  #plane-widget {
+    bottom: 40px;
+    height: 80px;
+  }
+  #plane-widget .pw-plane {
+    width: 60px;
+  }
+  #plane-widget .pw-banner-unit {
+    width: 120px;
+    height: 40px;
+  }
+  #plane-widget .pw-banner-text {
+    font-size: clamp(5px, 1vw, 8px);
+  }
+}

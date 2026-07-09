@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plane Animation Widget — Test Page</title>
+  <link rel="stylesheet" href="Assets/Styles/plane-animation.css">
+  <style>
+    /* Test page background to see the widget clearly */
+    body {
+      margin: 0;
+      padding: 40px;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #e2e8f0;
+      font-family: 'Poppins', system-ui, sans-serif;
+    }
+    h1 { color: #f8fafc; margin-bottom: 10px; }
+    p  { color: #94a3b8; max-width: 500px; line-height: 1.6; }
+    .label {
+      position: fixed;
+      bottom: 170px;
+      right: 20px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      color: #94a3b8;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      z-index: 9998;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>✈️ Plane Animation Widget Test</h1>
+  <p>
+    This page tests the corner biplane-banner animation widget.
+    Look in the <strong>bottom-right corner</strong> for a yellow biplane
+    towing a banner with "Awadh Aero DAC Aviation Academy" text.
+  </p>
+  <p>
+    The plane should fly right → U-turn → fly left → U-turn → loop.
+    The banner trails behind with a slight lag and wobble effect.
+  </p>
+
+  <div class="label">↓ Animation widget below ↓</div>
+
+  <script src="Assets/Script/plane-animation.js"></script>
+</body>
+</html>
