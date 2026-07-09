@@ -11,12 +11,12 @@
 
   // ── Configuration ──────────────────────────────────────────────
   var CONFIG = {
-    containerH: 100,
-    planeW: 80,
-    planeH: 55,
-    bannerW: 160,
-    bannerH: 50,
-    towGap: 14,
+    containerH: 180,
+    planeW: 150,
+    planeH: 103,
+    bannerW: 300,
+    bannerH: 90,
+    towGap: 24,
     flyDuration: 5000,    // slower since it's crossing the full screen
     turnDuration: 450,
     bobAmplitude: 5,

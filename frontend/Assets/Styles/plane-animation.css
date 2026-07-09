@@ -10,7 +10,7 @@
   bottom: 60px;
   left: 0;
   width: 100vw;
-  height: 100px;
+  height: 180px;
   z-index: 9999;
   pointer-events: none;
   overflow: visible;
@@ -19,7 +19,7 @@
 /* ---- Plane image ---- */
 #plane-widget .pw-plane {
   position: absolute;
-  width: 80px;
+  width: 150px;
   height: auto;
   transform-origin: center center;
   will-change: transform;
@@ -31,8 +31,8 @@
 /* ---- Banner wrapper (image + text move together) ---- */
 #plane-widget .pw-banner-unit {
   position: absolute;
-  width: 160px;
-  height: 50px;
+  width: 300px;
+  height: 90px;
   transform-origin: left center;
   will-change: transform;
   z-index: 2;
@@ -87,13 +87,13 @@
   justify-content: center;
   text-align: center;
   z-index: 2;
-  font-size: clamp(7px, 1.2vw, 11px);
+  font-size: clamp(10px, 1.8vw, 18px);
   font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
   font-weight: 800;
   color: #0a1628;
   line-height: 1.25;
   letter-spacing: 0.03em;
-  padding: 3px 6px;
+  padding: 5px 10px;
   user-select: none;
   -webkit-user-select: none;
   will-change: transform;
@@ -119,16 +119,16 @@
 @media (min-width: 481px) and (max-width: 768px) {
   #plane-widget {
     bottom: 40px;
-    height: 80px;
+    height: 140px;
   }
   #plane-widget .pw-plane {
-    width: 60px;
+    width: 110px;
   }
   #plane-widget .pw-banner-unit {
-    width: 120px;
-    height: 40px;
+    width: 220px;
+    height: 70px;
   }
   #plane-widget .pw-banner-text {
-    font-size: clamp(5px, 1vw, 8px);
+    font-size: clamp(8px, 1.4vw, 14px);
   }
 }
