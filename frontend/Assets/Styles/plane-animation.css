@@ -26,16 +26,20 @@
   z-index: 3;
   filter: drop-shadow(2px 3px 6px rgba(0,0,0,0.35));
   mix-blend-mode: multiply;
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 /* ---- Banner wrapper (image + text move together) ---- */
 #plane-widget .pw-banner-unit {
   position: absolute;
-  width: 300px;
-  height: 90px;
+  width: 280px;
+  height: 200px;
   transform-origin: left center;
   will-change: transform;
   z-index: 2;
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 /* ---- Banner image ---- */
@@ -87,7 +91,7 @@
   justify-content: center;
   text-align: center;
   z-index: 2;
-  font-size: clamp(10px, 1.8vw, 18px);
+  font-size: clamp(14px, 2.5vw, 22px);
   font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
   font-weight: 800;
   color: #0a1628;
@@ -125,8 +129,8 @@
     width: 110px;
   }
   #plane-widget .pw-banner-unit {
-    width: 220px;
-    height: 70px;
+    width: 140px;
+    height: 95px;
   }
   #plane-widget .pw-banner-text {
     font-size: clamp(8px, 1.4vw, 14px);

@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (footerContainer) {
     footerContainer.innerHTML = `
       <footer id="footer" class="relative bg-[#005F86] text-white pt-6">
-        <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-8 pb-12">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-8 pb-12">
           <!-- Column 1: Info -->
           <div class="footer-col space-y-4">
             <div class="flex items-center space-x-2">
@@ -235,23 +235,17 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="footer-col">
             <h4 class="text-xl font-bold mb-4 border-b border-white/30 pb-2">Quick Links</h4>
             <ul class="space-y-2 text-sm text-gray-200">
-              <li><a href="${prefix}Pages/about.html" class="hover:text-white flex items-center"><i class="fas fa-caret-right mr-2 text-xs"></i>Who We Are</a></li>
-              <li><a href="${prefix}Pages/leadership.html" class="hover:text-white flex items-center"><i class="fas fa-caret-right mr-2 text-xs"></i>Our Leadership</a></li>
+              <li><a href="${prefix}index.html" class="hover:text-white flex items-center"><i class="fas fa-caret-right mr-2 text-xs"></i>Home</a></li>
+              <li><a href="${prefix}Pages/about.html" class="hover:text-white flex items-center"><i class="fas fa-caret-right mr-2 text-xs"></i>About Us</a></li>
+              <li><a href="#" class="hover:text-white flex items-center"><i class="fas fa-caret-right mr-2 text-xs"></i>Courses</a></li>
+              <li><a href="#" class="hover:text-white flex items-center"><i class="fas fa-caret-right mr-2 text-xs"></i>Gallery</a></li>
               <li><a href="${prefix}Pages/admission.html" class="hover:text-white flex items-center"><i class="fas fa-caret-right mr-2 text-xs"></i>Admission</a></li>
-              <li><a href="${prefix}Pages/blog.html" class="hover:text-white flex items-center"><i class="fas fa-caret-right mr-2 text-xs"></i>Blogs & News</a></li>
+              <li><a href="${prefix}Pages/blog.html" class="hover:text-white flex items-center"><i class="fas fa-caret-right mr-2 text-xs"></i>Blogs</a></li>
               <li><a href="${prefix}Pages/contact.html" class="hover:text-white flex items-center"><i class="fas fa-caret-right mr-2 text-xs"></i>Contact Us</a></li>
             </ul>
           </div>
 
-          <!-- Column 3: Programs -->
-          <div class="footer-col">
-            <h4 class="text-xl font-bold mb-4 border-b border-white/30 pb-2">Our Programs</h4>
-            <ul class="space-y-2 text-sm text-gray-200">
-              <li><a href="${prefix}Pages/ame-b1-1.html" class="hover:text-white">B1.1 Aeroplanes Turbine</a></li>
-              <li><a href="${prefix}Pages/ame-b1-2-mechanical.html" class="hover:text-white">B1.2 (Mechanical)</a></li>
-              <li><a href="${prefix}Pages/ame-b1-2.html" class="hover:text-white">B2 (Avionics)</a></li>
-            </ul>
-          </div>
+
 
           <!-- Column 4: Contact -->
           <div class="footer-col space-y-4">

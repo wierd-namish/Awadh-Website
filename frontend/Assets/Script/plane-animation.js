@@ -14,14 +14,15 @@
     containerH: 180,
     planeW: 150,
     planeH: 103,
-    bannerW: 300,
-    bannerH: 90,
-    towGap: 24,
-    flyDuration: 5000,    // slower since it's crossing the full screen
-    turnDuration: 450,
+    bannerW: 280,
+    bannerH: 200,
+    towGap: -30,           // negative overlap to touch the actual tail of the plane
+    bannerYOffset: 20,    // vertical nudge to align banner with the tail
+    flyDuration: 15000,   // 15 seconds to cross the full screen
+    turnDuration: 1200,   // smooth, graceful U-turn
     bobAmplitude: 5,
     bobPeriod: 1500,
-    bannerLag: 110,
+    bannerLag: 0,         // no lag, banner follows plane exactly
     bannerWobbleAmp: 2.5,
     bannerWobblePeriod: 400,
     turnBankAngle: 15,
@@ -38,6 +39,9 @@
   var planeRotation = 0;
   var planeScale = 1;
   var animFrameId = null;
+  var paused = false;
+  var pausedTimestamp = 0;
+  var pausedElapsed = 0;
 
   // Dynamic edges based on viewport
   var leftEdge, rightEdge, centerY;
@@ -55,7 +59,7 @@
   var historyIndex = 0;
 
   // ── DOM References ─────────────────────────────────────────────
-  var container, planeEl, bannerUnit, bannerImg, bannerFallback, bannerText, towline;
+  var container, planeEl, bannerUnit, bannerImg, bannerFallback, bannerText, towline, brochureBtn;
   var useBannerImage = false;
 
   // ── Easing ─────────────────────────────────────────────────────
@@ -111,9 +115,10 @@
     container = document.createElement('div');
     container.id = 'plane-widget';
 
-    // Towline
+    // Towline (hidden – banner is attached directly)
     towline = document.createElement('div');
     towline.className = 'pw-towline';
+    towline.style.display = 'none';
     container.appendChild(towline);
 
     // Plane
@@ -182,18 +187,54 @@
     // Banner text
     bannerText = document.createElement('div');
     bannerText.className = 'pw-banner-text';
-    bannerText.innerHTML = 'Awadh Aero DAC<br>Aviation Academy';
+    bannerText.innerHTML = 'aadaa<br>Brochure 2026';
     bannerUnit.appendChild(bannerText);
+
+    // "View Brochure" hover button
+    brochureBtn = document.createElement('a');
+    brochureBtn.href = 'Assets/Images/broschure/Awadh%20Aero%20DAC%20Aviation%20Academy.pdf.pdf';
+    brochureBtn.target = '_blank';
+    brochureBtn.className = 'pw-brochure-btn';
+    brochureBtn.innerHTML = '<i class="fas fa-file-pdf"></i> View Brochure';
+    brochureBtn.style.cssText = 'display:none; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); background:rgba(255,67,1,0.95); color:#fff; padding:8px 18px; border-radius:50px; font-weight:700; font-size:13px; text-decoration:none; z-index:50; box-shadow:0 4px 16px rgba(0,0,0,0.3); cursor:pointer; white-space:nowrap; transition:background 0.2s, transform 0.2s; pointer-events:auto;';
+    brochureBtn.addEventListener('mouseenter', function() {
+      brochureBtn.style.background = 'rgba(255,67,1,1)';
+      brochureBtn.style.transform = 'translate(-50%,-50%) scale(1.08)';
+    });
+    brochureBtn.addEventListener('mouseleave', function() {
+      brochureBtn.style.background = 'rgba(255,67,1,0.95)';
+      brochureBtn.style.transform = 'translate(-50%,-50%) scale(1)';
+    });
+    bannerUnit.appendChild(brochureBtn);
 
     container.appendChild(bannerUnit);
     document.body.appendChild(container);
+
+    // Hover events: pause animation + show button
+    container.addEventListener('mouseenter', function () {
+      if (!paused) {
+        paused = true;
+        pausedTimestamp = performance.now();
+        brochureBtn.style.display = 'inline-flex';
+        brochureBtn.style.alignItems = 'center';
+        brochureBtn.style.gap = '6px';
+      }
+    });
+    container.addEventListener('mouseleave', function () {
+      if (paused) {
+        var pauseDuration = performance.now() - pausedTimestamp;
+        phaseStartTime += pauseDuration;  // offset so animation resumes seamlessly
+        paused = false;
+        brochureBtn.style.display = 'none';
+      }
+    });
 
     requestAnimationFrame(autoSizeText);
   }
 
   // ── Auto-size text ─────────────────────────────────────────────
   function autoSizeText() {
-    var max = 12, min = 5;
+    var max = 20, min = 10;
     for (var s = max; s >= min; s -= 0.5) {
       bannerText.style.fontSize = s + 'px';
       if (bannerText.scrollWidth <= CONFIG.bannerW &&
@@ -231,6 +272,10 @@
 
   // ── Main animation loop ────────────────────────────────────────
   function animate(timestamp) {
+    if (paused) {
+      animFrameId = requestAnimationFrame(animate);
+      return;
+    }
     if (!phaseStartTime) phaseStartTime = timestamp;
     var elapsed = timestamp - phaseStartTime;
     var now = performance.now();
@@ -331,7 +376,7 @@
       bannerX = lagged.x + CONFIG.planeW + CONFIG.towGap;
     }
 
-    bannerY = lagged.y + (CONFIG.planeH - CONFIG.bannerH) / 2;
+    bannerY = lagged.y + (CONFIG.planeH - CONFIG.bannerH) / 2 + (CONFIG.bannerYOffset || 0);
 
     var wobbleT = (timestamp % CONFIG.bannerWobblePeriod) / CONFIG.bannerWobblePeriod;
     var wobble = Math.sin(wobbleT * Math.PI * 2) * CONFIG.bannerWobbleAmp;
