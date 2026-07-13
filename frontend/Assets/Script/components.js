@@ -221,12 +221,15 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-8 pb-12">
           <!-- Column 1: Info -->
           <div class="footer-col space-y-4">
-            <div class="flex items-center space-x-2">
-              <img src="${prefix}Assets/Images/WhatsApp_Image_2026-07-04_at_11.13.29_PM-removebg-preview.png" class="w-14 h-14 object-contain bg-white rounded-full p-1 shadow-sm" alt="Awadh Logo">
-              <span class="text-2xl font-bold">Awadh</span>
-            </div>
-            <p class="text-gray-200 text-sm leading-relaxed">
-              Awadh Aero DAC Aviation Academy is a next-generation Aircraft Maintenance Engineering ininstitute supporting India's rapidly growing aviation industry.
+            <h4 class="text-xl font-bold mb-4 border-b border-white/30 pb-2">AADAA Campus</h4>
+            <p class="text-sm text-gray-200 mb-6">
+              Kanpur - Lucknow Rd, Daroga Khera, Lucknow,<br>
+              Banthra Sikander Pur, Uttar Pradesh 226401
+            </p>
+            <h4 class="text-xl font-bold mb-4 border-b border-white/30 pb-2">Registered office</h4>
+            <p class="text-sm text-gray-200">
+              Mankapur Kot, Mankapur, Gonda,<br>
+              Uttar Pradesh - 271302, India
             </p>
             <!-- Social Buttons Placeholders (Moved to floating container) -->
           </div>
@@ -252,7 +255,6 @@ document.addEventListener("DOMContentLoaded", () => {
             <h4 class="text-xl font-bold mb-4 border-b border-white/30 pb-2">Contact Academy</h4>
             <p class="text-sm text-gray-200">Feel free to reach out to learn more about admissions and training schedules.</p>
             <ul class="space-y-2 text-sm text-gray-200">
-              <li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-3 text-xs"></i><span>Kanpur - Lucknow Rd, Daroga Khera, Lucknow, Banthra Sikander Pur, Uttar Pradesh 226401</span></li>
               <li class="flex items-center"><i class="far fa-envelope mr-3 text-xs"></i><span>am@awadhaero.com</span></li>
               <li class="flex items-center"><i class="fas fa-phone mr-3 text-xs"></i><span>+91 95198 46758</span></li>
               <li class="flex items-center"><i class="fas fa-phone mr-3 text-xs"></i><span>+91 70808 46758</span></li>
