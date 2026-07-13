@@ -187,7 +187,7 @@
     // Banner text
     bannerText = document.createElement('div');
     bannerText.className = 'pw-banner-text';
-    bannerText.innerHTML = 'aadaa<br>Brochure 2026';
+    bannerText.innerHTML = '<div style="display:flex; flex-direction:column; align-items:center; line-height:1.1;"><span style="font-weight: 900; font-size: 1.35em; letter-spacing: 0.5px;">Click here</span><span style="font-weight: 700; font-size: 0.85em; opacity: 0.85; margin-top: 3px;">Brochure (2026)</span></div>';
     bannerUnit.appendChild(bannerText);
 
     // "View Brochure" hover button
