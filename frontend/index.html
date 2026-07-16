@@ -231,9 +231,13 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch scroll-reveal">
         <!-- Left: Image Box -->
         <div class="relative w-full rounded-3xl overflow-hidden shadow-xl h-[300px] lg:h-auto bg-black group flex items-center justify-center">
-          <!-- Images Container (Empty as requested) -->
-          <div class="w-full h-full relative">
-            <!-- Pictures folder is empty -->
+          <!-- Images Container -->
+          <div class="w-full h-full relative overflow-hidden" id="hangGliderSliderContainer">
+            <div class="flex w-[300%] h-full transition-transform duration-700 ease-in-out" id="hangGliderSlider">
+              <img src="Assets/Images/WhatsApp%20Image%202026-07-16%20at%2023.34.57.jpeg" class="w-1/3 h-full object-cover" alt="Hang Glider 1">
+              <img src="Assets/Images/WhatsApp%20Image%202026-07-16%20at%2023.34.56.jpeg" class="w-1/3 h-full object-cover" alt="Hang Glider 2">
+              <img src="Assets/Images/WhatsApp%20Image%202026-07-16%20at%2023.34.56%20(1).jpeg" class="w-1/3 h-full object-cover" alt="Hang Glider 3">
+            </div>
           </div>
 
           <!-- Overlay Text -->
@@ -664,6 +668,18 @@
     // Initialize and start
     initHeroSlider();
     startHeroSlideTimer();
+
+    // Hang Glider Slider Logic
+    const hgSlider = document.getElementById('hangGliderSlider');
+    let hgCurrentSlide = 0;
+    const hgTotalSlides = 3;
+
+    if (hgSlider) {
+      setInterval(() => {
+        hgCurrentSlide = (hgCurrentSlide + 1) % hgTotalSlides;
+        hgSlider.style.transform = `translateX(-${hgCurrentSlide * (100 / hgTotalSlides)}%)`;
+      }, 2500);
+    }
   </script>
 
   <!-- Plane-Banner Corner Animation Widget -->
