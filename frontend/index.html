@@ -223,7 +223,15 @@
 
         <!-- Right: Image Section -->
         <div class="relative w-full rounded-3xl overflow-hidden shadow-xl min-h-[300px] bg-black group flex items-center justify-center order-1 lg:order-2">
-          <!-- Images folder is empty -->
+          <!-- Images Container -->
+          <div class="absolute inset-0 w-full h-full overflow-hidden" id="b2SliderContainer">
+            <div class="flex w-[400%] h-full transition-transform duration-700 ease-in-out" id="b2Slider">
+              <img src="Assets/Images/b2/WhatsApp%20Image%202026-07-16%20at%2023.56.59%20(1).jpeg" class="w-1/4 h-full object-contain" alt="B2 Image 1">
+              <img src="Assets/Images/b2/WhatsApp%20Image%202026-07-16%20at%2023.56.59.jpeg" class="w-1/4 h-full object-contain" alt="B2 Image 2">
+              <img src="Assets/Images/b2/WhatsApp%20Image%202026-07-16%20at%2023.57.00%20(1).jpeg" class="w-1/4 h-full object-contain" alt="B2 Image 3">
+              <img src="Assets/Images/b2/WhatsApp%20Image%202026-07-16%20at%2023.57.00.jpeg" class="w-1/4 h-full object-contain" alt="B2 Image 4">
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -252,8 +260,8 @@
           <!-- Overlay Text -->
           <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent pointer-events-none"></div>
           <div class="absolute bottom-6 left-6 text-white z-20 pointer-events-none">
-            <h3 class="text-2xl font-bold">Practical Training</h3>
-            <p class="text-gray-200 text-sm">Real-world aviation maintenance</p>
+            <!-- <h3 class="text-2xl font-bold">Practical Training</h3>
+            <p class="text-gray-200 text-sm">Real-world aviation maintenance</p> -->
           </div>
         </div>
 
@@ -679,28 +687,44 @@
     startHeroSlideTimer();
 
     // Hang Glider Slider Logic
-    const hgSlider = document.getElementById('hangGliderSlider');
-    let hgCurrentSlide = 0;
-    const hgTotalSlides = 3;
+    function setupSeamlessSlider(sliderId, interval = 2500, transitionDuration = 700) {
+      const slider = document.getElementById(sliderId);
+      if (!slider) return;
 
-    if (hgSlider) {
+      const children = Array.from(slider.children);
+      const totalOriginalSlides = children.length;
+      if (totalOriginalSlides === 0) return;
+      
+      const firstClone = children[0].cloneNode(true);
+      slider.appendChild(firstClone);
+      
+      const totalSlides = totalOriginalSlides + 1;
+      slider.style.width = `${totalSlides * 100}%`;
+      
+      Array.from(slider.children).forEach(child => {
+        child.style.width = `${100 / totalSlides}%`;
+      });
+
+      let currentSlide = 0;
+
       setInterval(() => {
-        hgCurrentSlide = (hgCurrentSlide + 1) % hgTotalSlides;
-        hgSlider.style.transform = `translateX(-${hgCurrentSlide * (100 / hgTotalSlides)}%)`;
-      }, 2500);
+        currentSlide++;
+        slider.style.transition = `transform ${transitionDuration}ms ease-in-out`;
+        slider.style.transform = `translateX(-${currentSlide * (100 / totalSlides)}%)`;
+
+        if (currentSlide === totalOriginalSlides) {
+          setTimeout(() => {
+            slider.style.transition = 'none';
+            currentSlide = 0;
+            slider.style.transform = `translateX(0%)`;
+          }, transitionDuration);
+        }
+      }, interval);
     }
 
-    // B1.1 Slider Logic
-    const b1Slider = document.getElementById('b1Slider');
-    let b1CurrentSlide = 0;
-    const b1TotalSlides = 5;
-
-    if (b1Slider) {
-      setInterval(() => {
-        b1CurrentSlide = (b1CurrentSlide + 1) % b1TotalSlides;
-        b1Slider.style.transform = `translateX(-${b1CurrentSlide * (100 / b1TotalSlides)}%)`;
-      }, 2500);
-    }
+    setupSeamlessSlider('hangGliderSlider');
+    setupSeamlessSlider('b1Slider');
+    setupSeamlessSlider('b2Slider');
   </script>
 
   <!-- Plane-Banner Corner Animation Widget -->
