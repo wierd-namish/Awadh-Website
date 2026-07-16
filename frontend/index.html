@@ -170,7 +170,16 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch scroll-reveal mb-12">
         <!-- Left: Image Section -->
         <div class="relative w-full rounded-3xl overflow-hidden shadow-xl min-h-[300px] bg-black group flex items-center justify-center">
-          <!-- Images folder is empty -->
+          <!-- Images Container -->
+          <div class="absolute inset-0 w-full h-full overflow-hidden" id="b1SliderContainer">
+            <div class="flex w-[500%] h-full transition-transform duration-700 ease-in-out" id="b1Slider">
+              <img src="Assets/Images/b1.1/WhatsApp%20Image%202026-07-16%20at%2023.47.27%20(1).jpeg" class="w-1/5 h-full object-contain" alt="B1.1 Image 1">
+              <img src="Assets/Images/b1.1/WhatsApp%20Image%202026-07-16%20at%2023.47.27.jpeg" class="w-1/5 h-full object-contain" alt="B1.1 Image 2">
+              <img src="Assets/Images/b1.1/WhatsApp%20Image%202026-07-16%20at%2023.47.28%20(1).jpeg" class="w-1/5 h-full object-contain" alt="B1.1 Image 3">
+              <img src="Assets/Images/b1.1/WhatsApp%20Image%202026-07-16%20at%2023.47.28%20(2).jpeg" class="w-1/5 h-full object-contain" alt="B1.1 Image 4">
+              <img src="Assets/Images/b1.1/WhatsApp%20Image%202026-07-16%20at%2023.47.28.jpeg" class="w-1/5 h-full object-contain" alt="B1.1 Image 5">
+            </div>
+          </div>
         </div>
 
         <!-- Right: Data of B1.1 -->
@@ -232,11 +241,11 @@
         <!-- Left: Image Box -->
         <div class="relative w-full rounded-3xl overflow-hidden shadow-xl h-[300px] lg:h-auto bg-black group flex items-center justify-center">
           <!-- Images Container -->
-          <div class="w-full h-full relative overflow-hidden" id="hangGliderSliderContainer">
+          <div class="absolute inset-0 w-full h-full overflow-hidden" id="hangGliderSliderContainer">
             <div class="flex w-[300%] h-full transition-transform duration-700 ease-in-out" id="hangGliderSlider">
-              <img src="Assets/Images/WhatsApp%20Image%202026-07-16%20at%2023.34.57.jpeg" class="w-1/3 h-full object-cover" alt="Hang Glider 1">
-              <img src="Assets/Images/WhatsApp%20Image%202026-07-16%20at%2023.34.56.jpeg" class="w-1/3 h-full object-cover" alt="Hang Glider 2">
-              <img src="Assets/Images/WhatsApp%20Image%202026-07-16%20at%2023.34.56%20(1).jpeg" class="w-1/3 h-full object-cover" alt="Hang Glider 3">
+              <img src="Assets/Images/WhatsApp%20Image%202026-07-16%20at%2023.34.57.jpeg" class="w-1/3 h-full object-contain" alt="Hang Glider 1">
+              <img src="Assets/Images/WhatsApp%20Image%202026-07-16%20at%2023.34.56.jpeg" class="w-1/3 h-full object-contain" alt="Hang Glider 2">
+              <img src="Assets/Images/WhatsApp%20Image%202026-07-16%20at%2023.34.56%20(1).jpeg" class="w-1/3 h-full object-contain" alt="Hang Glider 3">
             </div>
           </div>
 
@@ -678,6 +687,18 @@
       setInterval(() => {
         hgCurrentSlide = (hgCurrentSlide + 1) % hgTotalSlides;
         hgSlider.style.transform = `translateX(-${hgCurrentSlide * (100 / hgTotalSlides)}%)`;
+      }, 2500);
+    }
+
+    // B1.1 Slider Logic
+    const b1Slider = document.getElementById('b1Slider');
+    let b1CurrentSlide = 0;
+    const b1TotalSlides = 5;
+
+    if (b1Slider) {
+      setInterval(() => {
+        b1CurrentSlide = (b1CurrentSlide + 1) % b1TotalSlides;
+        b1Slider.style.transform = `translateX(-${b1CurrentSlide * (100 / b1TotalSlides)}%)`;
       }, 2500);
     }
   </script>
