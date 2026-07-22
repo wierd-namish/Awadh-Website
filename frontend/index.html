@@ -306,25 +306,32 @@
     </div>
   </section>
 
-  <!-- Section 4: Why Choose Us (Split Layout) -->
-  <section class="relative bg-[rgb(0,165,223)] py-20 overflow-hidden scroll-reveal">
-    <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 grid grid-cols-1 md:grid-cols-2 items-center gap-16 relative">
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,67,1,0.08),transparent_45%)]"></div>
-      
-      <!-- Left Column: Slides from Left -->
-      <div class="text-white space-y-8 relative z-10 stagger-reveal">
-  <h2 class="text-3xl md:text-5xl font-black leading-tight drop-shadow-md">Why to choose <br>aadaa</h2>
+  <!-- Section 4: Why Choose Us (Background Image Layout) -->
+  <section class="relative py-24 overflow-hidden scroll-reveal min-h-[550px] flex items-center">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0 z-0">
+      <img src="Assets/Images/WhatsApp%20Image%202026-07-12%20at%2000.17.21.jpeg" class="w-full h-full object-cover object-center" alt="Awadh Academy Campus">
+      <!-- Gradient overlay: Brand blue/black on the left, fading to semi-transparent blue/black on the right -->
+      <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30 md:from-[rgb(0,95,134)]/95 md:via-[rgb(0,165,223)]/75 md:to-transparent"></div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 relative z-10 w-full">
+      <!-- Left Column Layout (takes up half or 3/5 width on desktop) -->
+      <div class="max-w-xl text-white space-y-8 stagger-reveal">
+        <h2 class="text-3xl md:text-5xl font-black leading-tight drop-shadow-md">
+          Why to choose <br>aadaa
+        </h2>
         
         <!-- Feature Points -->
         <div class="space-y-4">
           <!-- Point 1 -->
-          <div class="group relative bg-[rgb(0,95,134)] text-white font-semibold rounded-2xl shadow-sm hover:bg-[rgb(0,105,145)] transition-all duration-300 premium-card overflow-hidden cursor-pointer">
+          <div class="group relative bg-[rgb(0,95,134)]/90 backdrop-blur-md text-white font-semibold rounded-2xl shadow-lg hover:bg-[rgb(0,105,145)]/95 transition-all duration-300 premium-card overflow-hidden cursor-pointer border border-white/10">
             <div class="flex items-center justify-between py-4 px-6">
               <div class="flex items-center space-x-4">
-                <div class="w-8 h-8 bg-indigo-500/25 rounded-full flex items-center justify-center text-indigo-400 font-bold flex-shrink-0"><i class="fas fa-check text-xs"></i></div>
+                <div class="w-8 h-8 bg-indigo-500/25 rounded-full flex items-center justify-center text-indigo-300 font-bold flex-shrink-0"><i class="fas fa-check text-xs"></i></div>
                 <span>AADAA Campus Information</span>
               </div>
-              <i class="fas fa-chevron-down transform transition-transform duration-300 group-hover:rotate-180 text-gray-400"></i>
+              <i class="fas fa-chevron-down transform transition-transform duration-300 group-hover:rotate-180 text-gray-300"></i>
             </div>
             <div class="max-h-0 opacity-0 group-hover:max-h-48 group-hover:opacity-100 transition-all duration-500 ease-in-out px-6 text-sm text-gray-200 overflow-hidden">
               <div class="pb-4 pt-1">
@@ -332,44 +339,31 @@
                   <li>Smart classrooms</li>
                   <li>Guest lectures by industry experts.</li>
                 </ul>
-                <a href="Pages/about.html?scrollTo=facilities" class="inline-block mt-3 text-[#ff4301] hover:text-orange-400 transition-colors font-bold">Read more <i class="fas fa-arrow-right text-xs ml-1"></i></a>
+                <a href="Pages/about.html?scrollTo=facilities" class="inline-block mt-3 text-orange-400 hover:text-orange-300 transition-colors font-bold">Read more <i class="fas fa-arrow-right text-xs ml-1"></i></a>
               </div>
             </div>
           </div>
 
           <!-- Point 2 -->
-          <div class="group relative bg-[rgb(0,95,134)] text-white font-semibold rounded-2xl shadow-sm hover:bg-[rgb(0,105,145)] transition-all duration-300 premium-card overflow-hidden cursor-pointer">
+          <div class="group relative bg-[rgb(0,95,134)]/90 backdrop-blur-md text-white font-semibold rounded-2xl shadow-lg hover:bg-[rgb(0,105,145)]/95 transition-all duration-300 premium-card overflow-hidden cursor-pointer border border-white/10">
             <div class="flex items-center justify-between py-4 px-6">
               <div class="flex items-center space-x-4">
-                <div class="w-8 h-8 bg-indigo-500/25 rounded-full flex items-center justify-center text-indigo-400 font-bold flex-shrink-0"><i class="fas fa-check text-xs"></i></div>
+                <div class="w-8 h-8 bg-indigo-500/25 rounded-full flex items-center justify-center text-indigo-300 font-bold flex-shrink-0"><i class="fas fa-check text-xs"></i></div>
                 <span>Extra Curricular Activities</span>
               </div>
-              <i class="fas fa-chevron-down transform transition-transform duration-300 group-hover:rotate-180 text-gray-400"></i>
+              <i class="fas fa-chevron-down transform transition-transform duration-300 group-hover:rotate-180 text-gray-300"></i>
             </div>
             <div class="max-h-0 opacity-0 group-hover:max-h-48 group-hover:opacity-100 transition-all duration-500 ease-in-out px-6 text-sm text-gray-200 overflow-hidden">
               <div class="pb-4 pt-1">
                 <ul class="space-y-2 list-disc list-inside">
                   <li>English Language Classes</li>
-                  <li>Training on AI powered aircraft maitainance management software</li>
+                  <li>Training on AI powered aircraft maintenance management software</li>
                 </ul>
-                <a href="Pages/about.html?scrollTo=extra-curricular" class="inline-block mt-3 text-[#ff4301] hover:text-orange-400 transition-colors font-bold">Read more <i class="fas fa-arrow-right text-xs ml-1"></i></a>
+                <a href="Pages/about.html?scrollTo=extra-curricular" class="inline-block mt-3 text-orange-400 hover:text-orange-300 transition-colors font-bold">Read more <i class="fas fa-arrow-right text-xs ml-1"></i></a>
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <!-- Right Column Image & Metrics Bubble -->
-      <div class="relative flex justify-center items-center z-10 scroll-reveal">
-        <div class="relative w-full max-w-[500px] rounded-3xl overflow-hidden shadow-2xl border border-white/10">
-          <img src="Assets/Images/WhatsApp%20Image%202026-07-12%20at%2000.17.21.jpeg" class="w-full h-auto object-contain transition duration-700 hover:scale-105" alt="Awadh Aero DAC Aviation Academy Poster">
-        </div>
-        
-        <!-- Metric Bubble Spring Pop -->
-        <!-- <div class="absolute -bottom-6 -left-6 bg-gradient-to-r from-orange-500 to-orange-600 text-white p-6 rounded-3xl shadow-2xl flex flex-col justify-center items-center metric-bubble border border-orange-400 z-20">
-          <span class="text-4xl font-black">100%</span>
-          <span class="text-[10px] uppercase font-black tracking-wider text-orange-100 mt-1">Placement Rate</span>
-        </div> -->
       </div>
     </div>
   </section>
