@@ -481,3 +481,172 @@ header.scrolled {
 .hero-slide-from-left.animate {
   animation: slideFromLeft 1s ease-out 0.3s forwards;
 }
+
+/* ==========================================
+   Info Section (Eligibility & Duration) Styles
+   ========================================== */
+.info-section {
+    max-width: 1300px;
+    margin: 60px auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 30px;
+}
+
+.info-section .card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 28px;
+    padding: 22px;
+    transition: 0.35s;
+    box-shadow: 0 15px 35px rgba(0,0,0,.08);
+}
+
+.info-section .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 50px rgba(0,0,0,.15);
+}
+
+.info-section .eligibility {
+    background: linear-gradient(135deg,#eef2ff,#dde8ff);
+}
+
+.info-section .duration {
+    background: linear-gradient(135deg,#fff5ea,#ffe7c7);
+}
+
+.info-section .apply {
+    background: linear-gradient(135deg,#edfdf5,#dafbe9);
+}
+
+.info-section .icon-box {
+    width: 52px;
+    height: 52px;
+    background: white;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.08);
+}
+
+.info-section .card h2 {
+    margin-top: 16px;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.info-section .eligibility h2 {
+    color: #4657ff;
+}
+
+.info-section .duration h2 {
+    color: #ff6b00;
+}
+
+.info-section .apply h2 {
+    color: #0caa4d;
+}
+
+.info-section .line {
+    width: 50px;
+    height: 4px;
+    border-radius: 20px;
+    margin: 10px 0 16px;
+}
+
+.info-section .eligibility .line {
+    background: #4657ff;
+}
+
+.info-section .duration .line {
+    background: #ff6b00;
+}
+
+.info-section .apply .line {
+    background: #0caa4d;
+}
+
+.info-section .card p {
+    color: #444;
+    font-size: 16px;
+    line-height: 1.45;
+}
+
+.info-section .or {
+    display: block;
+    margin: 10px 0;
+    color: #888;
+    font-style: italic;
+    font-size: 15px;
+}
+
+.info-section .duration h3 {
+    font-size: 42px;
+    color: #ff6b00;
+    margin-bottom: 4px;
+}
+
+.info-section button {
+    width: 100%;
+    margin-top: 14px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 13px;
+    border-radius: 14px;
+    background: linear-gradient(90deg,#ff6b00,#ff4500);
+    transition: 0.3s;
+}
+
+.info-section button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 20px 35px rgba(255,100,0,.35);
+}
+
+/* Decorative dots */
+.info-section .dots {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 48px;
+    height: 48px;
+    background-image: radial-gradient(currentColor 2px, transparent 2px);
+    background-size: 10px 10px;
+    opacity: .25;
+}
+
+.info-section .eligibility .dots {
+    color: #4657ff;
+}
+
+.info-section .duration .dots {
+    color: #ff6b00;
+}
+
+.info-section .apply .dots {
+    color: #0caa4d;
+}
+
+/* Decorative glow */
+.info-section .card::after {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.35);
+    bottom: -90px;
+    right: -90px;
+}
+
+@media (max-width: 1024px) {
+    .info-section {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+        margin: 40px auto;
+    }
+}

@@ -21,8 +21,7 @@
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between">
       <div>
         <h1 class="text-4xl font-extrabold text-gray-800">Power Hang Glider Training</h1>
-        <p class="text-gray-500 text-sm mt-1">Recreational flight training and structural rigging for motorized ultralights.</p>
-      </div>
+</div>
       <div class="mt-4 md:mt-0 text-sm font-semibold text-gray-500">
         <a href="../index.html" class="hover:text-[#5d58ef] transition">Home</a>
         <span class="mx-2">/</span>
@@ -44,15 +43,12 @@
       <!-- Left -->
       <div class="space-y-6">
 
-        <span class="inline-block text-[#ff4301] text-xs font-bold uppercase tracking-widest border border-orange-200 bg-orange-50 px-3 py-1 rounded-full">
-          Adventure Aviation
-        </span>
 
         <h2 class="text-4xl md:text-5xl font-black text-gray-800 leading-tight">
           Power Hang Glider <br> Training
         </h2>
 
-        <div class="w-20 h-1 bg-[#ff4301] rounded-full"></div>
+      
 
         <p class="text-gray-600 text-lg leading-relaxed">
           Power hang gliding (or weight-shift control trikes) combines the freedom of a standard hang glider wing with the reliability of a small fuel-efficient engine. It is the perfect entry point for flight enthusiasts.
@@ -66,75 +62,81 @@
 
       <!-- Right Image -->
       <div class="flex justify-center">
-        <div class="w-full max-w-xl h-[500px] rounded-3xl overflow-hidden shadow-2xl relative">
-
-          <img
-            src="../Assets/Images/hang_glider_hero.jpg"
-            alt="Power Hang Glider"
-            class="w-full h-full object-cover">
-
-          <!-- <div class="absolute bottom-5 left-5 bg-black/60 backdrop-blur-md text-white px-5 py-2 rounded-xl font-semibold">
-            Flight Testing Airspace
-          </div> -->
-
+        <div class="w-full max-w-md h-96 rounded-3xl overflow-hidden shadow-2xl relative bg-black group">
+          
+          <!-- Images Container -->
+          <div id="carousel-images" class="w-full h-full relative">
+            <img src="../Assets/Images/hang_glider_hero.jpg" class="w-full h-full object-contain absolute inset-0 transition-opacity duration-500 opacity-100" alt="Avionics Image 1">
+          </div>
+        </div>
         </div>
       </div>
+    </div>
+
+  <section class="info-section">
+
+    <div class="card eligibility">
+
+        <div class="icon-box">
+            🎓
+        </div>
+
+        <div class="dots"></div>
+
+        <h2>Eligibility</h2>
+
+        <div class="line"></div>
+
+        <p>
+            10+2 with Physics, Chemistry & Mathematics
+        </p>
+
+        <span class="or">or</span>
+
+        <p>
+            Diploma in Mechanical, Electrical,
+            Electronics & Aeronautical Engineering
+        </p>
 
     </div>
 
-    <!-- Info Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+    <div class="card duration">
 
-      <!-- Eligibility -->
-      <div class="lg:col-span-2 p-6 bg-indigo-50 rounded-2xl shadow-sm">
+        <div class="icon-box">
+            📅
+        </div>
 
-        <h4 class="font-bold text-[#5d58ef] text-xl mb-2">
-          Eligibility
-        </h>
+        <div class="dots"></div>
 
-        <p class="text-gray-700 text-lg leading-8">
-10+2 with Physics, Chemistry & Math<br>
+        <h2>Duration</h2>
 
-or<br>
-Diploma in Mechanical, Electrical, or Electronics Engineering
-        </p>
+        <div class="line"></div>
 
-      </div>
+        <h3>2 Years</h3>
 
-      <!-- Duration -->
-      <div class="mlg:col-span-2 p-6 bg-orange-50 rounded-2xl shadow-sm">
-
-        <h4 class="font-bold text-[#ff4301] text-xl mb-2">
-          Duration
-        </h>
-
-        <p class="text-gray-700 text-lg leading-8">
-          3 Weeks<br>
-          (Includes Flying Hours)
-        </p>
-
-      </div>
-
-      <!-- CTA -->
-      <div class="lg:col-span-2 bg-green-50 rounded-3xl p-8 min-h-[220px] flex flex-col justify-center items-center">
-
-        <h3 class="text-2xl md:text-3xl font-bold text-green-600 text-center mb-8">
-          Ready to Join?
-        </h3>
-
-        <a
-          href="admission-form.html"
-          class="w-full text-center py-4 bg-[#ff4301] text-white text-lg font-bold rounded-2xl shadow-lg hover:bg-[#5d58ef] transition duration-300">
-
-          Application Form
-
-        </a>
-
-      </div>
+        <p>(4 Semesters)</p>
 
     </div>
 
-  </div>
+    <div class="card apply">
+
+        <div class="icon-box">
+            🚀
+        </div>
+
+        <div class="dots"></div>
+
+        <h2>Ready to Join?</h2>
+
+        <div class="line"></div>
+
+        <button onclick="window.location.href='admission-form.html'">
+            Application Form →
+        </button>
+
+    </div>
+
+  </section>
 </section>
 
   <!-- Detailed Syllabus -->

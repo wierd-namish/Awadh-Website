@@ -400,7 +400,7 @@
   -->
 
   <!-- Section 6: Blog Preview Section -->
-  <section class="pt-16 pb-16 bg-gray-50 border-t border-b">
+  <section id="blog-section" class="pt-16 pb-16 bg-gray-50 border-t border-b">
     <div class="max-w-7xl mx-auto px-6 mb-12 text-center scroll-reveal stagger-reveal">
   <h2 class="text-4xl font-extrabold mt-4 mb-4 text-gray-800">Blogs</h2>
       <p class="text-gray-500 max-w-xl mx-auto text-base">Follow the latest stories from our hangar classrooms and drone flight paths.</p>
@@ -461,18 +461,18 @@
   </section>
 
   <!-- Section: Final CTA -->
-  <section class="bg-[#005F86] py-19 text-center px-5 relative overflow-hidden border-b border-white/5 scroll-reveal">
+  <!-- <section class="bg-[#005F86] py-19 text-center px-5 relative overflow-hidden border-b border-white/5 scroll-reveal">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(93,88,239,0.15),transparent_60%)]"></div>
     <div class="max-w-4xl mx-auto relative z-10 stagger-reveal">
     <h2 class="text-2xl md:text-4xl font-black text-white leading-tight mb-6">Registration open for Aircraft Maintenance Engineering</h2>
-      <!-- <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-10">
+      <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-10">
         Registration open for Aircraft maintenance engineering
-      </p> -->
+      </p> 
       <a href="Pages/admission.html" class="px-10 py-4 bg-[#ff4301] hover:bg-[#ff4301]/90 text-white font-bold rounded-full btn-premium flex items-center justify-center shadow-lg text-lg mx-auto inline-flex">
         Register Now <i class="fas fa-arrow-right ml-2 text-sm"></i>
       </a>
     </div>
-  </section>
+  </section> -->
 
   <!-- Section 7: Contact Map / CTA Section (Commented out)
   <section id="contact-cta" class="relative bg-gray-900 flex flex-col justify-center items-center py-20 px-6 overflow-hidden border-b border-white/5 scroll-reveal">
@@ -739,6 +739,130 @@
     setupManualSlider('hangGliderSlider', 'hangGliderPrev', 'hangGliderNext', 3);
     setupManualSlider('b1Slider', 'b1Prev', 'b1Next', 5);
     setupManualSlider('b2Slider', 'b2Prev', 'b2Next', 4);
+  </script>
+
+  <!-- Enrollment / Admission Pop-up Modal -->
+  <div id="admissionPopup" class="fixed inset-0 z-[1000] hidden items-center justify-center p-4">
+    <!-- Backdrop with blur -->
+    <div id="popupBackdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+    
+    <!-- Modal Card -->
+    <div id="popupCard" class="bg-white w-full max-w-lg rounded-[2rem] overflow-hidden shadow-2xl relative z-10 transform scale-90 opacity-0 transition-all duration-300 border border-gray-100 flex flex-col md:flex-row">
+      <!-- Decorative Side Panel -->
+      <div class="bg-[#005F86] md:w-1/3 flex flex-col justify-center items-center p-6 text-white text-center relative overflow-hidden">
+        <!-- Radial Gradient Highlight -->
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,67,1,0.25),transparent_70%)]"></div>
+        <!-- Plane icon in white circle -->
+        <div class="w-14 h-14 rounded-full bg-white/10 border border-white/20 flex items-center justify-center mb-4 backdrop-blur-md relative z-10">
+          <i class="fas fa-paper-plane text-xl text-[#ff4301]"></i>
+        </div>
+        <span class="text-[10px] uppercase tracking-widest text-orange-200 font-extrabold relative z-10">Awadh Aero</span>
+        <h4 class="text-base font-black mt-1 relative z-10">ADMISSIONS</h4>
+        <span class="text-[10px] bg-[#ff4301] text-white px-3 py-1 rounded-full font-bold mt-3 shadow-md relative z-10">OPEN NOW</span>
+      </div>
+      
+      <!-- Content Panel -->
+      <div class="p-8 md:w-2/3 flex flex-col justify-between relative bg-white">
+        <!-- Close Button -->
+        <button id="closePopupBtn" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors text-xl p-1 focus:outline-none" aria-label="Close popup">
+          <i class="fas fa-times"></i>
+        </button>
+        
+        <div>
+          <span class="text-[#ff4301] font-bold text-xs uppercase tracking-wider block mb-1">Launch Your Aviation Journey</span>
+          <h3 class="text-xl font-black text-gray-800 leading-snug mb-3">
+            Secure Your Seat Today!
+          </h3>
+          <p class="text-gray-500 text-xs leading-relaxed mb-6">
+            Enroll in our industry-leading <strong>Aircraft Maintenance Engineering (AME)</strong> or <strong>UAV Drone Pilot</strong> courses. Hands-on learning in premium facilities.
+          </p>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row gap-2.5">
+          <a href="Pages/admission-form.html" class="flex-1 text-center py-2.5 bg-[#ff4301] hover:bg-[#5d58ef] text-white font-bold rounded-full transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-1.5 btn-premium text-xs">
+            Apply Now <i class="fas fa-arrow-right text-[10px]"></i>
+          </a>
+          <button id="closePopupBtnSecondary" class="px-4 py-2.5 border border-gray-200 hover:border-gray-300 text-gray-500 hover:text-gray-700 font-semibold rounded-full transition-all duration-300 text-xs bg-gray-50">
+            Maybe Later
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const blogSection = document.getElementById("blog-section");
+      const popup = document.getElementById("admissionPopup");
+      const backdrop = document.getElementById("popupBackdrop");
+      const card = document.getElementById("popupCard");
+      const closeBtns = [
+        document.getElementById("closePopupBtn"),
+        document.getElementById("closePopupBtnSecondary"),
+        backdrop
+      ];
+
+      if (!blogSection || !popup) return;
+
+      let hasTriggered = false;
+
+      function showPopup() {
+        popup.classList.remove("hidden");
+        popup.classList.add("flex");
+
+        // Force a reflow for transition
+        void popup.offsetWidth;
+
+        backdrop.classList.remove("opacity-0");
+        backdrop.classList.add("opacity-100");
+        card.classList.remove("scale-90", "opacity-0");
+        card.classList.add("scale-100", "opacity-100");
+
+        // Prevent background scrolling
+        document.body.classList.add("no-scroll");
+      }
+
+      function hidePopup() {
+        backdrop.classList.remove("opacity-100");
+        backdrop.classList.add("opacity-0");
+        card.classList.remove("scale-100", "opacity-100");
+        card.classList.add("scale-90", "opacity-0");
+
+        document.body.classList.remove("no-scroll");
+
+        setTimeout(() => {
+          popup.classList.remove("flex");
+          popup.classList.add("hidden");
+        }, 300);
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            if (!hasTriggered) {
+              showPopup();
+              hasTriggered = true;
+            }
+          } else {
+            // When the section leaves the viewport at the bottom (user scrolls up)
+            if (entry.boundingClientRect.top > 0) {
+              hasTriggered = false; // Re-arm the trigger
+            }
+          }
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: "0px"
+      });
+
+      observer.observe(blogSection);
+
+      closeBtns.forEach(btn => {
+        if (btn) {
+          btn.addEventListener("click", hidePopup);
+        }
+      });
+    });
   </script>
 
   <!-- Plane-Banner Corner Animation Widget -->
