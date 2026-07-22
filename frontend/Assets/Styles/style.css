@@ -650,3 +650,123 @@ header.scrolled {
         margin: 40px auto;
     }
 }
+
+/* Custom scrollbar for leadership biography panels */
+#detail-1::-webkit-scrollbar,
+#detail-2::-webkit-scrollbar {
+  width: 6px;
+}
+#detail-1::-webkit-scrollbar-track,
+#detail-2::-webkit-scrollbar-track {
+  background: #f8fafc;
+  border-radius: 10px;
+}
+#detail-1::-webkit-scrollbar-thumb,
+#detail-2::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+#detail-1::-webkit-scrollbar-thumb:hover,
+#detail-2::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ==========================================
+   Premium Table-Style Syllabus Section
+   ========================================== */
+.syllabus-container {
+    width: 100%;
+    border: 2px solid #e2e8f0;
+    border-radius: 24px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.syllabus-header {
+    background: linear-gradient(135deg, #005F86, #004765);
+    color: white;
+    text-align: center;
+    padding: 16px 20px;
+    font-size: 22px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.syllabus-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.syllabus-grid.cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.syllabus-grid.cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.syllabus-column {
+    padding: 24px;
+    border-right: 2px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+}
+
+.syllabus-column:last-child {
+    border-right: none;
+}
+
+.syllabus-semester-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #005F86;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #f1f5f9;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.syllabus-list {
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.syllabus-item {
+    font-size: 14px;
+    color: #475569;
+    line-height: 1.5;
+    padding: 8px 12px;
+    background: #f8fafc;
+    border-radius: 10px;
+    border: 1px solid #f1f5f9;
+    transition: all 0.2s ease;
+}
+
+.syllabus-item:hover {
+    background: #f1f5f9;
+    transform: translateY(-1px);
+    color: #0f172a;
+}
+
+/* Mobile responsive stacking */
+@media (max-width: 1024px) {
+    .syllabus-grid, .syllabus-grid.cols-3, .syllabus-grid.cols-2 {
+        grid-template-columns: 1fr;
+    }
+    .syllabus-column {
+        border-right: none;
+        border-bottom: 2px solid #e2e8f0;
+    }
+    .syllabus-column:last-child {
+        border-bottom: none;
+    }
+}
