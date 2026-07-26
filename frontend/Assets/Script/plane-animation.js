@@ -192,7 +192,7 @@
 
     // "View Brochure" hover button
     brochureBtn = document.createElement('a');
-    brochureBtn.href = 'Assets/Images/broschure/Awadh%20Aero%20DAC%20Aviation%20Academy.pdf.pdf';
+    brochureBtn.href = 'Assets/Images/broschure/aadaa%20Brochure%2007.26-27.pdf';
     brochureBtn.target = '_blank';
     brochureBtn.className = 'pw-brochure-btn';
     brochureBtn.innerHTML = '<i class="fas fa-file-pdf"></i> View Brochure';
