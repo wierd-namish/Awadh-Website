@@ -222,14 +222,14 @@ document.addEventListener("DOMContentLoaded", () => {
           <!-- Column 1: Info -->
           <div class="footer-col space-y-4">
             <h4 class="text-xl font-bold mb-4 border-b border-white/30 pb-2">Registered office</h4>
-            <p class="text-sm text-gray-200 mb-6">
-              Kanpur - Lucknow Rd, Daroga Khera, Lucknow,<br>
-              Banthra Sikander Pur, Uttar Pradesh 226401
-            </p>
-            <h4 class="text-xl font-bold mb-4 border-b border-white/30 pb-2">AADAA campus</h4>
             <p class="text-sm text-gray-200">
               Mankapur Kot, Mankapur, Gonda,<br>
               Uttar Pradesh - 271302, India
+            </p>
+            <h4 class="text-xl font-bold mb-4 border-b border-white/30 pb-2">AADAA campus</h4>
+            <p class="text-sm text-gray-200 mb-6">
+              Kanpur - Lucknow Rd, Daroga Khera, Lucknow,<br>
+              Banthra Sikander Pur, Uttar Pradesh 226401
             </p>
             <!-- Social Buttons Placeholders (Moved to floating container) -->
           </div>
