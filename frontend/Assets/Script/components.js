@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
                       <div class="dropdown-menu w-64">
                         <a class="dropdown-item py-2 text-sm" href="${prefix}Pages/ame-b1-1.html">B1.1 (Aeroplanes Turbine)</a>
                         <!-- <a class="dropdown-item py-2 text-sm" href="${prefix}Pages/ame-b1-2-mechanical.html">B1.2 (Mechanical)</a> -->
-                        <a class="dropdown-item py-2 text-sm" href="${prefix}Pages/ame-b1-2.html">B2 (Avionic)</a>
+                        <a class="dropdown-item py-2 text-sm" href="${prefix}Pages/ame-b1-2.html">B2 (Avionics)</a>
                       </div>
                     </div>
                     
@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="pl-4 text-sm font-semibold text-gray-500 mt-1">(AME)Aircraft Maintenance Engineering</span>
             <a class="pl-8 py-1 text-sm hover:text-[#5d58ef]" href="${prefix}Pages/ame-b1-1.html">B1.1 Aeroplanes Turbine</a>
             <!-- <a class="pl-8 py-1 text-sm hover:text-[#5d58ef]" href="${prefix}Pages/ame-b1-2-mechanical.html">B1.2 (Mechanical)</a> -->
-            <a class="pl-8 py-1 text-sm hover:text-[#5d58ef]" href="${prefix}Pages/ame-b1-2.html">B2 (Avionic)</a>
+            <a class="pl-8 py-1 text-sm hover:text-[#5d58ef]" href="${prefix}Pages/ame-b1-2.html">B2 (Avionics)</a>
             <a class="pl-4 py-1 text-sm font-semibold text-gray-500 hover:text-[#5d58ef] mt-2" href="${prefix}Pages/hangglider.html">Power Hang Glider Training</a>
             <!--
             <span class="pl-4 text-sm font-semibold text-gray-500 mt-2">Drone Pilot Training</span>

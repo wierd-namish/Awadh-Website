@@ -32,79 +32,26 @@
     </div>
   </section>
 
-  <!-- Vision Statement -->
-  <section class="pt-10 pb-4 px-6 md:px-12 bg-white">
-    <div class="max-w-4xl mx-auto text-center space-y-6">
- <!-- <div class="w-20 h-1 bg-[#ff4301] mx-auto rounded-full"></div> -->
-    </div>
-  </section>
+  <!-- Leadership Section -->
+  <section class="pt-10 pb-20 px-6 md:px-12 bg-white">
+    <div class="max-w-6xl mx-auto">
 
-  <!-- Leadership Grid -->
-  <section class="pb-20 px-6 md:px-12 bg-white">
-    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 relative items-stretch">
-      
-      <!-- Box 1 Container (Kirti Vardhan) -->
-      <div class="relative min-h-[480px] flex flex-col" id="leader-1-container">
-        <!-- Standard Profile Box 1 -->
-        <div id="profile-1" class="h-full w-full bg-gray-50 p-8 rounded-3xl border border-gray-100 hover:shadow-xl transition duration-500 text-center flex flex-col items-center justify-center group">
-          <img src="../Assets/Images/d29bbcffab02ede3d03ba86561079453.webp" alt="Kirti Vardhan Singh" class="w-32 h-32 rounded-full object-cover object-top mb-6 shadow-md border-4 border-indigo-50 group-hover:scale-105 transition-transform duration-300">
-          <h3 class="text-xl font-bold text-gray-800">Kirti Vardhan Singh</h3>
-          <span class="text-sm text-[#ff4301] font-semibold mb-3">Director</span>
-          <button onclick="showDetails(1)" class="mt-4 px-6 py-2 bg-[#ff4301] hover:bg-[#5d58ef] text-white font-bold rounded-full transition-all duration-300 shadow-md hover:shadow-lg text-sm flex items-center gap-1.5 btn-premium">
-            About Them <i class="fas fa-info-circle text-xs"></i>
-          </button>
-        </div>
-        
-        <!-- Detail Box 2 (Yogesh's details showing over Box 1) -->
-        <div id="detail-2" class="absolute inset-0 bg-white rounded-3xl shadow-xl z-20 p-8 flex flex-col justify-between overflow-y-auto border border-gray-200 opacity-0 pointer-events-none transition-all duration-300 transform -translate-x-4">
-          <button onclick="closeDetails(2); event.stopPropagation();" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors text-2xl p-1 focus:outline-none" aria-label="Close biography">
-            <i class="fas fa-times"></i>
-          </button>
-          <div>
-            <div class="flex items-center space-x-4 mb-6">
-              <img src="../Assets/Images/management-team-Yogesh-Pahari-1.jpg.webp" alt="Yogesh Pahari" class="w-16 h-16 rounded-full object-cover shadow-sm border border-gray-200">
-              <div>
-                <h4 class="text-base font-bold text-gray-800">Yogesh Pahari</h4>
-                <span class="text-xs text-[#ff4301] font-semibold">CEO & Accountable Manager</span>
-              </div>
-            </div>
-            <div class="space-y-4 text-xs text-gray-600 leading-relaxed text-justify pr-2">
-              <p>Yogesh Pahari is the CEO of DAC Aviation Services Pvt. Ltd. and has more than 30 years of military and civil aviation experience. An ex-Indian Air Force personnel, he has established himself as a seasoned professional in the aviation industry, gaining decades of experience working with various national and international companies.</p>
-              <p>Upon completing his engagement with the Indian Air Force, he started his civil aviation career with India’s renowned component MRO with a motto of learning from the ground up. During his civil aviation journey, he also gained hands-on experience with business jets and helicopters. To master complex aircraft MRO processes, he worked with one of the leading Indian aviation MROs, delivering his best to customers. Over 10 years of working with top aviation organizations, he trained himself in national and international regulatory compliances, aircraft management, operations, supply chain management, and commercials, developing into a strong techno-commercial leader.</p>
-              <p>He is a people’s manager who always leads alongside his team. He is a firm believer that team members are the greatest assets of an organization and should be given top priority, as they always pay the company back with excellent results. He decisively advocates that if a team is happy, the customers will be happy, leading to a flourishing business.</p>
-              <p>Mr. Pahari’s vision and commitment to excellence have propelled DAC Aviation to prominence in the aviation industry, where it continues to deliver reliable and efficient services.</p>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- Box 2 Container (Yogesh Pahari) -->
-      <div class="relative min-h-[480px] flex flex-col" id="leader-2-container">
-        <!-- Standard Profile Box 2 -->
-        <div id="profile-2" class="h-full w-full bg-gray-50 p-8 rounded-3xl border border-gray-100 hover:shadow-xl transition duration-500 text-center flex flex-col items-center justify-center group">
-          <img src="../Assets/Images/management-team-Yogesh-Pahari-1.jpg.webp" alt="Yogesh Pahari" class="w-32 h-32 rounded-full object-cover mb-6 shadow-md border-4 border-indigo-50 group-hover:scale-105 transition-transform duration-300">
-          <h3 class="text-xl font-bold text-gray-800">Yogesh Pahari</h3>
-          <span class="text-sm text-[#ff4301] font-semibold mb-3">CEO & Accountable Manager</span>
-          <button onclick="showDetails(2)" class="mt-4 px-6 py-2 bg-[#ff4301] hover:bg-[#5d58ef] text-white font-bold rounded-full transition-all duration-300 shadow-md hover:shadow-lg text-sm flex items-center gap-1.5 btn-premium">
-            About Them <i class="fas fa-info-circle text-xs"></i>
-          </button>
+
+      <!-- Leader 1: Kirti Vardhan Singh — Image Left, Text Right -->
+      <div class="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-8 mb-16 border-b border-gray-200 pb-16">
+        <!-- Image -->
+        <div class="bg-gray-200 flex items-center justify-center overflow-hidden max-w-[280px] h-[300px]">
+          <img src="../Assets/Images/d29bbcffab02ede3d03ba86561079453.webp" alt="Kirti Vardhan Singh" class="w-full h-full object-contain">
         </div>
-        
-        <!-- Detail Box 1 (Kirti's details showing over Box 2) -->
-        <div id="detail-1" class="absolute inset-0 bg-white rounded-3xl shadow-xl z-20 p-8 flex flex-col justify-between overflow-y-auto border border-gray-200 opacity-0 pointer-events-none transition-all duration-300 transform translate-x-4">
-          <button onclick="closeDetails(1); event.stopPropagation();" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors text-2xl p-1 focus:outline-none" aria-label="Close biography">
-            <i class="fas fa-times"></i>
-          </button>
-          <div>
-            <div class="flex items-center space-x-4 mb-6">
-              <img src="../Assets/Images/d29bbcffab02ede3d03ba86561079453.webp" alt="Kirti Vardhan Singh" class="w-16 h-16 rounded-full object-cover object-top shadow-sm border border-gray-200">
-              <div>
-                <h4 class="text-base font-bold text-gray-800">Kirti Vardhan Singh</h4>
-                <span class="text-xs text-[#ff4301] font-semibold">Director</span>
-              </div>
-            </div>
-            <div class="space-y-4 text-xs text-gray-600 leading-relaxed text-justify pr-2">
-              <p>Shri Kirti Vardhan Singh was sworn-in as Union Minister of State on 09 June 2024. He assumed charge as Minister of State for Environment, Forest & Climate Change and Minister of State for External Affairs on 11 June 2024. He has been elected for the 5th time as a Member of Parliament to the 18th Lok Sabha in 2024 from Gonda Constituency in Uttar Pradesh.</p>
+        <!-- Text -->
+        <div class="flex flex-col justify-center py-8 lg:py-0">
+          <h3 class="text-2xl md:text-3xl font-extrabold text-gray-800 tracking-wide uppercase mb-1">Kirti Vardhan Singh</h3>
+          <p class="text-gray-500 text-sm md:text-base italic mb-6">Director</p>
+
+          <div id="bio-1" class="text-gray-600 text-sm md:text-base leading-relaxed text-left space-y-4">
+            <p>Shri Kirti Vardhan Singh was sworn-in as Union Minister of State on 09 June 2024. He assumed charge as Minister of State for Environment, Forest & Climate Change and Minister of State for External Affairs on 11 June 2024. He has been elected for the 5th time as a Member of Parliament to the 18th Lok Sabha in 2024 from Gonda Constituency in Uttar Pradesh.</p>
+            <div id="bio-1-more" class="hidden space-y-4">
               <p>He was a Member of 12th Lok Sabha (1998-1999), 14th Lok Sabha (2004-2009), 16th Lok Sabha (2014-2019) and 17th Lok Sabha (2019-2024). He was a member of Standing Committee on Industry and Consultative Committee, Ministry of Defence (1998-99), Standing Committee on Science & Technology, Environment & Forests (2004-2009), Committee on Estimates (2014-2015), Standing Committee on Science & Technology, Environment & Forests and Consultative Committee, Ministry of Defence (2014-2019), Standing Committee on Chemicals and Fertilizers (2016-2018), Standing Committee on Commerce (2018-2019) and Standing Committee on Science & Technology, Environment & Forests and Climate Change (2019-2024).</p>
               <p>Shri Kirti Vardhan Singh has worked at grassroots level for the empowerment of most deprived sections of society. He has played an instrumental role in the promotion of rural education. He has set up an Intermediate College for girls and a Post Graduate College for higher studies in Gonda.</p>
               <p>In 1988, he played a key role in setting up a first of its kind, pilot project of cage culture of fish rearing under the aegis of Ford Foundation of India. He regularly holds workshops with local fishermen cooperatives to impart latest information on fish rearing and fish breeding techniques and also provides technical knowledge to farmers to set up their own fish breeding hatcheries.</p>
@@ -112,32 +59,53 @@
               <p>Shri Kirti Vardhan Singh is widely travelled. His other interests include reading, photography, painting, archery, water sports, paragliding and aero sports. He has set up Avadh Aero Sports Society and established an air strip registered with Ministry of Civil Aviation, Government of India to encourage aero sports in the rural district of Gonda and provide air time experience to local youths on ultra light aircrafts.</p>
             </div>
           </div>
+
+          <button onclick="toggleBio(1)" id="btn-1" class="mt-6 px-5 py-2.5 border border-gray-800 text-gray-800 text-sm font-semibold hover:bg-gray-800 hover:text-white transition-all duration-300 w-fit">
+            Read More
+          </button>
+        </div>
+      </div>
+
+      <!-- Leader 2: Yogesh Pahari — Text Left, Image Right -->
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-8 mb-4">
+        <!-- Text (order-2 on mobile, order-1 on desktop) -->
+        <div class="flex flex-col justify-center py-8 lg:py-0 order-2 lg:order-1">
+          <h3 class="text-2xl md:text-3xl font-extrabold text-gray-800 tracking-wide uppercase mb-1">Yogesh Pahari</h3>
+          <p class="text-gray-500 text-sm md:text-base italic mb-6">CEO & Accountable Manager</p>
+
+          <div id="bio-2" class="text-gray-600 text-sm md:text-base leading-relaxed text-left space-y-4">
+            <p>Yogesh Pahari is the CEO of DAC Aviation Services Pvt. Ltd. and has more than 30 years of military and civil aviation experience. An ex-Indian Air Force personnel, he has established himself as a seasoned professional in the aviation industry, gaining decades of experience working with various national and international companies.</p>
+            <div id="bio-2-more" class="hidden space-y-4">
+              <p>Upon completing his engagement with the Indian Air Force, he started his civil aviation career with India's renowned component MRO with a motto of learning from the ground up. During his civil aviation journey, he also gained hands-on experience with business jets and helicopters. To master complex aircraft MRO processes, he worked with one of the leading Indian aviation MROs, delivering his best to customers. Over 10 years of working with top aviation organizations, he trained himself in national and international regulatory compliances, aircraft management, operations, supply chain management, and commercials, developing into a strong techno-commercial leader.</p>
+              <p>He is a people's manager who always leads alongside his team. He is a firm believer that team members are the greatest assets of an organization and should be given top priority, as they always pay the company back with excellent results. He decisively advocates that if a team is happy, the customers will be happy, leading to a flourishing business.</p>
+              <p>Mr. Pahari's vision and commitment to excellence have propelled DAC Aviation to prominence in the aviation industry, where it continues to deliver reliable and efficient services.</p>
+            </div>
+          </div>
+
+          <button onclick="toggleBio(2)" id="btn-2" class="mt-6 px-5 py-2.5 border border-gray-800 text-gray-800 text-sm font-semibold hover:bg-gray-800 hover:text-white transition-all duration-300 w-fit">
+            Read More
+          </button>
+        </div>
+        <!-- Image (order-1 on mobile, order-2 on desktop) -->
+        <div class="bg-gray-200 flex items-center justify-center overflow-hidden max-w-[280px] h-[300px] order-1 lg:order-2">
+          <img src="../Assets/Images/management-team-Yogesh-Pahari-1.jpg.webp" alt="Yogesh Pahari" class="w-full h-full object-contain">
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- Script for Leadership Interactive Profiles -->
+  <!-- Script for Read More Toggle -->
   <script>
-    function showDetails(id) {
-      const detailPanel = document.getElementById(`detail-${id}`);
-      if (detailPanel) {
-        detailPanel.classList.remove("opacity-0", "pointer-events-none", "translate-x-4", "-translate-x-4");
-        detailPanel.classList.add("opacity-100", "pointer-events-auto", "translate-x-0");
-      }
-    }
-
-    function closeDetails(id) {
-      const detailPanel = document.getElementById(`detail-${id}`);
-      if (detailPanel) {
-        detailPanel.classList.remove("opacity-100", "pointer-events-auto", "translate-x-0");
-        detailPanel.classList.add("opacity-0", "pointer-events-none");
-        if (id === 1) {
-          detailPanel.classList.add("translate-x-4");
-        } else {
-          detailPanel.classList.add("-translate-x-4");
-        }
+    function toggleBio(id) {
+      const moreContent = document.getElementById(`bio-${id}-more`);
+      const btn = document.getElementById(`btn-${id}`);
+      if (moreContent.classList.contains('hidden')) {
+        moreContent.classList.remove('hidden');
+        btn.textContent = 'Read Less';
+      } else {
+        moreContent.classList.add('hidden');
+        btn.textContent = 'Read More';
       }
     }
   </script>
