@@ -120,10 +120,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
               </a>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="${prefix}Pages/admission.html">Registration</a>
+                <div class="relative group">
+                  <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#5d58ef] transition flex justify-between items-center" href="#">
+                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    Registration
+                  </a>
+                  <div class="absolute right-full top-0 hidden group-hover:block bg-white shadow-xl rounded-xl py-2 w-48 border border-gray-100 z-50">
+                    <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#5d58ef] transition" href="${prefix}Pages/admission.html">AME</a>
+                    <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#5d58ef] transition" href="${prefix}Pages/registration-hangglider.html">Power Hang Glider</a>
+                  </div>
+                </div>
                 <a class="dropdown-item" href="${prefix}Pages/admission-procedure.html">Admission Procedure</a>
                 <a class="dropdown-item" href="${prefix}Pages/fee-structure.html">Fee Structure</a>
-                <a class="dropdown-item" href="${prefix}Pages/admission-form.html">Admission Form</a>
+                <a class="dropdown-item" href="${prefix}Pages/admission-form.html">Application Form</a>
                 <a class="dropdown-item" href="${prefix}Assets/Images/broschure/aadaa%20Brochure%2007.26-27.pdf" target="_blank">Brochure</a>
               </div>
             </li>
@@ -187,7 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <a class="pl-4 py-1 text-base hover:text-[#5d58ef]" href="${prefix}Pages/admission.html">Registration</a>
             <a class="pl-4 py-1 text-base hover:text-[#5d58ef]" href="${prefix}Pages/admission-procedure.html">Admission Procedure</a>
             <a class="pl-4 py-1 text-base hover:text-[#5d58ef]" href="${prefix}Pages/fee-structure.html">Fee Structure</a>
-            <a class="pl-4 py-1 text-base hover:text-[#5d58ef]" href="${prefix}Pages/admission-form.html">Admission Form</a>
+            <a class="pl-4 py-1 text-base hover:text-[#5d58ef]" href="${prefix}Pages/admission-form.html">Application Form</a>
             <a class="pl-4 py-1 text-base hover:text-[#5d58ef]" href="${prefix}Assets/Images/broschure/aadaa%20Brochure%2007.26-27.pdf" target="_blank">Brochure</a>
           </div>
           <a class="text-lg font-semibold hover:text-[#5d58ef]" href="${prefix}Pages/blog.html">Blogs</a>
