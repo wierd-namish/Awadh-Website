@@ -120,12 +120,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
               </a>
               <div class="dropdown-menu">
-                <div class="relative group">
-                  <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#5d58ef] transition flex justify-between items-center" href="#">
-                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <div class="relative group/reg">
+                  <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#5d58ef] transition" href="#">
                     Registration
                   </a>
-                  <div class="absolute right-full top-0 hidden group-hover:block bg-white shadow-xl rounded-xl py-2 w-48 border border-gray-100 z-50">
+                  <div class="absolute right-full top-0 hidden group-hover/reg:block bg-white shadow-xl rounded-xl py-2 w-48 border border-gray-100 z-50">
                     <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#5d58ef] transition" href="${prefix}Pages/admission.html">AME</a>
                     <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#5d58ef] transition" href="${prefix}Pages/registration-hangglider.html">Power Hang Glider</a>
                   </div>
