@@ -404,7 +404,7 @@ function generateRegistrationPDF(data, inquiryId) {
       doc.moveDown(0.5);
 
       drawField("Full Name", data.fullName);
-      drawField("Age", data.age);
+      drawField("Date of Birth", data.age);
       drawField("Gender", data.gender);
       drawField("Education Qualification", data.education);
       drawField("Subject (PCM)", data.subject);

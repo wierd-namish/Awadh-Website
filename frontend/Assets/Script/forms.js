@@ -56,9 +56,14 @@ async function submitAdmissionForm(event) {
   const statusEl = document.getElementById("admissionFormStatus");
   const submitBtn = form.querySelector('button[type="submit"]');
 
+  const firstName = document.getElementById("firstName").value.trim();
+  const middleName = document.getElementById("middleName").value.trim();
+  const lastName = document.getElementById("lastName").value.trim();
+  const fullName = [firstName, middleName, lastName].filter(Boolean).join(" ");
+
   const payload = {
-    fullName: document.getElementById("fullName").value,
-    age: document.getElementById("age").value,
+    fullName: fullName,
+    age: document.getElementById("dob").value,
     gender: document.getElementById("gender").value,
     education: document.getElementById("education").value,
     subject: document.getElementById("subject").value,
