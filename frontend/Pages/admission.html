@@ -17,51 +17,36 @@
   <div id="header-container"></div>
 
   <section class="bg-gray-100 pt-36 pb-6 px-6 md:px-14 border-b">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between">
-      <div>
-        <h1 class="text-4xl font-extrabold text-gray-800"></h1>
- </div>
-      <div class="mt-4 md:mt-0 text-sm font-semibold text-gray-500">
-        <a href="../index.html" class="hover:text-[#5d58ef] transition">Home</a>
-        <span class="mx-2">/</span>
-        <span class="text-[#ff4301]">Registrations</span>
-      </div>
+    <div class="max-w-7xl mx-auto flex items-center text-sm font-semibold text-gray-500">
+      <a href="../index.html" class="hover:text-[#5d58ef] transition">Home</a>
+      <span class="mx-2">/</span>
+      <span class="text-[#ff4301]">Registrations</span>
     </div>
   </section>
 
   <!-- Admission Info & Registration Form Grid -->
   <section class="pt-10 pb-20 px-6 md:px-12 bg-white">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+    <div class="max-w-6xl mx-auto flex flex-col gap-10">
       
-      <!-- Left Column: Steps & Requirements -->
-      <div class="space-y-8">
-        <h2 class="text-3xl md:text-5xl font-black text-gray-800 leading-tight">Registraiton form</h2>
+      <!-- Top Column: Steps & Requirements -->
+      <div class="space-y-4">
+        <h2 class="text-3xl md:text-5xl font-black text-gray-800 leading-tight">Registration Form</h2>
         
-        
-        <!-- <p class="text-gray-600 text-base leading-relaxed">
-          Enrollment processes vary by program. Please review the criteria guidelines below before submitting your inquiry form.
-        </p> -->
-
-        <!-- Requirement list -->
-        <div class="space-y-6">
-          <div class="flex items-start space-x-4">
-            <div class="w-10 h-10 rounded-full bg-indigo-50 flex items-center justify-center text-[#5d58ef] font-bold flex-shrink-0">1</div>
-            <div>
-              <h4 class="font-bold text-gray-800 text-lg">Aircraft Engineering (AME)</h4>
-              <p class="text-sm text-gray-500">Must have passed 10+2 with Physics, Chemistry, and Mathematics (PCM). Minimum age of 17 years at admission.</p>
-            </div>
-          </div>
+        <div class="mt-4">
+          <h4 class="font-bold text-[#5d58ef] text-2xl mb-1">Aircraft Maintenance Engineering (AME)</h4>
+          <p class="text-gray-600 text-sm md:text-base">Must have passed 10+2 with Physics, Chemistry, and Mathematics (PCM). Minimum age of 17 years at admission.</p>
         </div>
       </div>
 
-      <!-- Right Column: Registration Inquiry Form -->
-      <div class="bg-gray-50 p-8 md:p-12 rounded-3xl border border-gray-100 shadow-md">
+      <!-- Bottom Column: Registration Inquiry Form -->
+      <div class="bg-gray-50 p-8 md:p-10 rounded-3xl border border-gray-100 shadow-md">
         <h3 class="text-2xl font-bold text-gray-800 mb-2">Enrollment Inquiry</h3>
-        <p class="text-gray-400 text-sm mb-6">Complete the registration form and our team will contact you.</p>
+        <p class="text-gray-500 text-sm mb-6">Complete the registration form and our team will contact you.</p>
         
-        <form id="admissionForm" class="space-y-4" onsubmit="submitAdmissionForm(event)">
+        <form id="admissionForm" class="space-y-5" onsubmit="submitAdmissionForm(event)">
           <p id="admissionFormStatus" class="hidden text-sm font-semibold mb-2"></p>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div>
               <label class="block text-sm font-semibold text-gray-700 mb-1" for="firstName">FIRST NAME</label>
               <input type="text" id="firstName" required class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-[#5d58ef] focus:outline-none bg-white">
@@ -74,12 +59,11 @@
               <label class="block text-sm font-semibold text-gray-700 mb-1" for="lastName">LAST NAME</label>
               <input type="text" id="lastName" required class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-[#5d58ef] focus:outline-none bg-white">
             </div>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label class="block text-sm font-semibold text-gray-700 mb-1" for="dob">DATE OF BIRTH</label>
               <input type="date" id="dob" required class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-[#5d58ef] focus:outline-none bg-white">
             </div>
+
             <div>
               <label class="block text-sm font-semibold text-gray-700 mb-1" for="gender">GENDER</label>
               <select id="gender" required class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-[#5d58ef] focus:outline-none bg-white">
@@ -89,63 +73,64 @@
                 <option value="other">Other</option>
               </select>
             </div>
-          </div>
-          <div>
-            <label class="block text-sm font-semibold text-gray-700 mb-1" for="education">EDUCATION QUALIFICATION</label>
-            <select id="education" required class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-[#5d58ef] focus:outline-none bg-white">
-              <option value="" disabled selected>Select Qualification</option>
-              <option value="10+2">10+2</option>
-              <option value="undergraduate">Undergraduate</option>
-              <option value="postgraduate">Postgraduate</option>
-            </select>
-          </div>
-          <div>
-            <label class="block text-sm font-semibold text-gray-700 mb-1" for="subject">SUBJECT 10+2 (Physics + Chemistry + Maths)</label>
-            <select id="subject" required class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-[#5d58ef] focus:outline-none bg-white">
-              <option value="" disabled selected>Select Yes/No</option>
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
-            </select>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-1" for="phone">MOBILE NO.</label>
+              <input type="tel" id="phone" required class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-[#5d58ef] focus:outline-none bg-white">
+            </div>
             <div>
               <label class="block text-sm font-semibold text-gray-700 mb-1" for="email">E-Mail ID</label>
               <input type="email" id="email" required class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-[#5d58ef] focus:outline-none bg-white">
             </div>
             <div>
-              <label class="block text-sm font-semibold text-gray-700 mb-1" for="phone">MOBILE NO.</label>
-              <input type="tel" id="phone" required class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-[#5d58ef] focus:outline-none bg-white">
-            </div>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label class="block text-sm font-semibold text-gray-700 mb-1" for="stateSelect">STATE&UT</label>
+              <label class="block text-sm font-semibold text-gray-700 mb-1" for="stateSelect">STATE & UT</label>
               <select id="stateSelect" required class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-[#5d58ef] focus:outline-none bg-white">
                 <option value="" disabled selected>Select State</option>
               </select>
             </div>
+
             <div>
               <label class="block text-sm font-semibold text-gray-700 mb-1" for="districtSelect">DISTRICT</label>
               <select id="districtSelect" required disabled class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-[#5d58ef] focus:outline-none bg-gray-50 disabled:cursor-not-allowed">
                 <option value="" disabled selected>Select District</option>
               </select>
             </div>
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-1" for="education">EDUCATION QUALIFICATION</label>
+              <select id="education" required class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-[#5d58ef] focus:outline-none bg-white">
+                <option value="" disabled selected>Select Qualification</option>
+                <option value="10+2">10+2</option>
+                <option value="undergraduate">Undergraduate</option>
+                <option value="postgraduate">Postgraduate</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-1" for="subject">SUBJECT 10+2 (PCM)</label>
+              <select id="subject" required class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-[#5d58ef] focus:outline-none bg-white">
+                <option value="" disabled selected>Select Yes/No</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-1" for="courseSelect">Desired Course</label>
+              <select id="courseSelect" required class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-[#5d58ef] focus:outline-none bg-white">
+                <option value="" disabled selected>Select a Course</option>
+                <option value="ame-b1">B1.1 (Aeroplane Turbine)</option>
+                <option value="ame-b2">B2 (Avionics)</option>
+              </select>
+            </div>
           </div>
-          <div>
-            <label class="block text-sm font-semibold text-gray-700 mb-1" for="courseSelect">Desired Course</label>
-            <select id="courseSelect" required class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-[#5d58ef] focus:outline-none bg-white">
-              <option value="" disabled selected>Select a Course</option>
-              <option value="ame-b1">B1.1 (Aeroplane Turbine)</option>
-              <option value="ame-b2">B2 (Avionics)</option>
-            </select>
-          </div>
+          
           <div>
             <label class="block text-sm font-semibold text-gray-700 mb-1" for="msg">Additional Remarks</label>
-            <textarea id="msg" rows="3" class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-[#5d58ef] focus:outline-none bg-white"></textarea>
+            <textarea id="msg" rows="2" class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-[#5d58ef] focus:outline-none bg-white"></textarea>
           </div>
-          <button type="submit" class="w-full py-3 bg-[#ff4301] text-white font-bold rounded-xl hover:bg-[#5d58ef] transition">
-            Submit Inquiry
-          </button>
+          
+          <div class="mt-4">
+            <button type="submit" class="w-full md:w-64 py-3 bg-[#ff4301] text-white font-bold rounded-xl hover:bg-[#5d58ef] transition">
+              Submit Inquiry
+            </button>
+          </div>
         </form>
       </div>
 
