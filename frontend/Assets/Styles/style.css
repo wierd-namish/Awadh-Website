@@ -424,22 +424,24 @@ header.scrolled {
   bottom: 1.75rem;
   right: 7rem;
 }
-#floatingSocialIcons.state-horizontal a:nth-child(1) { right: 224px; bottom: 0; }
-#floatingSocialIcons.state-horizontal a:nth-child(2) { right: 168px; bottom: 0; }
-#floatingSocialIcons.state-horizontal a:nth-child(3) { right: 112px; bottom: 0; }
-#floatingSocialIcons.state-horizontal a:nth-child(4) { right: 56px; bottom: 0; }
-#floatingSocialIcons.state-horizontal a:nth-child(5) { right: 0; bottom: 0; }
+#floatingSocialIcons.state-horizontal a:nth-child(1) { right: 280px; bottom: 0; }
+#floatingSocialIcons.state-horizontal a:nth-child(2) { right: 224px; bottom: 0; }
+#floatingSocialIcons.state-horizontal a:nth-child(3) { right: 168px; bottom: 0; }
+#floatingSocialIcons.state-horizontal a:nth-child(4) { right: 112px; bottom: 0; }
+#floatingSocialIcons.state-horizontal a:nth-child(5) { right: 56px; bottom: 0; }
+#floatingSocialIcons.state-horizontal a:nth-child(6) { right: 0; bottom: 0; }
 
 /* Vertical State */
 #floatingSocialIcons.state-vertical {
   bottom: 6.5rem;
   right: 2.125rem;
 }
-#floatingSocialIcons.state-vertical a:nth-child(1) { right: 0; bottom: 224px; }
-#floatingSocialIcons.state-vertical a:nth-child(2) { right: 0; bottom: 168px; }
-#floatingSocialIcons.state-vertical a:nth-child(3) { right: 0; bottom: 112px; }
-#floatingSocialIcons.state-vertical a:nth-child(4) { right: 0; bottom: 56px; }
-#floatingSocialIcons.state-vertical a:nth-child(5) { right: 0; bottom: 0; }
+#floatingSocialIcons.state-vertical a:nth-child(1) { right: 0; bottom: 280px; }
+#floatingSocialIcons.state-vertical a:nth-child(2) { right: 0; bottom: 224px; }
+#floatingSocialIcons.state-vertical a:nth-child(3) { right: 0; bottom: 168px; }
+#floatingSocialIcons.state-vertical a:nth-child(4) { right: 0; bottom: 112px; }
+#floatingSocialIcons.state-vertical a:nth-child(5) { right: 0; bottom: 56px; }
+#floatingSocialIcons.state-vertical a:nth-child(6) { right: 0; bottom: 0; }
 
 /* Hero Slide-In Animations */
 @keyframes slideFromRight {

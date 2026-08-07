@@ -202,6 +202,21 @@ document.addEventListener("DOMContentLoaded", () => {
           <a class="text-lg font-semibold hover:text-[#5d58ef]" href="${prefix}Pages/contact.html">Contact Us</a>
         </div>
       </header>
+
+      <!-- Floating Register Now Button -->
+      <div class="fixed top-[125px] right-0 z-[99999] transition-all duration-300">
+        <a href="${prefix}Pages/admission-form.html" class="inline-flex items-center pl-5 pr-4 py-3 bg-[#ff4301] hover:bg-[#5d58ef] text-white text-xs sm:text-sm font-black uppercase tracking-wider rounded-l-xl rounded-r-none shadow-[-4px_4px_15px_rgba(255,67,1,0.35)] hover:shadow-[-4px_4px_20px_rgba(93,88,239,0.45)] hover:-translate-x-1.5 transform transition-all duration-300 group">
+          <i class="fas fa-paper-plane mr-2.5 text-sm group-hover:rotate-12 transition-transform"></i>
+          Online Registration
+        </a>
+      </div>
+
+      <!-- Floating Enquire Now Button (Left Middle of Screen) -->
+      <div class="fixed left-0 top-1/2 -translate-y-1/2 z-[99999] transition-all duration-300">
+        <a href="${prefix}Pages/contact.html" class="inline-block py-6 px-3.5 bg-[#ff4301] hover:bg-[#5d58ef] text-white text-xs sm:text-sm font-black uppercase tracking-widest rounded-tl-none rounded-bl-none rounded-tr-3xl rounded-br-3xl shadow-[4px_4px_15px_rgba(255,67,1,0.4)] hover:shadow-[4px_4px_20px_rgba(93,88,239,0.5)] hover:translate-x-1.5 transform transition-all duration-300 [writing-mode:vertical-rl] text-center">
+          ENQUIRE NOW
+        </a>
+      </div>
     `;
 
     // Interactive Toggle logic for Mobile viewports
@@ -306,6 +321,9 @@ document.addEventListener("DOMContentLoaded", () => {
     <a href="https://x.com/i/status/2063277029316038840" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-2xl flex items-center justify-center hover:scale-110 shadow-lg premium-card" style="background:#000000;">
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
     </a>
+    <a href="https://wa.me/919519846758?text=hey" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-2xl flex items-center justify-center hover:scale-110 shadow-lg premium-card transition-all" style="background:#25D366; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);">
+      <i class="fab fa-whatsapp text-[26px]" style="filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3));"></i>
+    </a>
   `;
   document.body.appendChild(floatingSocial);
 
@@ -327,6 +345,21 @@ document.addEventListener("DOMContentLoaded", () => {
   // 5. Replace Scroll to Top with Brochure Button
   const oldScrollBtn = document.getElementById("scrollTopBtn");
   if (oldScrollBtn) oldScrollBtn.remove();
+
+  // 6. Inject Breadcrumb Text below navbar
+  const pageTitleParts = document.title.split('|')[0].split('—')[0].trim();
+  const isHome = pageTitleParts.toLowerCase() === 'home' || pageTitleParts === '';
+  
+  if (!isHome) {
+    const breadcrumb = document.createElement("div");
+    breadcrumb.className = "absolute top-[120px] md:top-[125px] left-[6%] max-w-[1400px] xl:left-[calc(50%-660px)] z-[40] text-sm md:text-base font-semibold text-gray-500 pointer-events-none flex items-center";
+    breadcrumb.innerHTML = `
+      <a href="${prefix}index.html" class="hover:text-[#5d58ef] transition pointer-events-auto">Home</a>
+      <span class="mx-2 text-gray-400">/</span>
+      <span class="text-[#ff4301] pointer-events-auto">${pageTitleParts}</span>
+    `;
+    document.body.appendChild(breadcrumb);
+  }
 
   // Set global components Loaded state flag and dispatch event
   window.componentsLoaded = true;

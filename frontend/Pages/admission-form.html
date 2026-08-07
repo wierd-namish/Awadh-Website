@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admission Application Form | Awadh Aviation Academy</title>
@@ -8,7 +6,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&amp;display=swap">
   <link rel="stylesheet" href="../Assets/Styles/style.css">
   <link rel="stylesheet" href="../Assets/Styles/responsive.css">
   <style>
@@ -53,19 +51,17 @@
   <!-- Breadcrumb -->
   <section class="bg-gray-100 pt-36 pb-10 px-6 md:px-14 border-b">
     <div class="max-w-7xl mx-auto">
-      <h1 class="text-3xl md:text-4xl font-extrabold text-gray-800">Application Form</h1>
-<div class="mt-3 text-sm font-semibold text-gray-500">
-        <a href="../index.html" class="hover:text-[#5d58ef] transition">Home</a>
-        <span class="mx-2">/</span>
-        <span class="text-[#ff4301]">Application Form</span>
-      </div>
+      
+
     </div>
   </section>
 
   <!-- Main Form Area -->
   <section class="py-10 px-4 md:px-10 bg-gray-50 min-h-screen">
+    <div class="max-w-7xl mx-auto">
+      <h1 class="mb-6 tracking-tight text-3xl md:text-4xl md:text-5xl font-extrabold text-gray-800">Application Form</h1>
+    </div>
     <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8">
-
       <!-- Left Sidebar: Step Navigator -->
       <div class="lg:w-80 flex-shrink-0">
         <div class="bg-white rounded-2xl shadow-lg p-6 sticky top-28">
@@ -79,7 +75,7 @@
       <!-- Right: Form Content -->
       <div class="flex-1 min-w-0">
         <div class="bg-white rounded-2xl shadow-lg p-6 md:p-10">
-          <form id="admissionForm" novalidate>
+          <form id="admissionForm" novalidate="">
 
             <!-- STEP 1: Personal Information -->
             <div class="form-step active" data-step="0">
@@ -87,31 +83,31 @@
               <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div class="md:col-span-2">
                   <label class="form-label">Full Name (as per Class X Certificate) <span class="text-red-500">*</span></label>
-                  <input type="text" name="full_name" class="form-input" placeholder="Enter your full name" required>
+                  <input type="text" name="full_name" class="form-input" placeholder="Enter your full name" required="">
                 </div>
                 <div>
                   <label class="form-label">Recent Passport Size Photograph <span class="text-red-500">*</span></label>
-                  <div class="file-upload"><input type="file" name="photo" accept="image/*" required></div>
+                  <div class="file-upload"><input type="file" name="photo" accept="image/*" required=""></div>
                 </div>
                 <div>
                   <label class="form-label">Date of Birth <span class="text-red-500">*</span></label>
-                  <input type="date" name="dob" class="form-input" required>
+                  <input type="date" name="dob" class="form-input" required="">
                 </div>
                 <div>
                   <label class="form-label">Gender <span class="text-red-500">*</span></label>
                   <div class="flex flex-wrap gap-4 mt-1">
-                    <label class="radio-option"><input type="radio" name="gender" value="Male" required> Male</label>
+                    <label class="radio-option"><input type="radio" name="gender" value="Male" required=""> Male</label>
                     <label class="radio-option"><input type="radio" name="gender" value="Female"> Female</label>
                     <label class="radio-option"><input type="radio" name="gender" value="Other"> Other</label>
                   </div>
                 </div>
                 <div>
                   <label class="form-label">Nationality <span class="text-red-500">*</span></label>
-                  <input type="text" name="nationality" class="form-input" placeholder="e.g. Indian" required>
+                  <input type="text" name="nationality" class="form-input" placeholder="e.g. Indian" required="">
                 </div>
                 <div>
                   <label class="form-label">Aadhaar Number<span class="text-red-500">*</span></label>
-                  <input type="text" name="aadhaar" class="form-input" placeholder="12-digit Aadhaar number" maxlength="12" required>
+                  <input type="text" name="aadhaar" class="form-input" placeholder="12-digit Aadhaar number" maxlength="12" required="">
                 </div>
                 <div>
                   <label class="form-label">Passport Number <span class="text-gray-400 text-xs">(International Applicants)</span></label>
@@ -119,7 +115,7 @@
                 </div>
                 <div>
                   <label class="form-label">Blood Group<span class="text-red-500">*</span></label>
-                  <select name="blood_group" class="form-input" required>
+                  <select name="blood_group" class="form-input" required="">
                     <option value="">Select Blood Group</option>
                     <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
                     <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
@@ -135,7 +131,7 @@
                 </div>
                 <div>
                   <label class="form-label">Academic Session <span class="text-red-500">*</span></label>
-                  <input type="text" name="academic_session" class="form-input" placeholder="e.g. 2026-27" required>
+                  <input type="text" name="academic_session" class="form-input" placeholder="e.g. 2026-27" required="">
                 </div>
               </div>
             </div>
@@ -146,7 +142,7 @@
               <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div>
                   <label class="form-label">Mobile Number <span class="text-red-500">*</span></label>
-                  <input type="tel" name="mobile" class="form-input" placeholder="+91 XXXXX XXXXX" required>
+                  <input type="tel" name="mobile" class="form-input" placeholder="+91 XXXXX XXXXX" required="">
                 </div>
                 <div>
                   <label class="form-label">Alternate Mobile Number</label>
@@ -154,31 +150,31 @@
                 </div>
                 <div class="md:col-span-2">
                   <label class="form-label">Email Address <span class="text-red-500">*</span></label>
-                  <input type="email" name="email" class="form-input" placeholder="your@email.com" required>
+                  <input type="email" name="email" class="form-input" placeholder="your@email.com" required="">
                 </div>
                 <div class="md:col-span-2">
                   <label class="form-label">Correspondence Address <span class="text-red-500">*</span></label>
-                  <textarea name="corr_address" class="form-input" rows="2" placeholder="Enter your correspondence address" required></textarea>
+                  <textarea name="corr_address" class="form-input" rows="2" placeholder="Enter your correspondence address" required=""></textarea>
                 </div>
                 <div class="md:col-span-2">
                   <label class="form-label">Permanent Address <span class="text-red-500">*</span></label>
-                  <textarea name="perm_address" class="form-input" rows="2" placeholder="Enter your permanent address" required></textarea>
+                  <textarea name="perm_address" class="form-input" rows="2" placeholder="Enter your permanent address" required=""></textarea>
                 </div>
                 <div>
                   <label class="form-label">State <span class="text-red-500">*</span></label>
-                  <select name="state" id="stateSelect" class="form-input" required>
+                  <select name="state" id="stateSelect" class="form-input" required="">
                     <option value="">Select State</option>
                   </select>
                 </div>
                 <div>
                   <label class="form-label">District <span class="text-red-500">*</span></label>
-                  <select name="district" id="districtSelect" class="form-input" required>
+                  <select name="district" id="districtSelect" class="form-input" required="">
                     <option value="">Select District</option>
                   </select>
                 </div>
                 <div>
                   <label class="form-label">PIN Code <span class="text-red-500">*</span></label>
-                  <input type="text" name="pin_code" class="form-input" placeholder="6-digit PIN" maxlength="6" required>
+                  <input type="text" name="pin_code" class="form-input" placeholder="6-digit PIN" maxlength="6" required="">
                 </div>
               </div>
             </div>
@@ -191,9 +187,9 @@
                 <div>
                   <h3 class="text-base font-bold text-gray-700 mb-3 flex items-center gap-2"><i class="fas fa-male text-[#005F86]"></i> Father's Details</h3>
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div><label class="form-label">Name <span class="text-red-500">*</span></label><input type="text" name="father_name" class="form-input" placeholder="Father's name" required></div>
+                    <div><label class="form-label">Name <span class="text-red-500">*</span></label><input type="text" name="father_name" class="form-input" placeholder="Father's name" required=""></div>
                     <div><label class="form-label">Occupation</label><input type="text" name="father_occ" class="form-input" placeholder="Occupation"></div>
-                    <div><label class="form-label">Mobile Number <span class="text-red-500">*</span></label><input type="tel" name="father_mobile" class="form-input" placeholder="+91 XXXXX XXXXX" required></div>
+                    <div><label class="form-label">Mobile Number <span class="text-red-500">*</span></label><input type="tel" name="father_mobile" class="form-input" placeholder="+91 XXXXX XXXXX" required=""></div>
                     <div><label class="form-label">Email</label><input type="email" name="father_email" class="form-input" placeholder="Email address"></div>
                   </div>
                 </div>
@@ -201,7 +197,7 @@
                 <div>
                   <h3 class="text-base font-bold text-gray-700 mb-3 flex items-center gap-2"><i class="fas fa-female text-[#005F86]"></i> Mother's Details</h3>
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div><label class="form-label">Name <span class="text-red-500">*</span></label><input type="text" name="mother_name" class="form-input" placeholder="Mother's name" required></div>
+                    <div><label class="form-label">Name <span class="text-red-500">*</span></label><input type="text" name="mother_name" class="form-input" placeholder="Mother's name" required=""></div>
                     <div><label class="form-label">Occupation</label><input type="text" name="mother_occ" class="form-input" placeholder="Occupation"></div>
                     <div><label class="form-label">Mobile Number</label><input type="tel" name="mother_mobile" class="form-input" placeholder="+91 XXXXX XXXXX"></div>
                   </div>
@@ -227,23 +223,23 @@
                 <div>
                   <h3 class="text-base font-bold text-gray-700 mb-3 flex items-center gap-2"><i class="fas fa-graduation-cap text-[#005F86]"></i> Class X</h3>
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div><label class="form-label">Board <span class="text-red-500">*</span></label><input type="text" name="x_board" class="form-input" placeholder="e.g. CBSE, ICSE, State Board" required></div>
-                    <div><label class="form-label">School Name <span class="text-red-500">*</span></label><input type="text" name="x_school" class="form-input" placeholder="School name" required></div>
-                    <div><label class="form-label">Year of Passing <span class="text-red-500">*</span></label><input type="text" name="x_year" class="form-input" placeholder="e.g. 2022" required></div>
-                    <div><label class="form-label">Percentage / CGPA <span class="text-red-500">*</span></label><input type="text" name="x_percent" class="form-input" placeholder="e.g. 85% or 8.5" required></div>
+                    <div><label class="form-label">Board <span class="text-red-500">*</span></label><input type="text" name="x_board" class="form-input" placeholder="e.g. CBSE, ICSE, State Board" required=""></div>
+                    <div><label class="form-label">School Name <span class="text-red-500">*</span></label><input type="text" name="x_school" class="form-input" placeholder="School name" required=""></div>
+                    <div><label class="form-label">Year of Passing <span class="text-red-500">*</span></label><input type="text" name="x_year" class="form-input" placeholder="e.g. 2022" required=""></div>
+                    <div><label class="form-label">Percentage / CGPA <span class="text-red-500">*</span></label><input type="text" name="x_percent" class="form-input" placeholder="e.g. 85% or 8.5" required=""></div>
                   </div>
                 </div>
                 <!-- Class XII -->
                 <div>
                   <h3 class="text-base font-bold text-gray-700 mb-3 flex items-center gap-2"><i class="fas fa-graduation-cap text-[#005F86]"></i> Class XII</h3>
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div><label class="form-label">Board <span class="text-red-500">*</span></label><input type="text" name="xii_board" class="form-input" placeholder="e.g. CBSE, ICSE, State Board" required></div>
-                    <div><label class="form-label">School Name <span class="text-red-500">*</span></label><input type="text" name="xii_school" class="form-input" placeholder="School name" required></div>
-                    <div><label class="form-label">Year of Passing <span class="text-red-500">*</span></label><input type="text" name="xii_year" class="form-input" placeholder="e.g. 2024" required></div>
-                    <div><label class="form-label">Physics Marks <span class="text-red-500">*</span></label><input type="text" name="xii_physics" class="form-input" placeholder="Marks obtained" required></div>
-                    <div><label class="form-label">Chemistry Marks <span class="text-red-500">*</span></label><input type="text" name="xii_chem" class="form-input" placeholder="Marks obtained" required></div>
-                    <div><label class="form-label">Mathematics Marks <span class="text-red-500">*</span></label><input type="text" name="xii_math" class="form-input" placeholder="Marks obtained" required></div>
-                    <div><label class="form-label">Overall Percentage <span class="text-red-500">*</span></label><input type="text" name="xii_percent" class="form-input" placeholder="e.g. 75%" required></div>
+                    <div><label class="form-label">Board <span class="text-red-500">*</span></label><input type="text" name="xii_board" class="form-input" placeholder="e.g. CBSE, ICSE, State Board" required=""></div>
+                    <div><label class="form-label">School Name <span class="text-red-500">*</span></label><input type="text" name="xii_school" class="form-input" placeholder="School name" required=""></div>
+                    <div><label class="form-label">Year of Passing <span class="text-red-500">*</span></label><input type="text" name="xii_year" class="form-input" placeholder="e.g. 2024" required=""></div>
+                    <div><label class="form-label">Physics Marks <span class="text-red-500">*</span></label><input type="text" name="xii_physics" class="form-input" placeholder="Marks obtained" required=""></div>
+                    <div><label class="form-label">Chemistry Marks <span class="text-red-500">*</span></label><input type="text" name="xii_chem" class="form-input" placeholder="Marks obtained" required=""></div>
+                    <div><label class="form-label">Mathematics Marks <span class="text-red-500">*</span></label><input type="text" name="xii_math" class="form-input" placeholder="Marks obtained" required=""></div>
+                    <div><label class="form-label">Overall Percentage <span class="text-red-500">*</span></label><input type="text" name="xii_percent" class="form-input" placeholder="e.g. 75%" required=""></div>
                   </div>
                 </div>
                 <!-- Diploma -->
@@ -267,7 +263,7 @@
               <label class="form-label">Preferred Stream <span class="text-red-500">*</span></label>
               <div class="space-y-3 mt-2">
                 <label class="radio-option bg-gray-50 p-3 rounded-xl border border-gray-200 hover:border-[#ff4301] transition cursor-pointer">
-                  <input type="radio" name="stream" value="B1.1" required> B1.1 — Mechanical (Aeroplane Turbine)
+                  <input type="radio" name="stream" value="B1.1" required=""> B1.1 — Mechanical (Aeroplane Turbine)
                 </label>
                 <label class="radio-option bg-gray-50 p-3 rounded-xl border border-gray-200 hover:border-[#ff4301] transition cursor-pointer">
                   <input type="radio" name="stream" value="B2"> B2 — Avionics
@@ -282,7 +278,7 @@
                 <div class="md:col-span-2">
                   <label class="form-label">Applying Through <span class="text-red-500">*</span></label>
                   <div class="flex flex-wrap gap-3 mt-1">
-                    <label class="radio-option"><input type="radio" name="entrance" value="Direct Admission" required> Direct Admission</label>
+                    <label class="radio-option"><input type="radio" name="entrance" value="Direct Admission" required=""> Direct Admission</label>
                     <label class="radio-option"><input type="radio" name="entrance" value="Institute Entrance Test"> Institute Entrance Test</label>
                     <label class="radio-option"><input type="radio" name="entrance" value="Management Quota"> Management Quota</label>
                   </div>
@@ -301,7 +297,7 @@
                 <div>
                   <label class="form-label">Do you have normal colour vision? <span class="text-red-500">*</span></label>
                   <div class="flex gap-4 mt-1">
-                    <label class="radio-option"><input type="radio" name="colour_vision" value="Yes" required> Yes</label>
+                    <label class="radio-option"><input type="radio" name="colour_vision" value="Yes" required=""> Yes</label>
                     <label class="radio-option"><input type="radio" name="colour_vision" value="No"> No</label>
                   </div>
                 </div>
@@ -331,16 +327,16 @@
               <h2 class="form-section-title">8. Document Upload</h2>
               <p class="text-sm text-gray-500 mb-5">Submit the following documents (JPG, PNG, or PDF):</p>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <div><label class="form-label">Signature <span class="text-red-500">*</span></label><div class="file-upload"><input type="file" name="doc_signature" accept="image/*,.pdf" required></div></div>
-                <div><label class="form-label">Class X Marksheet <span class="text-red-500">*</span></label><div class="file-upload"><input type="file" name="doc_x_mark" accept="image/*,.pdf" required></div></div>
-                <div><label class="form-label">Class XII Marksheet / Diploma Certificate <span class="text-red-500">*</span></label><div class="file-upload"><input type="file" name="doc_xii_mark" accept="image/*,.pdf" required></div></div>
-                <div><label class="form-label">Transfer Certificate <span class="text-red-500">*</span></label><div class="file-upload"><input type="file" name="doc_tc" accept="image/*,.pdf" required></div></div>
-                <div><label class="form-label">Migration Certificate <span class="text-red-500">*</span></label><div class="file-upload"><input type="file" name="doc_migration" accept="image/*,.pdf" required></div></div>
-                <div><label class="form-label">Character Certificate <span class="text-red-500">*</span></label><div class="file-upload"><input type="file" name="doc_character" accept="image/*,.pdf" required></div></div>
-                <div><label class="form-label">Aadhaar Card <span class="text-red-500">*</span></label><div class="file-upload"><input type="file" name="doc_aadhaar" accept="image/*,.pdf" required></div></div>
-                <div><label class="form-label">Medical Fitness Certificate <span class="text-red-500">*</span></label><div class="file-upload"><input type="file" name="doc_medical" accept="image/*,.pdf" required></div></div>
-                <div><label class="form-label">Colour Vision Certificate <span class="text-red-500">*</span></label><div class="file-upload"><input type="file" name="doc_vision" accept="image/*,.pdf" required></div></div>
-                <div><label class="form-label">Passport <span class="text-gray-400 text-xs">(International Students)</span> <span class="text-red-500">*</span></label><div class="file-upload"><input type="file" name="doc_passport" accept="image/*,.pdf" required></div></div>
+                <div><label class="form-label">Signature <span class="text-red-500">*</span></label><div class="file-upload"><input type="file" name="doc_signature" accept="image/*,.pdf" required=""></div></div>
+                <div><label class="form-label">Class X Marksheet <span class="text-red-500">*</span></label><div class="file-upload"><input type="file" name="doc_x_mark" accept="image/*,.pdf" required=""></div></div>
+                <div><label class="form-label">Class XII Marksheet / Diploma Certificate <span class="text-red-500">*</span></label><div class="file-upload"><input type="file" name="doc_xii_mark" accept="image/*,.pdf" required=""></div></div>
+                <div><label class="form-label">Transfer Certificate <span class="text-red-500">*</span></label><div class="file-upload"><input type="file" name="doc_tc" accept="image/*,.pdf" required=""></div></div>
+                <div><label class="form-label">Migration Certificate <span class="text-red-500">*</span></label><div class="file-upload"><input type="file" name="doc_migration" accept="image/*,.pdf" required=""></div></div>
+                <div><label class="form-label">Character Certificate <span class="text-red-500">*</span></label><div class="file-upload"><input type="file" name="doc_character" accept="image/*,.pdf" required=""></div></div>
+                <div><label class="form-label">Aadhaar Card <span class="text-red-500">*</span></label><div class="file-upload"><input type="file" name="doc_aadhaar" accept="image/*,.pdf" required=""></div></div>
+                <div><label class="form-label">Medical Fitness Certificate <span class="text-red-500">*</span></label><div class="file-upload"><input type="file" name="doc_medical" accept="image/*,.pdf" required=""></div></div>
+                <div><label class="form-label">Colour Vision Certificate <span class="text-red-500">*</span></label><div class="file-upload"><input type="file" name="doc_vision" accept="image/*,.pdf" required=""></div></div>
+                <div><label class="form-label">Passport <span class="text-gray-400 text-xs">(International Students)</span> <span class="text-red-500">*</span></label><div class="file-upload"><input type="file" name="doc_passport" accept="image/*,.pdf" required=""></div></div>
               </div>
             </div>
 
@@ -394,9 +390,9 @@
             <div class="form-step" data-step="10">
               <h2 class="form-section-title">11. Emergency Contact</h2>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <div><label class="form-label">Name <span class="text-red-500">*</span></label><input type="text" name="emg_name" class="form-input" placeholder="Emergency contact name" required></div>
-                <div><label class="form-label">Relationship <span class="text-red-500">*</span></label><input type="text" name="emg_rel" class="form-input" placeholder="e.g. Father, Uncle" required></div>
-                <div><label class="form-label">Mobile Number <span class="text-red-500">*</span></label><input type="tel" name="emg_mobile" class="form-input" placeholder="+91 XXXXX XXXXX" required></div>
+                <div><label class="form-label">Name <span class="text-red-500">*</span></label><input type="text" name="emg_name" class="form-input" placeholder="Emergency contact name" required=""></div>
+                <div><label class="form-label">Relationship <span class="text-red-500">*</span></label><input type="text" name="emg_rel" class="form-input" placeholder="e.g. Father, Uncle" required=""></div>
+                <div><label class="form-label">Mobile Number <span class="text-red-500">*</span></label><input type="tel" name="emg_mobile" class="form-input" placeholder="+91 XXXXX XXXXX" required=""></div>
                 <div><label class="form-label">Alternate Number</label><input type="tel" name="emg_alt" class="form-input" placeholder="+91 XXXXX XXXXX"></div>
               </div>
             </div>
@@ -413,19 +409,19 @@
               <h2 class="form-section-title">13. Declaration</h2>
               <div class="space-y-4">
                 <label class="checkbox-option bg-gray-50 p-3 rounded-xl border border-gray-200">
-                  <input type="checkbox" name="declaration1" required> I hereby declare that all the information provided by me is true and correct.
+                  <input type="checkbox" name="declaration1" required=""> I hereby declare that all the information provided by me is true and correct.
                 </label>
                 <label class="checkbox-option bg-gray-50 p-3 rounded-xl border border-gray-200">
-                  <input type="checkbox" name="declaration2" required> I understand that admission is subject to verification of documents and fulfilment of eligibility criteria.
+                  <input type="checkbox" name="declaration2" required=""> I understand that admission is subject to verification of documents and fulfilment of eligibility criteria.
                 </label>
                 <label class="checkbox-option bg-gray-50 p-3 rounded-xl border border-gray-200">
-                  <input type="checkbox" name="declaration3" required> I agree to abide by the rules, regulations, code of conduct, and academic policies of Awadh Aero DAC Aviation Academy.
+                  <input type="checkbox" name="declaration3" required=""> I agree to abide by the rules, regulations, code of conduct, and academic policies of Awadh Aero DAC Aviation Academy.
                 </label>
                 <label class="checkbox-option bg-gray-50 p-3 rounded-xl border border-gray-200">
-                  <input type="checkbox" name="consent" required> I consent to receiving admission-related communication via SMS, Email, and WhatsApp.
+                  <input type="checkbox" name="consent" required=""> I consent to receiving admission-related communication via SMS, Email, and WhatsApp.
                 </label>
                 <label class="checkbox-option bg-gray-50 p-3 rounded-xl border border-gray-200">
-                  <input type="checkbox" name="agree_privacy" required> I agree to the Privacy Policy and Terms & Conditions.
+                  <input type="checkbox" name="agree_privacy" required=""> I agree to the Privacy Policy and Terms &amp; Conditions.
                 </label>
               </div>
             </div>
@@ -437,7 +433,7 @@
                 <div class="bg-blue-50 border border-blue-200 rounded-xl p-5 mb-5">
                   <h3 class="text-blue-800 font-bold text-lg mb-2"><i class="fas fa-info-circle"></i> Application Fee</h3>
                   <p class="text-blue-700 text-sm mb-4">To complete your admission application, a non-refundable application fee of <strong>₹500</strong> is required.</p>
-                  <p class="text-xs text-blue-600">Clicking 'Pay & Submit Application' will open the secure Razorpay payment gateway. Your application will be submitted automatically upon successful payment.</p>
+                  <p class="text-xs text-blue-600">Clicking 'Pay &amp; Submit Application' will open the secure Razorpay payment gateway. Your application will be submitted automatically upon successful payment.</p>
                 </div>
                 <!-- Hidden fields to store payment details before final submission -->
                 <input type="hidden" name="razorpay_order_id" id="razorpay_order_id">
@@ -458,7 +454,7 @@
                   Next <i class="fas fa-arrow-right text-xs"></i>
                 </button>
                 <button type="submit" id="submitBtn" class="px-8 py-2.5 bg-[#22c55e] text-white font-bold rounded-full hover:bg-[#16a34a] transition flex items-center gap-2 text-sm shadow-lg hidden">
-                  <i class="fas fa-credit-card text-xs"></i> Pay & Submit Application 
+                  <i class="fas fa-credit-card text-xs"></i> Pay &amp; Submit Application 
                 </button>
               </div>
             </div>
@@ -812,5 +808,6 @@
     })();
   </script>
 
-</body>
-</html>
+
+
+</body></html>
