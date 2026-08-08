@@ -1,3 +1,4 @@
+// v5 — build trigger
 document.addEventListener("DOMContentLoaded", () => {
   // Detect current directory level to construct correct relative path prefix
   const isSubPage = window.location.pathname.includes("/Pages/") || window.location.pathname.includes("/pages/");
