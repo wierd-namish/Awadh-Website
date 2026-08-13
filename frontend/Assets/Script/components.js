@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <a class="dropdown-item" href="${prefix}Assets/Images/broschure/aadaa%20Brochure%2007.26-27.pdf" target="_blank">Brochure</a>
               </div>
             </li>
-            <li><a class="text-[#1f2937] hover:text-[#5d58ef] transition" href="${prefix}Pages/blog.html">Blogs</a></li>
+
             <li><a class="text-[#1f2937] hover:text-[#5d58ef] transition" href="${prefix}Pages/contact.html">Contact Us</a></li>
           </ul>
         </nav>
@@ -199,7 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <a class="pl-4 py-1 text-base hover:text-[#5d58ef]" href="${prefix}Pages/admission-form.html">Application Form</a>
             <a class="pl-4 py-1 text-base hover:text-[#5d58ef]" href="${prefix}Assets/Images/broschure/aadaa%20Brochure%2007.26-27.pdf" target="_blank">Brochure</a>
           </div>
-          <a class="text-lg font-semibold hover:text-[#5d58ef]" href="${prefix}Pages/blog.html">Blogs</a>
+
           <a class="text-lg font-semibold hover:text-[#5d58ef]" href="${prefix}Pages/contact.html">Contact Us</a>
         </div>
       </header>
@@ -269,7 +269,7 @@ document.addEventListener("DOMContentLoaded", () => {
               <li><a href="#" class="hover:text-white flex items-center"><i class="fas fa-caret-right mr-2 text-xs"></i>Courses</a></li>
               <li><a href="#" class="hover:text-white flex items-center"><i class="fas fa-caret-right mr-2 text-xs"></i>Gallery</a></li>
               <li><a href="${prefix}Pages/admission.html" class="hover:text-white flex items-center"><i class="fas fa-caret-right mr-2 text-xs"></i>Admission</a></li>
-              <li><a href="${prefix}Pages/blog.html" class="hover:text-white flex items-center"><i class="fas fa-caret-right mr-2 text-xs"></i>Blogs</a></li>
+
               <li><a href="${prefix}Pages/contact.html" class="hover:text-white flex items-center"><i class="fas fa-caret-right mr-2 text-xs"></i>Contact Us</a></li>
             </ul>
           </div>
@@ -360,6 +360,216 @@ document.addEventListener("DOMContentLoaded", () => {
       <span class="text-[#ff4301] pointer-events-auto">${pageTitleParts}</span>
     `;
     document.body.appendChild(breadcrumb);
+  }
+
+  // 7. Inject Global Admission Popup & Time Tracking Logic
+  if (!document.getElementById("admissionPopup")) {
+    const popupHTML = `
+      <div id="admissionPopup" class="fixed inset-0 z-[1000] hidden items-center justify-center p-4">
+        <!-- Backdrop with blur -->
+        <div id="popupBackdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+        
+        <!-- Modal Card -->
+        <div id="popupCard" class="bg-white w-full max-w-lg rounded-[2rem] overflow-hidden shadow-2xl relative z-10 transform scale-90 opacity-0 transition-all duration-300 border border-gray-100 flex flex-col md:flex-row">
+          <!-- Decorative Side Panel -->
+          <div class="bg-[#005F86] md:w-1/3 flex flex-col justify-center items-center p-6 text-white text-center relative overflow-hidden">
+            <!-- Radial Gradient Highlight -->
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,67,1,0.25),transparent_70%)]"></div>
+            <!-- Plane icon in white circle -->
+            <div class="w-14 h-14 rounded-full bg-white/10 border border-white/20 flex items-center justify-center mb-4 backdrop-blur-md relative z-10">
+              <i class="fas fa-paper-plane text-xl text-[#ff4301]"></i>
+            </div>
+            <span class="text-[10px] uppercase tracking-widest text-orange-200 font-extrabold relative z-10">Awadh Aero</span>
+            <h4 class="text-base font-black mt-1 relative z-10">ADMISSIONS</h4>
+            <span class="text-[10px] bg-[#ff4301] text-white px-3 py-1 rounded-full font-bold mt-3 shadow-md relative z-10">OPEN NOW</span>
+          </div>
+          
+          <!-- Content Panel -->
+          <div class="p-8 md:w-2/3 flex flex-col justify-between relative bg-white">
+            <!-- Close Button -->
+            <button id="closePopupBtn" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors text-xl p-1 focus:outline-none" aria-label="Close popup">
+              <i class="fas fa-times"></i>
+            </button>
+            
+            <div>
+              <span class="text-[#ff4301] font-bold text-xs uppercase tracking-wider block mb-1">Launch Your Aviation Journey</span>
+              <h3 class="text-xl font-black text-gray-800 leading-snug mb-3">
+                Secure Your Seat Today!
+              </h3>
+              <p class="text-gray-500 text-xs leading-relaxed mb-6">
+                Enroll in our industry-leading <strong>Aircraft Maintenance Engineering (AME)</strong> or <strong>UAV Drone Pilot</strong> courses. Hands-on learning in premium facilities.
+              </p>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-2.5">
+              <a href="${prefix}Pages/admission-form.html" class="flex-1 text-center py-2.5 bg-[#ff4301] hover:bg-[#5d58ef] text-white font-bold rounded-full transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-1.5 btn-premium text-xs">
+                Apply Now <i class="fas fa-arrow-right text-[10px]"></i>
+              </a>
+              <button id="closePopupBtnSecondary" class="px-4 py-2.5 border border-gray-200 hover:border-gray-300 text-gray-500 hover:text-gray-700 font-semibold rounded-full transition-all duration-300 text-xs bg-gray-50">
+                Maybe Later
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+    const popupContainer = document.createElement("div");
+    popupContainer.innerHTML = popupHTML;
+    document.body.appendChild(popupContainer.firstElementChild);
+  }
+
+  // Time Tracking and Popup Logic
+  const popup = document.getElementById("admissionPopup");
+  const backdrop = document.getElementById("popupBackdrop");
+  const card = document.getElementById("popupCard");
+  const closeBtns = [
+    document.getElementById("closePopupBtn"),
+    document.getElementById("closePopupBtnSecondary"),
+    backdrop
+  ];
+
+  function showPopup() {
+    if (sessionStorage.getItem("admissionPopupClosed")) return;
+    
+    popup.classList.remove("hidden");
+    popup.classList.add("flex");
+
+    // Force a reflow for transition
+    void popup.offsetWidth;
+
+    backdrop.classList.remove("opacity-0");
+    backdrop.classList.add("opacity-100");
+    card.classList.remove("scale-90", "opacity-0");
+    card.classList.add("scale-100", "opacity-100");
+
+    document.body.classList.add("no-scroll");
+  }
+
+  function hidePopup() {
+    backdrop.classList.remove("opacity-100");
+    backdrop.classList.add("opacity-0");
+    card.classList.remove("scale-100", "opacity-100");
+    card.classList.add("scale-90", "opacity-0");
+
+    document.body.classList.remove("no-scroll");
+    
+    // Remember that the user closed the popup in this session
+    sessionStorage.setItem("admissionPopupClosed", "true");
+
+    setTimeout(() => {
+      popup.classList.remove("flex");
+      popup.classList.add("hidden");
+    }, 300);
+  }
+
+  if (popup) {
+    closeBtns.forEach(btn => {
+      if (btn) btn.addEventListener("click", hidePopup);
+    });
+
+    if (!sessionStorage.getItem("admissionPopupClosed")) {
+      // Check for start time
+      let startTime = sessionStorage.getItem("websiteStartTime");
+      if (!startTime) {
+        startTime = Date.now();
+        sessionStorage.setItem("websiteStartTime", startTime);
+      }
+      
+      const elapsed = Date.now() - parseInt(startTime, 10);
+      const targetTime = 15000; // 15 seconds (for testing)
+      
+      if (elapsed >= targetTime) {
+        showPopup();
+      } else {
+        setTimeout(showPopup, targetTime - elapsed);
+      }
+    }
+  }
+
+  // 8. Inject Top-Middle Form Notification (Counsellor Callback)
+  if (!document.getElementById("counsellorNotification")) {
+    const notifHTML = `
+      <div id="counsellorNotification" class="fixed top-[-150%] left-1/2 transform -translate-x-1/2 z-[2000] w-[90%] max-w-sm bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.25)] border border-gray-100 transition-all duration-700 ease-out p-5">
+        <div class="flex justify-between items-start mb-3">
+          <div>
+            <h4 class="font-bold text-gray-800 text-base flex items-center gap-2">
+              <i class="fas fa-comment-dots text-[#ff4301]"></i> Quick Enquiry
+            </h4>
+            <p class="text-xs text-gray-500 mt-1">Our counsellor will connect with you soon</p>
+          </div>
+          <button id="closeCounsellorNotif" class="text-gray-400 hover:text-gray-600 transition bg-gray-50 hover:bg-gray-100 rounded-full w-6 h-6 flex items-center justify-center">
+            <i class="fas fa-times text-xs"></i>
+          </button>
+        </div>
+        
+        <form id="counsellorForm" class="space-y-3">
+          <div>
+            <input type="text" placeholder="Name" class="w-full text-xs px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-[#5d58ef]" required>
+          </div>
+          <div>
+            <input type="tel" placeholder="Mobile Number" class="w-full text-xs px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-[#5d58ef]" required>
+          </div>
+          <div>
+            <select class="w-full text-xs px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-[#5d58ef] text-gray-600 bg-white" required>
+              <option value="" disabled selected>Select Course</option>
+              <option value="ame_b1_1">AME - B1.1 (Aeroplanes Turbine)</option>
+              <option value="ame_b2">AME - B2 (Avionics)</option>
+              <option value="drone">UAV Drone Pilot</option>
+              <option value="hangglider">Power Hang Glider</option>
+            </select>
+          </div>
+          <button type="submit" class="w-full bg-[#ff4301] hover:bg-[#5d58ef] text-white font-bold py-2 rounded-lg text-xs transition shadow-md">
+            Request Callback
+          </button>
+        </form>
+      </div>
+    `;
+    const notifContainer = document.createElement("div");
+    notifContainer.innerHTML = notifHTML;
+    document.body.appendChild(notifContainer.firstElementChild);
+  }
+
+  const counsellorNotif = document.getElementById("counsellorNotification");
+  const closeNotifBtn = document.getElementById("closeCounsellorNotif");
+  const counsellorForm = document.getElementById("counsellorForm");
+
+  function showCounsellorNotif() {
+    if (sessionStorage.getItem("counsellorNotifClosed")) return;
+    counsellorNotif.classList.remove("top-[-150%]");
+    counsellorNotif.classList.add("top-4", "md:top-6");
+  }
+
+  function hideCounsellorNotif() {
+    counsellorNotif.classList.remove("top-4", "md:top-6");
+    counsellorNotif.classList.add("top-[-150%]");
+    sessionStorage.setItem("counsellorNotifClosed", "true");
+  }
+
+  if (counsellorNotif) {
+    closeNotifBtn.addEventListener("click", hideCounsellorNotif);
+    
+    counsellorForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      // Simulate form submission
+      const btn = counsellorForm.querySelector('button[type="submit"]');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      
+      setTimeout(() => {
+        btn.innerHTML = '<i class="fas fa-check"></i> Request Sent!';
+        btn.classList.remove('bg-[#ff4301]', 'hover:bg-[#5d58ef]');
+        btn.classList.add('bg-green-500', 'hover:bg-green-600');
+        
+        setTimeout(() => {
+          hideCounsellorNotif();
+        }, 1500);
+      }, 1000);
+    });
+
+    // Trigger the notification after 5 seconds on the site
+    if (!sessionStorage.getItem("counsellorNotifClosed")) {
+      setTimeout(showCounsellorNotif, 5000);
+    }
   }
 
   // Set global components Loaded state flag and dispatch event
