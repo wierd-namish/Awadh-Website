@@ -204,13 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       </header>
 
-      <!-- Floating Register Now Button -->
-      <div class="fixed top-[125px] right-0 z-[99999] transition-all duration-300">
-        <a href="${prefix}Pages/admission-form.html" class="inline-flex items-center pl-5 pr-4 py-3 bg-[#ff4301] hover:bg-[#5d58ef] text-white text-xs sm:text-sm font-black uppercase tracking-wider rounded-l-xl rounded-r-none shadow-[-4px_4px_15px_rgba(255,67,1,0.35)] hover:shadow-[-4px_4px_20px_rgba(93,88,239,0.45)] hover:-translate-x-1.5 transform transition-all duration-300 group">
-          <i class="fas fa-paper-plane mr-2.5 text-sm group-hover:rotate-12 transition-transform"></i>
-          Online Registration
-        </a>
-      </div>
+
 
       <!-- Floating Left Buttons (Enquire & Registration) -->
       <div class="fixed left-0 top-[45%] -translate-y-1/2 z-[99999] flex flex-col gap-2 transition-all duration-300">
@@ -467,7 +461,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (btn) btn.addEventListener("click", hidePopup);
     });
 
-    setTimeout(showPopup, 15000);
+    if (isHomePage) {
+      setTimeout(showPopup, 120000);
+    }
   }
 
   // 8. Inject Top-Middle Form Notification (Counsellor Callback)
@@ -547,7 +543,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 1000);
     });
 
-    // Trigger the notification after 5 seconds on the site
+    // Trigger the enquiry notification after 5 seconds on all pages
     setTimeout(showCounsellorNotif, 5000);
   }
 
