@@ -212,10 +212,13 @@ document.addEventListener("DOMContentLoaded", () => {
         </a>
       </div>
 
-      <!-- Floating Enquire Now Button (Left Middle of Screen) -->
-      <div class="fixed left-0 top-1/2 -translate-y-1/2 z-[99999] transition-all duration-300">
-        <a href="${prefix}Pages/contact.html" class="inline-block py-6 px-3.5 bg-[#ff4301] hover:bg-[#5d58ef] text-white text-xs sm:text-sm font-black uppercase tracking-widest rounded-tl-none rounded-bl-none rounded-tr-3xl rounded-br-3xl shadow-[4px_4px_15px_rgba(255,67,1,0.4)] hover:shadow-[4px_4px_20px_rgba(93,88,239,0.5)] hover:translate-x-1.5 transform transition-all duration-300 [writing-mode:vertical-rl] text-center">
+      <!-- Floating Left Buttons (Enquire & Registration) -->
+      <div class="fixed left-0 top-[45%] -translate-y-1/2 z-[99999] flex flex-col gap-2 transition-all duration-300">
+        <a href="${prefix}Pages/contact.html" class="inline-block py-6 px-3.5 bg-[#ff4301] hover:bg-[#5d58ef] text-white text-xs sm:text-sm font-black uppercase tracking-widest rounded-r-3xl shadow-[4px_4px_15px_rgba(255,67,1,0.4)] hover:shadow-[4px_4px_20px_rgba(93,88,239,0.5)] hover:translate-x-1.5 transform transition-all duration-300 [writing-mode:vertical-rl] text-center">
           ENQUIRE NOW
+        </a>
+        <a href="${prefix}Pages/admission.html" class="inline-block py-6 px-3.5 bg-[#005F86] hover:bg-[#5d58ef] text-white text-xs sm:text-sm font-black uppercase tracking-widest rounded-r-3xl shadow-[4px_4px_15px_rgba(0,95,134,0.4)] hover:shadow-[4px_4px_20px_rgba(93,88,239,0.5)] hover:translate-x-1.5 transform transition-all duration-300 [writing-mode:vertical-rl] text-center">
+          ONLINE REGISTRATION
         </a>
       </div>
     `;
@@ -429,7 +432,6 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   function showPopup() {
-    if (sessionStorage.getItem("admissionPopupClosed")) return;
     
     popup.classList.remove("hidden");
     popup.classList.add("flex");
@@ -454,8 +456,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.remove("no-scroll");
     
     // Remember that the user closed the popup in this session
-    sessionStorage.setItem("admissionPopupClosed", "true");
-
     setTimeout(() => {
       popup.classList.remove("flex");
       popup.classList.add("hidden");
@@ -467,23 +467,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (btn) btn.addEventListener("click", hidePopup);
     });
 
-    if (!sessionStorage.getItem("admissionPopupClosed")) {
-      // Check for start time
-      let startTime = sessionStorage.getItem("websiteStartTime");
-      if (!startTime) {
-        startTime = Date.now();
-        sessionStorage.setItem("websiteStartTime", startTime);
-      }
-      
-      const elapsed = Date.now() - parseInt(startTime, 10);
-      const targetTime = 15000; // 15 seconds (for testing)
-      
-      if (elapsed >= targetTime) {
-        showPopup();
-      } else {
-        setTimeout(showPopup, targetTime - elapsed);
-      }
-    }
+    setTimeout(showPopup, 15000);
   }
 
   // 8. Inject Top-Middle Form Notification (Counsellor Callback)
@@ -514,7 +498,6 @@ document.addEventListener("DOMContentLoaded", () => {
               <option value="" disabled selected>Select Course</option>
               <option value="ame_b1_1">AME - B1.1 (Aeroplanes Turbine)</option>
               <option value="ame_b2">AME - B2 (Avionics)</option>
-              <option value="drone">UAV Drone Pilot</option>
               <option value="hangglider">Power Hang Glider</option>
             </select>
           </div>
@@ -534,7 +517,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const counsellorForm = document.getElementById("counsellorForm");
 
   function showCounsellorNotif() {
-    if (sessionStorage.getItem("counsellorNotifClosed")) return;
     counsellorNotif.classList.remove("top-[-150%]");
     counsellorNotif.classList.add("top-4", "md:top-6");
   }
@@ -542,7 +524,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function hideCounsellorNotif() {
     counsellorNotif.classList.remove("top-4", "md:top-6");
     counsellorNotif.classList.add("top-[-150%]");
-    sessionStorage.setItem("counsellorNotifClosed", "true");
   }
 
   if (counsellorNotif) {
@@ -567,9 +548,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Trigger the notification after 5 seconds on the site
-    if (!sessionStorage.getItem("counsellorNotifClosed")) {
-      setTimeout(showCounsellorNotif, 5000);
-    }
+    setTimeout(showCounsellorNotif, 5000);
   }
 
   // Set global components Loaded state flag and dispatch event
