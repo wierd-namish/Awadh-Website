@@ -266,8 +266,8 @@ document.addEventListener("DOMContentLoaded", () => {
               <li><a href="#" class="hover:text-white flex items-center"><i class="fas fa-caret-right mr-2 text-xs"></i>Courses</a></li>
               <li><a href="#" class="hover:text-white flex items-center"><i class="fas fa-caret-right mr-2 text-xs"></i>Gallery</a></li>
               <li><a href="${prefix}Pages/admission.html" class="hover:text-white flex items-center"><i class="fas fa-caret-right mr-2 text-xs"></i>Admission</a></li>
-
               <li><a href="${prefix}Pages/contact.html" class="hover:text-white flex items-center"><i class="fas fa-caret-right mr-2 text-xs"></i>Contact Us</a></li>
+              <li><a href="https://www.dgca.gov.in/digigov-portal/" target="_blank" class="hover:text-white flex items-center"><i class="fas fa-caret-right mr-2 text-xs"></i>DGCA website</a></li>
             </ul>
           </div>
 
@@ -462,7 +462,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     if (isHomePage) {
-      setTimeout(showPopup, 120000);
+      const whyChooseUsSection = document.getElementById('why-choose-us');
+      if (whyChooseUsSection) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              showPopup();
+            }
+          });
+        }, { threshold: 0.2 });
+        observer.observe(whyChooseUsSection);
+      }
     }
   }
 
@@ -543,8 +553,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 1000);
     });
 
-    // Trigger the enquiry notification after 5 seconds on all pages
-    setTimeout(showCounsellorNotif, 5000);
+    // Trigger the enquiry notification after 150 seconds on all pages
+    setTimeout(showCounsellorNotif, 150000);
   }
 
   // Set global components Loaded state flag and dispatch event
