@@ -69,9 +69,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
                   <div class="dropdown-menu w-72">
                     <div class="dropdown-submenu">
-                      <a class="dropdown-item py-3 text-sm font-semibold flex justify-between items-center" href="#">
-                        (AME)Aircraft Maintenance Engineering
-                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                      <a class="dropdown-item py-3 text-sm font-semibold" href="#">
+                        <div class="flex justify-between items-center">
+                          <span class="leading-tight">(AME)Aircraft Maintenance Engineering</span>
+                          <svg class="w-4 h-4 ml-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </div>
                       </a>
                       <div class="dropdown-menu w-64">
                         <a class="dropdown-item py-2 text-sm" href="${prefix}Pages/ame-b1-1.html">B1.1 (Aeroplanes Turbine)</a>
@@ -84,9 +86,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     
                     <!--
                     <div class="dropdown-submenu">
-                      <a class="dropdown-item py-3 text-sm font-semibold flex justify-between items-center" href="#">
-                        Drone Pilot Training
-                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                      <a class="dropdown-item py-3 text-sm font-semibold" href="#">
+                        <div class="flex justify-between items-center">
+                          <span class="leading-tight">Drone Pilot Training</span>
+                          <svg class="w-4 h-4 ml-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </div>
                       </a>
                       <div class="dropdown-menu w-64">
                         <a class="dropdown-item py-2 text-sm" href="${prefix}Pages/dronepilot-small.html">Small Class Drone</a>
