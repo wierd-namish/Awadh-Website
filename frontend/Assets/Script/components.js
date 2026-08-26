@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const headerContainer = document.getElementById("header-container");
   if (headerContainer) {
     headerContainer.innerHTML = `
-      <header class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-[1400px] bg-white/75 backdrop-blur-md border border-white/20 shadow-md py-3 px-6 xl:px-8 rounded-full flex items-center justify-between z-50 transition-all duration-300">
+      <header id="main-header" class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-[1400px] bg-white/75 backdrop-blur-md border border-white/20 shadow-md py-3 px-6 xl:px-8 rounded-full flex items-center justify-between z-50 transition-all duration-300">
         <!-- Logo / Branding -->
         <div class="logo flex items-center space-x-3">
           <a class="flex items-center space-x-2" href="${prefix}index.html">
@@ -305,27 +305,27 @@ document.addEventListener("DOMContentLoaded", () => {
   // 4. Inject Floating Social Icons
   const floatingSocial = document.createElement("div");
   floatingSocial.id = "floatingSocialIcons";
-  floatingSocial.className = isHomePage ? "state-horizontal" : "state-vertical";
+  floatingSocial.className = "state-horizontal";
   
   floatingSocial.innerHTML = `
-    <a href="https://www.facebook.com/profile.php?id=61574279999787" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-2xl flex items-center justify-center hover:scale-110 shadow-lg premium-card" style="background:#1877F2;">
+    <a href="https://www.facebook.com/profile.php?id=61574279999787" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-2xl flex items-center justify-center shadow-lg" style="background:#1877F2;">
       <i class="fab fa-facebook-f"></i>
     </a>
-    <a href="https://youtube.com/@awadhaero?si=vMYKU8eupjwThuPH" target="_blank" rel="noopener noreferrer" class="w-11 h-11 bg-white rounded-2xl flex items-center justify-center hover:scale-110 premium-card group transition-all shadow-[0_5px_15px_rgba(0,0,0,0.08)]">
-      <div class="w-[30px] h-[22px] bg-gradient-to-tr from-[#ff0000] to-[#ff4d4d] rounded-[7px] flex items-center justify-center transition-all duration-300" style="box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5), inset 0 2px 4px rgba(255,255,255,0.4);">
+    <a href="https://youtube.com/@awadhaero?si=vMYKU8eupjwThuPH" target="_blank" rel="noopener noreferrer" class="w-11 h-11 bg-white rounded-2xl flex items-center justify-center group shadow-[0_5px_15px_rgba(0,0,0,0.08)]">
+      <div class="w-[30px] h-[22px] bg-gradient-to-tr from-[#ff0000] to-[#ff4d4d] rounded-[7px] flex items-center justify-center" style="box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5), inset 0 2px 4px rgba(255,255,255,0.4);">
         <i class="fas fa-play text-white text-[10px] ml-[2px]" style="filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));"></i>
       </div>
     </a>
-    <a href="https://www.instagram.com/awadh_aero?igsh=Ym04NHNwaHNwdm01" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-2xl flex items-center justify-center hover:scale-110 premium-card transition-all" style="background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); box-shadow: inset 0 2px 4px rgba(255,255,255,0.3), 0 4px 15px rgba(0,0,0,0.2);">
+    <a href="https://www.instagram.com/awadh_aero?igsh=Ym04NHNwaHNwdm01" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-2xl flex items-center justify-center" style="background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); box-shadow: inset 0 2px 4px rgba(255,255,255,0.3), 0 4px 15px rgba(0,0,0,0.2);">
       <i class="fab fa-instagram text-[26px]" style="filter: drop-shadow(0 2px 3px rgba(0,0,0,0.4));"></i>
     </a>
-    <a href="https://www.linkedin.com/company/awadh-aero-adventures-association/" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-2xl flex items-center justify-center hover:scale-110 shadow-lg premium-card" style="background:#0A66C2;">
+    <a href="https://www.linkedin.com/company/awadh-aero-adventures-association/" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-2xl flex items-center justify-center shadow-lg" style="background:#0A66C2;">
       <i class="fab fa-linkedin-in"></i>
     </a>
-    <a href="https://x.com/i/status/2063277029316038840" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-2xl flex items-center justify-center hover:scale-110 shadow-lg premium-card" style="background:#000000;">
+    <a href="https://x.com/i/status/2063277029316038840" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-2xl flex items-center justify-center shadow-lg" style="background:#000000;">
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
     </a>
-    <a href="https://wa.me/919519846758?text=hey" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-2xl flex items-center justify-center hover:scale-110 shadow-lg premium-card transition-all" style="background:#25D366; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);">
+    <a href="https://wa.me/919519846758?text=hey" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-2xl flex items-center justify-center shadow-lg" style="background:#25D366; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);">
       <i class="fab fa-whatsapp text-[26px]" style="filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3));"></i>
     </a>
   `;
@@ -333,16 +333,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Only apply the scroll transition on the homepage
   if (isHomePage) {
+    let lastScrollY = window.scrollY;
+    
     window.addEventListener("scroll", () => {
-      const social = document.getElementById("floatingSocialIcons");
-      if (!social) return;
-      if (window.scrollY > 200) {
-        social.classList.remove("state-horizontal");
-        social.classList.add("state-vertical");
-      } else {
-        social.classList.remove("state-vertical");
-        social.classList.add("state-horizontal");
+      // Social Icons Logic
+      // Removing transition logic since it is required to always be at the bottom
+
+      // Header Hide on Scroll Down Logic
+      const header = document.getElementById("main-header");
+      if (header) {
+        if (window.scrollY > lastScrollY && window.scrollY > 150) {
+          // Scrolling down
+          header.classList.add("-translate-y-[150%]", "opacity-0");
+        } else {
+          // Scrolling up
+          header.classList.remove("-translate-y-[150%]", "opacity-0");
+        }
       }
+      
+      lastScrollY = window.scrollY;
     });
   }
 
