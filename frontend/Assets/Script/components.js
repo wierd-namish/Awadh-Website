@@ -260,30 +260,6 @@ document.addEventListener("DOMContentLoaded", () => {
               Kanpur - Lucknow Rd, Daroga Khera, Lucknow,<br>
               Banthra Sikander Pur, Uttar Pradesh 226401
             </p>
-            
-            <!-- Social Media Links (Horizontal) -->
-            <div class="pt-4 flex flex-wrap gap-3">
-              <a href="https://www.facebook.com/profile.php?id=61574279999787" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-2xl flex items-center justify-center shadow-lg" style="background:#1877F2;">
-                <i class="fab fa-facebook-f text-base"></i>
-              </a>
-              <a href="https://youtube.com/@awadhaero?si=vMYKU8eupjwThuPH" target="_blank" rel="noopener noreferrer" class="w-11 h-11 bg-white rounded-2xl flex items-center justify-center group shadow-[0_5px_15px_rgba(0,0,0,0.08)]">
-                <div class="w-[30px] h-[22px] bg-gradient-to-tr from-[#ff0000] to-[#ff4d4d] rounded-[7px] flex items-center justify-center" style="box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5), inset 0 2px 4px rgba(255,255,255,0.4);">
-                  <i class="fas fa-play text-white text-[10px] ml-[2px]" style="filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));"></i>
-                </div>
-              </a>
-              <a href="https://www.instagram.com/awadh_aero?igsh=Ym04NHNwaHNwdm01" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-2xl flex items-center justify-center" style="background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); box-shadow: inset 0 2px 4px rgba(255,255,255,0.3), 0 4px 15px rgba(0,0,0,0.2);">
-                <i class="fab fa-instagram text-[26px]" style="filter: drop-shadow(0 2px 3px rgba(0,0,0,0.4));"></i>
-              </a>
-              <a href="https://www.linkedin.com/company/awadh-aero-adventures-association/" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-2xl flex items-center justify-center shadow-lg" style="background:#0A66C2;">
-                <i class="fab fa-linkedin-in text-base"></i>
-              </a>
-              <a href="https://x.com/i/status/2063277029316038840" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-2xl flex items-center justify-center shadow-lg" style="background:#000000;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-              </a>
-              <a href="https://wa.me/919519846758?text=hey" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-2xl flex items-center justify-center shadow-lg" style="background:#25D366; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);">
-                <i class="fab fa-whatsapp text-[26px]" style="filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3));"></i>
-              </a>
-            </div>
           </div>
 
           <!-- Column 2: Quick Links -->
@@ -315,6 +291,30 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         </div>
 
+        <!-- Social Media Links Row -->
+        <div class="max-w-7xl mx-auto px-6 md:px-12 pb-4 flex flex-wrap gap-3">
+          <a href="https://www.facebook.com/profile.php?id=61574279999787" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-2xl flex items-center justify-center shadow-lg" style="background:#1877F2;">
+            <i class="fab fa-facebook-f text-base"></i>
+          </a>
+          <a href="https://youtube.com/@awadhaero?si=vMYKU8eupjwThuPH" target="_blank" rel="noopener noreferrer" class="w-11 h-11 bg-white rounded-2xl flex items-center justify-center group shadow-[0_5px_15px_rgba(0,0,0,0.08)]">
+            <div class="w-[30px] h-[22px] bg-gradient-to-tr from-[#ff0000] to-[#ff4d4d] rounded-[7px] flex items-center justify-center" style="box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5), inset 0 2px 4px rgba(255,255,255,0.4);">
+              <i class="fas fa-play text-white text-[10px] ml-[2px]" style="filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));"></i>
+            </div>
+          </a>
+          <a href="https://www.instagram.com/awadh_aero?igsh=Ym04NHNwaHNwdm01" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-2xl flex items-center justify-center" style="background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); box-shadow: inset 0 2px 4px rgba(255,255,255,0.3), 0 4px 15px rgba(0,0,0,0.2);">
+            <i class="fab fa-instagram text-[26px]" style="filter: drop-shadow(0 2px 3px rgba(0,0,0,0.4));"></i>
+          </a>
+          <a href="https://www.linkedin.com/company/awadh-aero-adventures-association/" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-2xl flex items-center justify-center shadow-lg" style="background:#0A66C2;">
+            <i class="fab fa-linkedin-in text-base"></i>
+          </a>
+          <a href="https://x.com/i/status/2063277029316038840" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-2xl flex items-center justify-center shadow-lg" style="background:#000000;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://wa.me/919519846758?text=hey" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-2xl flex items-center justify-center shadow-lg" style="background:#25D366; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);">
+            <i class="fab fa-whatsapp text-[26px]" style="filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3));"></i>
+          </a>
+        </div>
+
         <!-- Copyright -->
         <div class="bg-black/20 py-4 text-center text-xs text-gray-300">
           &copy; 2026 Awadh Aero DAC Aviation Academy. All Rights Reserved.
@@ -325,34 +325,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const isHomePage = window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/') || !window.location.pathname.includes('.html');
 
-  // 4. Inject Floating Social Icons
-  const floatingSocial = document.createElement("div");
-  floatingSocial.id = "floatingSocialIcons";
-  floatingSocial.className = "state-horizontal";
-  
-  floatingSocial.innerHTML = `
-    <a href="https://www.facebook.com/profile.php?id=61574279999787" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-2xl flex items-center justify-center shadow-lg" style="background:#1877F2;">
-      <i class="fab fa-facebook-f"></i>
-    </a>
-    <a href="https://youtube.com/@awadhaero?si=vMYKU8eupjwThuPH" target="_blank" rel="noopener noreferrer" class="w-11 h-11 bg-white rounded-2xl flex items-center justify-center group shadow-[0_5px_15px_rgba(0,0,0,0.08)]">
-      <div class="w-[30px] h-[22px] bg-gradient-to-tr from-[#ff0000] to-[#ff4d4d] rounded-[7px] flex items-center justify-center" style="box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5), inset 0 2px 4px rgba(255,255,255,0.4);">
-        <i class="fas fa-play text-white text-[10px] ml-[2px]" style="filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));"></i>
-      </div>
-    </a>
-    <a href="https://www.instagram.com/awadh_aero?igsh=Ym04NHNwaHNwdm01" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-2xl flex items-center justify-center" style="background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); box-shadow: inset 0 2px 4px rgba(255,255,255,0.3), 0 4px 15px rgba(0,0,0,0.2);">
-      <i class="fab fa-instagram text-[26px]" style="filter: drop-shadow(0 2px 3px rgba(0,0,0,0.4));"></i>
-    </a>
-    <a href="https://www.linkedin.com/company/awadh-aero-adventures-association/" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-2xl flex items-center justify-center shadow-lg" style="background:#0A66C2;">
-      <i class="fab fa-linkedin-in"></i>
-    </a>
-    <a href="https://x.com/i/status/2063277029316038840" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-2xl flex items-center justify-center shadow-lg" style="background:#000000;">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-    </a>
-    <a href="https://wa.me/919519846758?text=hey" target="_blank" rel="noopener noreferrer" class="w-11 h-11 text-white rounded-2xl flex items-center justify-center shadow-lg" style="background:#25D366; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);">
-      <i class="fab fa-whatsapp text-[26px]" style="filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3));"></i>
-    </a>
-  `;
-  document.body.appendChild(floatingSocial);
+
 
   // Apply the scroll transition globally on all pages
   let lastScrollY = window.scrollY;
