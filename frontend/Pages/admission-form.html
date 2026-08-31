@@ -4,7 +4,7 @@
   <title>Admission Application Form | Awadh Aviation Academy</title>
   <meta name="description" content="Apply for Aircraft Maintenance Engineering (AME) programme at Awadh Aero DAC Aviation Academy. Fill out the multi-step admission application form.">
   <link rel="stylesheet" href="../Assets/Styles/tailwind.css">
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&amp;display=swap">
   <link rel="stylesheet" href="../Assets/Styles/style.css">
@@ -404,23 +404,7 @@
               </div>
             </div>
 
-            <!-- STEP 13: Payment Section -->
-            <div class="form-step" data-step="12">
-              <h2 class="form-section-title">13. Payment Section</h2>
-              <div class="space-y-4">
-                <div class="bg-blue-50 border border-blue-200 rounded-xl p-5 mb-5">
-                  <h3 class="text-blue-800 font-bold text-lg mb-2"><i class="fas fa-info-circle"></i> Application Fee</h3>
-                  <p class="text-blue-700 text-sm mb-4">To complete your admission application, a non-refundable application fee of <strong>₹500</strong> is required.</p>
-                  <p class="text-xs text-blue-600">Clicking 'Pay &amp; Submit Application' will open the secure Razorpay payment gateway. Your application will be submitted automatically upon successful payment.</p>
-                </div>
-                <!-- Hidden fields to store payment details before final submission -->
-                <input type="hidden" name="razorpay_order_id" id="razorpay_order_id">
-                <input type="hidden" name="razorpay_payment_id" id="razorpay_payment_id">
-                <input type="hidden" name="razorpay_signature" id="razorpay_signature">
-                <input type="hidden" name="payment_amount" id="payment_amount" value="500">
-                <input type="hidden" name="payment_status" id="payment_status" value="Pending">
-              </div>
-            </div>
+
 
             <!-- Navigation Buttons -->
             <div class="flex justify-between items-center mt-10 pt-6 border-t border-gray-200">
@@ -432,7 +416,7 @@
                   Next <i class="fas fa-arrow-right text-xs"></i>
                 </button>
                 <button type="submit" id="submitBtn" class="px-8 py-2.5 bg-[#22c55e] text-white font-bold rounded-full hover:bg-[#16a34a] transition flex items-center gap-2 text-sm shadow-lg hidden">
-                  <i class="fas fa-credit-card text-xs"></i> Pay &amp; Submit Application 
+                  <i class="fas fa-paper-plane text-xs"></i> Submit Application 
                 </button>
               </div>
             </div>
@@ -481,8 +465,7 @@
         "Scholarship Details",
         "Emergency Contact",
         "Statement of Purpose",
-        "Declaration",
-        "Payment Section"
+        "Declaration"
       ];
 
       const totalSteps = stepNames.length;
@@ -534,11 +517,8 @@
           }
         });
 
-        // Customize Next button for step 12 (13th slide - Declaration)
-        if (currentStep === 12) {
-          nextBtn.innerHTML = '<i class="fas fa-paper-plane text-xs"></i> Proceed to Payment';
-          nextBtn.className = "px-8 py-2.5 bg-[#22c55e] text-white font-bold rounded-full hover:bg-[#16a34a] transition flex items-center gap-2 text-sm shadow-lg";
-        } else {
+        // Default next button styling
+        {
           nextBtn.innerHTML = 'Next <i class="fas fa-arrow-right text-xs"></i>';
           nextBtn.className = "px-8 py-2.5 bg-[#ff4301] text-white font-bold rounded-full hover:bg-[#e03b00] transition flex items-center gap-2 text-sm shadow-lg";
         }
@@ -596,124 +576,41 @@
         const formEl = document.getElementById("admissionForm");
         const submitBtn = document.getElementById("submitBtn");
         const originalBtnHTML = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin text-xs"></i> Processing Payment...';
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin text-xs"></i> Submitting Application...';
         submitBtn.disabled = true;
 
         try {
-          // 1. Create Order
-          const orderResponse = await fetch("http://localhost:3000/api/create-order", {
-            method: "POST"
+          const formData = new FormData(formEl);
+          const submitRes = await fetch("http://localhost:3000/api/admission-application", {
+            method: "POST",
+            body: formData
           });
-          const order = await orderResponse.json();
+          const data = await submitRes.json();
 
-          if (!order.id) {
-            throw new Error("Failed to create order");
+          if (submitRes.ok) {
+            completed.add(currentStep);
+            updateUI();
+            
+            formEl.innerHTML = `
+              <div class="text-center py-16">
+                <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <i class="fas fa-check-circle text-green-500 text-5xl"></i>
+                </div>
+                <h2 class="text-2xl font-extrabold text-gray-800 mb-3">Application Submitted Successfully!</h2>
+                <p class="text-gray-500 max-w-md mx-auto">Thank you for applying to Awadh Aero DAC Aviation Academy. Our team will review your application and contact you shortly.</p>
+                <a href="../index.html" class="inline-block mt-8 px-8 py-3 bg-[#ff4301] text-white font-bold rounded-full hover:bg-[#e03b00] transition shadow-lg">
+                  <i class="fas fa-home mr-2"></i> Back to Home
+                </a>
+              </div>
+            `;
+          } else {
+            alert(data.error || "An error occurred during submission. Please try again.");
+            submitBtn.innerHTML = originalBtnHTML;
+            submitBtn.disabled = false;
           }
-
-          // 2. Open Razorpay Checkout
-          const options = {
-            key: "rzp_test_TA8L7vYiXDhQZ2", // Replace with your Razorpay Key ID
-            amount: order.amount,
-            currency: order.currency,
-            name: "Awadh Aviation Academy",
-            description: "Admission Application Fee",
-            order_id: order.id,
-            handler: async function (response) {
-              try {
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin text-xs"></i> Verifying Payment...';
-                
-                // 3. Verify Payment
-                const verifyRes = await fetch("http://localhost:3000/api/verify-payment", {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify({
-                    razorpay_order_id: response.razorpay_order_id,
-                    razorpay_payment_id: response.razorpay_payment_id,
-                    razorpay_signature: response.razorpay_signature
-                  })
-                });
-                const verifyData = await verifyRes.json();
-
-                if (verifyData.success) {
-                  // Payment successful, now submit the application
-                  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin text-xs"></i> Submitting Application...';
-                  
-                  // Add payment details to form
-                document.getElementById("razorpay_order_id").value =
-                  response.razorpay_order_id;
-
-                document.getElementById("razorpay_payment_id").value =
-                  response.razorpay_payment_id;
-
-                document.getElementById("razorpay_signature").value =
-                  response.razorpay_signature;
-
-                document.getElementById("payment_amount").value = 500;
-
-                document.getElementById("payment_status").value = "Paid";
-                  
-                  const formData = new FormData(formEl);
-                  const submitRes = await fetch("http://localhost:3000/api/admission-application", {
-                    method: "POST",
-                    body: formData
-                  });
-                  const data = await submitRes.json();
-
-                  if (submitRes.ok) {
-                    completed.add(currentStep);
-                    updateUI();
-                    
-                    formEl.innerHTML = `
-                      <div class="text-center py-16">
-                        <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                          <i class="fas fa-check-circle text-green-500 text-5xl"></i>
-                        </div>
-                        <h2 class="text-2xl font-extrabold text-gray-800 mb-3">Application Submitted Successfully!</h2>
-                        <p class="text-gray-500 max-w-md mx-auto">Thank you for applying to Awadh Aero DAC Aviation Academy. Your application fee has been received and our team will contact you shortly.</p>
-                        <p class="text-sm font-semibold text-gray-700 mt-4">Payment Reference ID: ${response.razorpay_payment_id}</p>
-                        <a href="../index.html" class="inline-block mt-8 px-8 py-3 bg-[#ff4301] text-white font-bold rounded-full hover:bg-[#e03b00] transition shadow-lg">
-                          <i class="fas fa-home mr-2"></i> Back to Home
-                        </a>
-                      </div>
-                    `;
-                  } else {
-                    alert(data.error || "An error occurred during submission. Please try again.");
-                    submitBtn.innerHTML = originalBtnHTML;
-                    submitBtn.disabled = false;
-                  }
-                } else {
-                  alert("Payment verification failed!");
-                  submitBtn.innerHTML = originalBtnHTML;
-                  submitBtn.disabled = false;
-                }
-              } catch (err) {
-                console.error(err);
-                alert("An error occurred during payment verification.");
-                submitBtn.innerHTML = originalBtnHTML;
-                submitBtn.disabled = false;
-              }
-            },
-            prefill: {
-              name: formEl.full_name.value,
-              email: formEl.email.value,
-              contact: formEl.mobile.value
-            },
-            theme: {
-              color: "#ff4301"
-            },
-            modal: {
-              ondismiss: function() {
-                submitBtn.innerHTML = originalBtnHTML;
-                submitBtn.disabled = false;
-              }
-            }
-          };
-
-          const rzp = new Razorpay(options);
-          rzp.open();
         } catch (err) {
           console.error(err);
-          alert("Could not initiate payment. Please try again.");
+          alert("Something went wrong. Please try again.");
           submitBtn.innerHTML = originalBtnHTML;
           submitBtn.disabled = false;
         }
