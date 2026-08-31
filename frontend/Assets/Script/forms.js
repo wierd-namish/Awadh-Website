@@ -4,7 +4,7 @@
 // ============================================================
 
 // Change this if your backend runs somewhere else (e.g. after you deploy it).
-const API_BASE_URL = "http://localhost:3000";
+const API_BASE_URL = "https://api.awadhaero.com";
 
 function showFormStatus(el, message, isSuccess) {
   el.textContent = message;

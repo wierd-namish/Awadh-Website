@@ -20,7 +20,11 @@ const fs = require("fs");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors()); // Allows your frontend (on a different port/domain) to call this API
+// Enable CORS for your deployed frontend domain
+app.use(cors({
+  origin: ['https://awadhaero.com', 'https://www.awadhaero.com'],
+  credentials: true
+}));
 app.use(express.json()); // Parses incoming JSON request bodies
 app.use("/uploads", express.static(path.join(__dirname, "uploads"))); // Expose uploads directory
 

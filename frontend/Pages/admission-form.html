@@ -581,7 +581,7 @@
 
         try {
           const formData = new FormData(formEl);
-          const submitRes = await fetch("http://localhost:3000/api/admission-application", {
+          const submitRes = await fetch("https://api.awadhaero.com/api/admission-application", {
             method: "POST",
             body: formData
           });

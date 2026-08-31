@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   </div>
                 </div>
                 <a class="dropdown-item" href="${prefix}Pages/admission-procedure.html">Admission Procedure</a>
-                <a class="dropdown-item" href="${prefix}Pages/fee-structure.html">Fee Structure</a>
+                <!-- <a class="dropdown-item" href="${prefix}Pages/fee-structure.html">Fee Structure</a> -->
                 <a class="dropdown-item" href="${prefix}Pages/admission-form.html">Application Form</a>
                 <a class="dropdown-item" href="${prefix}Pages/terms-and-conditions.html">Terms &amp; Conditions</a>
                 <a class="dropdown-item" href="${prefix}Assets/Images/broschure/aadaa%20Brochure%2007.26-27.pdf" target="_blank">Brochure</a>
@@ -200,7 +200,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="text-lg font-semibold text-gray-400 border-b pb-1 mb-1">Admission</span>
             <a class="pl-4 py-1 text-base hover:text-[#5d58ef]" href="${prefix}Pages/admission.html">Registration</a>
             <a class="pl-4 py-1 text-base hover:text-[#5d58ef]" href="${prefix}Pages/admission-procedure.html">Admission Procedure</a>
-            <a class="pl-4 py-1 text-base hover:text-[#5d58ef]" href="${prefix}Pages/fee-structure.html">Fee Structure</a>
+            <!-- <a class="pl-4 py-1 text-base hover:text-[#5d58ef]" href="${prefix}Pages/fee-structure.html">Fee Structure</a> -->
             <a class="pl-4 py-1 text-base hover:text-[#5d58ef]" href="${prefix}Pages/admission-form.html">Application Form</a>
             <a class="pl-4 py-1 text-base hover:text-[#5d58ef]" href="${prefix}Pages/terms-and-conditions.html">Terms &amp; Conditions</a>
             <a class="pl-4 py-1 text-base hover:text-[#5d58ef]" href="${prefix}Assets/Images/broschure/aadaa%20Brochure%2007.26-27.pdf" target="_blank">Brochure</a>
